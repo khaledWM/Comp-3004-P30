@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+#include "button.h"
+
 namespace Ui {
 class MainWindow;
 }
@@ -15,8 +17,12 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+
+
+
 private:
     Ui::MainWindow *ui;
+
 };
 
 #endif // MAINWINDOW_H
