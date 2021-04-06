@@ -91,6 +91,11 @@ void Display:: navigateUpList(){
 
 }
 
+Page* Display::getPage(int index)
+{
+    return pages[index];
+}
+
 void Display:: backOutOfPage(){
     qDebug()<<"here";
     if(this->currentIndex()>1){

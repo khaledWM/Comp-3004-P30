@@ -2,10 +2,14 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QLabel>
 
 #include "button.h"
 #include "battery.h"
 #include "frequency.h"
+#include "frequencylayout.h"
+
+
 
 namespace Ui {
 class MainWindow;

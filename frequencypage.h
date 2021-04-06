@@ -15,6 +15,12 @@ public:
 
 private:
     QLabel *promptLabel;
+    QLabel *frequencyValue;
+    QLayout *layout;
+
+private slots:
+    void showValueOnDisplay(int);
+
 };
 
 #endif // FREQUENCYPAGE_H

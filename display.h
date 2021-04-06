@@ -14,6 +14,7 @@ private:
 
 public:
     Display(QWidget *parent =nullptr);
+    Page* getPage(int);
 
 private slots:
     void changeToMainPage();

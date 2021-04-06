@@ -7,6 +7,7 @@
 #include <QListView>
 #include <QObject>
 #include <QLabel>
+#include <QLayout>
 
 using namespace std;
 
@@ -18,12 +19,11 @@ class Frequency : public QSlider
 public:
     explicit Frequency(QWidget *parent = nullptr);
     ~Frequency();
+    int getValue();
 
 private:
-    QLabel *frequencyLabel;
+    int value;
 
-signals:
-//void sliderMoved(int);
 
 };
 

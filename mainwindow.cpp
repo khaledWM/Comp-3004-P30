@@ -18,6 +18,10 @@ MainWindow::MainWindow(QWidget *parent) :
     Battery *battery = new Battery(100,700,50,this);
     PowerLevel *power = new PowerLevel(this);
 
+    QLabel *fslabel = new QLabel(this);
+    fslabel->setText("Frequency");
+    fslabel->setGeometry(700,100,80,30);
+
     Frequency *fs = new Frequency(this);
 
     Button *upButton = new Button(tr("Up"),400,400,this);
@@ -35,7 +39,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect (back,SIGNAL(clicked()),display,SLOT(backOutOfPage()));
     connect(leftButton,SIGNAL(clicked()),leftButton,SLOT(leftButtonClicked()));
     connect(rightButton,SIGNAL(clicked()),rightButton,SLOT(rightButtonClicked()));
-//    connect(fs,SIGNAL(valueChanged(int)),this,SLOT(ShowSliderMovedValue(int)));
+    connect(fs,SIGNAL(valueChanged(int)),display->getPage(4),SLOT(showValueOnDisplay(int)));
 
 }
 
