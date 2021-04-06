@@ -28,6 +28,7 @@ SOURCES += \
         battery.cpp \
         button.cpp \
         display.cpp \
+        frequency.cpp \
         main.cpp \
         mainmenupage.cpp \
         mainwindow.cpp \
@@ -40,6 +41,7 @@ HEADERS += \
         battery.h \
         button.h \
         display.h \
+        frequency.h \
         mainmenupage.h \
         mainwindow.h \
         page.h \

@@ -5,6 +5,7 @@
 
 #include "button.h"
 #include "battery.h"
+#include "frequency.h"
 
 namespace Ui {
 class MainWindow;
