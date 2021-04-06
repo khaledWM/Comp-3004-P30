@@ -25,6 +25,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        battery.cpp \
         button.cpp \
         display.cpp \
         main.cpp \
@@ -36,6 +37,7 @@ SOURCES += \
         startpage.cpp
 
 HEADERS += \
+        battery.h \
         button.h \
         display.h \
         mainmenupage.h \
