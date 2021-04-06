@@ -30,6 +30,7 @@ SOURCES += \
         display.cpp \
         frequency.cpp \
         frequencypage.cpp \
+        historypage.cpp \
         main.cpp \
         mainmenupage.cpp \
         mainwindow.cpp \
@@ -45,6 +46,7 @@ HEADERS += \
         display.h \
         frequency.h \
         frequencypage.h \
+        historypage.h \
         mainmenupage.h \
         mainwindow.h \
         noimplementation.h \

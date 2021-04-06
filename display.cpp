@@ -16,12 +16,16 @@ Display::Display(QWidget *parent ): QStackedWidget (parent){
       pages[0] = new StartPage;
       pages[1]  = new MainMenuPage;
       pages[2] = new ProgramsPage;
-      pages[3]= new noImplementation;
+      pages[3] = new noImplementation;
+      pages[4] = new frequencypage;
+      pages[5] = new historypage;
 
       this->addWidget(pages[0]);
       this->addWidget(pages[1]);
       this->addWidget(pages[2]);
       this->addWidget(pages[3]);
+      this->addWidget(pages[4]);
+      this->addWidget(pages[5]);
 
       qDebug()<< pages[0]->getID();
 
@@ -42,8 +46,15 @@ void Display:: selectChoice(){
         return;
     }
 
-    if (this->currentIndex()== 1 && this->pages[1]->list->currentRow()==0){
+    else if (this->currentIndex()== 1 && this->pages[1]->list->currentRow()==0){
         setCurrentIndex(2);
+    }
+    else if(this->currentIndex()== 1 && this->pages[1]->list->currentRow()==1){
+        setCurrentIndex(4);
+
+    }
+    else if(this->currentIndex()== 1 && this->pages[1]->list->currentRow()==4){
+        setCurrentIndex(5);
     }
     else {
         qDebug()<<"here";
@@ -61,6 +72,9 @@ void Display:: navigateDownList(){
     else if (this->currentIndex()==2) {
         this->pages[2]->list->setCurrentRow(this->pages[2]->list->currentRow()+1);
     }
+    else if (this->currentIndex() == 5) {
+        this->pages[5]->list->setCurrentRow(this->pages[5]->list->currentRow()+1);
+    }
 }
 
 void Display:: navigateUpList(){
@@ -70,6 +84,9 @@ void Display:: navigateUpList(){
     }
     else if (this->currentIndex()==2) {
         this->pages[2]->list->setCurrentRow(this->pages[2]->list->currentRow()-1);
+    }
+    else if (this->currentIndex() == 5) {
+        this->pages[5]->list->setCurrentRow(this->pages[5]->list->currentRow()-1);
     }
 
 }

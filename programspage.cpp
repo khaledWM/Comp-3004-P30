@@ -11,6 +11,8 @@ ProgramsPage::ProgramsPage(QWidget *parent ): Page (parent){
     this->list->addItem("back");
     this->list->addItem("arms");
 
+    list->setCurrentRow(0);
+
     QLayout *layout = new QVBoxLayout();
 
     layout->addWidget(list);

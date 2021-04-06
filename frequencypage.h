@@ -2,6 +2,8 @@
 #define FREQUENCYPAGE_H
 
 #include "page.h"
+#include <QLabel>
+#include <QLayout>
 
 class frequencypage : public Page
 {
@@ -10,6 +12,9 @@ class frequencypage : public Page
 public:
     frequencypage(QWidget *parent = nullptr);
     ~frequencypage();
+
+private:
+    QLabel *promptLabel;
 };
 
 #endif // FREQUENCYPAGE_H

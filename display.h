@@ -3,12 +3,14 @@
 #include"page.h"
 #include <QStackedWidget>
 #include<QPushButton>
+#include "frequencypage.h"
+#include "historypage.h"
 
 class Display: public QStackedWidget{
     Q_OBJECT
 
 private:
-    Page * pages[5];
+    Page * pages[10];
 
 public:
     Display(QWidget *parent =nullptr);
