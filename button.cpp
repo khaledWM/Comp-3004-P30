@@ -4,7 +4,7 @@
 
 Button::Button(const QString &text,int x, int y, QWidget *parent):QPushButton (parent)
 {
-   move(x,y);
+    move(x,y);
     setText(text);
     
     
@@ -26,7 +26,7 @@ void Button::upButtonClicked(){
 
 
 void Button::downButtonClicked(){
-    qDebug()<<"down";
+
 }
 
 void Button::rightButtonClicked(){
