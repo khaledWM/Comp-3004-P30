@@ -26,12 +26,24 @@ CONFIG += c++11
 
 SOURCES += \
         button.cpp \
+        display.cpp \
         main.cpp \
-        mainwindow.cpp
+        mainmenupage.cpp \
+        mainwindow.cpp \
+        page.cpp \
+        powerlevel.cpp \
+        programspage.cpp \
+        startpage.cpp
 
 HEADERS += \
         button.h \
-        mainwindow.h
+        display.h \
+        mainmenupage.h \
+        mainwindow.h \
+        page.h \
+        powerlevel.h \
+        programspage.h \
+        startpage.h
 
 FORMS += \
         mainwindow.ui
