@@ -24,10 +24,15 @@ MainWindow::MainWindow(QWidget *parent) :
     Button *downButton = new Button(tr("Down"),100,0,this);
     Button *leftButton = new Button(tr("Left"),200,0,this);
     Button *rightButton = new Button(tr("right"),300,0,this);
-
+    Button *start = new Button(tr("Start"),100,50,this);
+    Button *ok = new Button(tr("Ok"),100,100,this);
 
 
     power->move(400,400);
+
+    connect(start,SIGNAL(clicked()),display,SLOT(changeToMainPage()));
+//    connect(ok,)
+
 
     connect(upButton,SIGNAL(clicked()),battery,SLOT(batteryStatus()));
     connect(downButton,SIGNAL(clicked()),downButton,SLOT(downButtonClicked()));

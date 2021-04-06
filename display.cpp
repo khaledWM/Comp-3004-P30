@@ -21,5 +21,14 @@ Display::Display(QWidget *parent ): QStackedWidget (parent){
       this->addWidget(programsPage);
 
       qDebug()<< startPage->getID();
+//      setCurrentIndex(1);
 
+}
+
+void Display::changeToMainPage()
+{
+    if(this->currentIndex() == 0)
+    {
+        setCurrentIndex(1);
+    }
 }

@@ -10,6 +10,8 @@ class Display: public QStackedWidget{
 public:
     Display(QWidget *parent =nullptr);
 
+private slots:
+    void changeToMainPage();
 };
 
 #endif // DISPLAY_H
