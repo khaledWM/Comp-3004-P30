@@ -25,11 +25,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        battery.cpp \
         button.cpp \
         main.cpp \
         mainwindow.cpp
 
 HEADERS += \
+        battery.h \
         button.h \
         mainwindow.h
 

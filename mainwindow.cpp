@@ -15,13 +15,17 @@ MainWindow::MainWindow(QWidget *parent) :
     Button *leftButton = new Button(tr("Left"),200,0,this);
     Button *rightButton = new Button(tr("right"),300,0,this);
 
-    connect(upButton,SIGNAL(clicked()),upButton,SLOT(upButtonClicked()));
+    Battery *battery = new Battery(98,100,600,this);
+
+    connect(upButton,SIGNAL(clicked()),battery,SLOT(batteryStatus()));
 
     connect(downButton,SIGNAL(clicked()),downButton,SLOT(downButtonClicked()));
 
     connect(leftButton,SIGNAL(clicked()),leftButton,SLOT(leftButtonClicked()));
 
     connect(rightButton,SIGNAL(clicked()),rightButton,SLOT(rightButtonClicked()));
+
+
 
 }
 
