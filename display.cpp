@@ -10,7 +10,7 @@
 Display::Display(QWidget *parent ): QStackedWidget (parent){
 
 
-      setGeometry(240,40,391,321);
+      setGeometry(240,40,390,320);
       setStyleSheet("background-color:rgb(211, 215, 207);");
 
       pages[0] = new StartPage;

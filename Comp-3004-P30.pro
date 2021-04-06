@@ -29,6 +29,7 @@ SOURCES += \
         button.cpp \
         display.cpp \
         frequency.cpp \
+        frequencypage.cpp \
         main.cpp \
         mainmenupage.cpp \
         mainwindow.cpp \
@@ -43,6 +44,7 @@ HEADERS += \
         button.h \
         display.h \
         frequency.h \
+        frequencypage.h \
         mainmenupage.h \
         mainwindow.h \
         noimplementation.h \
