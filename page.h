@@ -11,8 +11,11 @@ class Page: public QWidget{
 public:
     Page(QWidget *parent =nullptr);
     int getID();
+    QListWidget *list ;
+
 
 private:
+
     static int nextID;
     int id;
 

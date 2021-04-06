@@ -26,19 +26,17 @@ MainWindow::MainWindow(QWidget *parent) :
     Button *rightButton = new Button(tr("right"),300,0,this);
     Button *start = new Button(tr("Start"),100,50,this);
     Button *ok = new Button(tr("Ok"),100,100,this);
+    Button *back = new Button(tr("Back"),100,200,this);
 
 
     power->move(400,400);
 
     connect(start,SIGNAL(clicked()),display,SLOT(changeToMainPage()));
-//    connect(ok,)
-
-
-    connect(upButton,SIGNAL(clicked()),battery,SLOT(batteryStatus()));
-    connect(downButton,SIGNAL(clicked()),downButton,SLOT(downButtonClicked()));
-
+    connect(ok,SIGNAL(clicked()),display,SLOT(selectChoice()));
+    connect(upButton,SIGNAL(clicked()),display,SLOT(navigateUpList()));
+    connect(downButton,SIGNAL(clicked()),display,SLOT(navigateDownList()));
+    connect (back,SIGNAL(clicked()),display,SLOT(backOutOfPage()));
     connect(leftButton,SIGNAL(clicked()),leftButton,SLOT(leftButtonClicked()));
-
     connect(rightButton,SIGNAL(clicked()),rightButton,SLOT(rightButtonClicked()));
 
 }

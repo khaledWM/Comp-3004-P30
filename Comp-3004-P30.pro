@@ -32,6 +32,7 @@ SOURCES += \
         main.cpp \
         mainmenupage.cpp \
         mainwindow.cpp \
+        noimplementation.cpp \
         page.cpp \
         powerlevel.cpp \
         programspage.cpp \
@@ -44,6 +45,7 @@ HEADERS += \
         frequency.h \
         mainmenupage.h \
         mainwindow.h \
+        noimplementation.h \
         page.h \
         powerlevel.h \
         programspage.h \

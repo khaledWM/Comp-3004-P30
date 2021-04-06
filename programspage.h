@@ -10,12 +10,13 @@
 class ProgramsPage: public Page{
     Q_OBJECT
 
-private:
-    QListWidget *list ;
+
+
 
 
 public:
     ProgramsPage(QWidget *parent =nullptr);
+   // QListWidget getList();
 
 
 

@@ -10,8 +10,8 @@
 class MainMenuPage: public Page{
     Q_OBJECT
 
-private:
-    QListWidget *list ;
+//private:
+//    QListWidget *list ;
 
 
 public:
