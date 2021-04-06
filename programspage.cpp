@@ -4,8 +4,6 @@
 #include"programspage.h"
 
 ProgramsPage::ProgramsPage(QWidget *parent ): Page (parent){
-
-    list = new QListWidget();
     this->list->addItem("Throat");
     this->list->addItem("Feet");
     this->list->addItem("Stomach");
@@ -13,12 +11,14 @@ ProgramsPage::ProgramsPage(QWidget *parent ): Page (parent){
     this->list->addItem("back");
     this->list->addItem("arms");
 
+    list->setCurrentRow(0);
 
     QLayout *layout = new QVBoxLayout();
 
     layout->addWidget(list);
     setLayout(layout);
 
-
-
 }
+
+
+

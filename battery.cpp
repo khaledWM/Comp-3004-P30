@@ -12,4 +12,5 @@ Battery::Battery(int level,int x, int y, QWidget *parent):QProgressBar (parent)
 
 void Battery::batteryStatus() {
     qDebug()<<"test";
+    qDebug() << value();
 }

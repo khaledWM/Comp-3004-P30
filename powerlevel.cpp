@@ -3,10 +3,7 @@
 #include<QLabel>
 #include <QLayout>
 
-PowerLevel::PowerLevel(QWidget *parent ): QLCDNumber (parent){
-
-
-
-
-
+PowerLevel::PowerLevel(QWidget *parent ): QLCDNumber (parent)
+{
+    move(700,150);
 }

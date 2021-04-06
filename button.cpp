@@ -6,9 +6,7 @@ Button::Button(const QString &text,int x, int y, QWidget *parent):QPushButton (p
 {
     move(x,y);
     setText(text);
-    
-    
-    
+
 }
 
 

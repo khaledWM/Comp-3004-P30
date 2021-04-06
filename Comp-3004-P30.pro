@@ -28,9 +28,13 @@ SOURCES += \
         battery.cpp \
         button.cpp \
         display.cpp \
+        frequency.cpp \
+        frequencypage.cpp \
+        historypage.cpp \
         main.cpp \
         mainmenupage.cpp \
         mainwindow.cpp \
+        noimplementation.cpp \
         page.cpp \
         powerlevel.cpp \
         programspage.cpp \
@@ -41,8 +45,12 @@ HEADERS += \
         battery.h \
         button.h \
         display.h \
+        frequency.h \
+        frequencypage.h \
+        historypage.h \
         mainmenupage.h \
         mainwindow.h \
+        noimplementation.h \
         page.h \
         powerlevel.h \
         programspage.h \

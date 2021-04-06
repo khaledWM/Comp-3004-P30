@@ -10,7 +10,4 @@ StartPage::StartPage(QWidget *parent ): Page (parent){
     QLayout *layout = new QVBoxLayout();
     layout->addWidget(label);
     setLayout(layout);
-
-
-
 }

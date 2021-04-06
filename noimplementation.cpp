@@ -1,0 +1,12 @@
+#include "noimplementation.h"
+#include<QLayout>
+noImplementation::noImplementation(QWidget *parent) : Page(parent)
+{
+
+    label = new QLabel;
+    label->setText("Features have not been implemented");
+    QLayout *layout = new QVBoxLayout();
+    layout->addWidget(label);
+    setLayout(layout);
+
+}

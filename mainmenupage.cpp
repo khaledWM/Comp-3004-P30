@@ -5,13 +5,15 @@
 
 MainMenuPage::MainMenuPage(QWidget *parent ): Page (parent){
 
-    list = new QListWidget();
+   // list = new QListWidget();
     this->list->addItem("Program");
     this->list->addItem("Frequency");
-    this->list->addItem("MED");
+    this->list->addItem("Power Level");
     this->list->addItem("Screening");
     this->list->addItem("Recordings");
     this->list->addItem("Settings");
+
+    list->setCurrentRow(0);
 
 
     QLayout *layout = new QVBoxLayout();
