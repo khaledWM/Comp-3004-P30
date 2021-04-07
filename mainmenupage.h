@@ -1,7 +1,9 @@
 #ifndef MAINMENUPAGE_H
 #define MAINMENUPAGE_H
 
-
+#include<QDebug>
+#include<QLabel>
+#include <QLayout>
 #include <QWidget>
 #include <QListWidget>
 #include"page.h"

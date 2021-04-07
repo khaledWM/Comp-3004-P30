@@ -1,11 +1,7 @@
-using namespace std;
 #include "therapypage.h"
 
-#include <string>
-#include <QLayout>
-#include <QLabel>
-#include <QTimer>
-#include <QTime>
+
+
 
 TherapyPage::TherapyPage(QString name, int freq, int powerLevel, int timerMins, int timerSecs,QWidget *parent):
     Page(parent)

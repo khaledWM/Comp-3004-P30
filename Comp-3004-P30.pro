@@ -41,7 +41,9 @@ SOURCES += \
         programspage.cpp \
         startpage.cpp \
         therapypage.cpp \
-        thread.cpp
+        thread.cpp \
+        viewhistorypage.cpp
+
 
 HEADERS += \
         battery.h \
@@ -59,7 +61,9 @@ HEADERS += \
         programspage.h \
         startpage.h \
         therapypage.h \
-        thread.h
+        thread.h \
+        viewhistorypage.h
+
 
 FORMS += \
         mainwindow.ui

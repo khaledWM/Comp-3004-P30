@@ -2,6 +2,11 @@
 #define THERAPYPAGE_H
 
 #include <QWidget>
+#include <string>
+#include <QLayout>
+#include <QLabel>
+#include <QTimer>
+#include <QTime>
 #include "page.h"
 
 class TherapyPage : public Page

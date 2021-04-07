@@ -3,14 +3,15 @@
 
 #include <QMainWindow>
 #include <QLabel>
-
+#include<QDebug>
+#include <QGridLayout>
+#include <QtWidgets>
 #include "button.h"
 #include "battery.h"
 #include "frequency.h"
 #include "frequencylayout.h"
 #include"display.h"
 #include"powerlevel.h"
-
 
 namespace Ui {
 class MainWindow;

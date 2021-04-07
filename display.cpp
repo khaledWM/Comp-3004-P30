@@ -1,11 +1,4 @@
 #include "display.h"
-#include <QListWidget>
-#include<QDebug>
-#include"mainmenupage.h"
-#include"startpage.h"
-#include"programspage.h"
-#include"noimplementation.h"
-#include"therapypage.h"
 
 
 Display::Display(QWidget *parent ): QStackedWidget (parent){
@@ -17,12 +10,14 @@ Display::Display(QWidget *parent ): QStackedWidget (parent){
       pages[0] = new StartPage;
       pages[1]  = new MainMenuPage;
       pages[2] = new ProgramsPage;
-      pages[3] = new NoImplementation;
-      pages[4] = new FrequencyPage;
-      pages[5] = new HistoryPage;
-//      pages[6] = new TherapyPage;
+      pages[3] = new FrequencyPage;
+      pages[4] = new HistoryPage;
+      pages[5] = new TherapyPage("pain",77,100,2,2,nullptr);
+      pages[6]= new ViewHistoryPage;
+      pages[7] = new NoImplementation;
 
-//      tPages[0] = new TherapyPage ()
+
+
 
       this->addWidget(pages[0]);
       this->addWidget(pages[1]);
@@ -31,12 +26,21 @@ Display::Display(QWidget *parent ): QStackedWidget (parent){
       this->addWidget(pages[4]);
       this->addWidget(pages[5]);
       this->addWidget(pages[6]);
+      this->addWidget(pages[7]);
+
 
 }
 
 Display::~Display(){
 
 }
+
+
+Page* Display::getPage(int index)
+{
+    return pages[index];
+}
+
 
 void Display::changeToMainPage()
 {
@@ -52,19 +56,31 @@ void Display:: selectChoice(){
         return;
     }
 
-    else if (this->currentIndex()== 1 && this->pages[1]->list->currentRow()==0){
-        setCurrentIndex(2);
-    }
-    else if(this->currentIndex()== 1 && this->pages[1]->list->currentRow()==1){
-        setCurrentIndex(4);
+    else if (this->currentIndex()== 1){
+        int currentRow=this->pages[1]->list->currentRow();
+
+
+        if (currentRow==0){
+            setCurrentIndex(2);
+        }
+        else if(currentRow ==1){
+            setCurrentIndex(3);
+        }
+        else if(currentRow==2){
+            setCurrentIndex(4);
+        }
+        else {
+            setCurrentIndex(7);
+        }
 
     }
-    else if(this->currentIndex()== 1 && this->pages[1]->list->currentRow()==4){
+    else if (this->currentIndex()==2) {
+
         setCurrentIndex(5);
     }
-    else {
-        qDebug()<<"here";
-        setCurrentIndex(3);
+    else if(this->currentIndex()==4){
+       // int currentRow=this->pages[1]->list->currentRow();
+        setCurrentIndex(6);
     }
 
 
@@ -78,6 +94,10 @@ void Display:: navigateDownList(){
     else if (this->currentIndex()==2) {
         this->pages[2]->list->setCurrentRow(this->pages[2]->list->currentRow()+1);
     }
+    else if (this->currentIndex()==4) {
+        this->pages[4]->list->setCurrentRow(this->pages[4]->list->currentRow()+1);
+    }
+
     else if (this->currentIndex() == 5) {
         this->pages[5]->list->setCurrentRow(this->pages[5]->list->currentRow()+1);
     }
@@ -91,22 +111,29 @@ void Display:: navigateUpList(){
     else if (this->currentIndex()==2) {
         this->pages[2]->list->setCurrentRow(this->pages[2]->list->currentRow()-1);
     }
+    else if (this->currentIndex()==4) {
+        this->pages[4]->list->setCurrentRow(this->pages[4]->list->currentRow()-1);
+    }
     else if (this->currentIndex() == 5) {
         this->pages[5]->list->setCurrentRow(this->pages[5]->list->currentRow()-1);
     }
-
 }
 
-Page* Display::getPage(int index)
-{
-    return pages[index];
-}
 
 void Display:: backOutOfPage(){
     if(this->currentIndex()>1){
-
-        setCurrentIndex(currentIndex()-1);
+         if (this->currentIndex()==5) {
+            setCurrentIndex(2);
+        }
+         else if (this->currentIndex()==6) {
+             setCurrentIndex(4);
+         }
+        else {
+            setCurrentIndex(1);
+        }
     }
+
+
 }
 
 

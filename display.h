@@ -1,11 +1,20 @@
 #ifndef DISPLAY_H
 #define DISPLAY_H
-#include"page.h"
+
 #include <QStackedWidget>
 #include<QPushButton>
+#include <QListWidget>
+#include<QDebug>
+#include"page.h"
 #include "frequencypage.h"
 #include "historypage.h"
 #include "therapypage.h"
+#include"mainmenupage.h"
+#include"startpage.h"
+#include"programspage.h"
+#include"noimplementation.h"
+#include"viewhistorypage.h"
+
 
 class Display: public QStackedWidget{
     Q_OBJECT
@@ -13,6 +22,8 @@ class Display: public QStackedWidget{
 private:
     Page * pages[10];
     TherapyPage *tPages[6];
+    int current;
+
 
 public:
     Display(QWidget *parent =nullptr);

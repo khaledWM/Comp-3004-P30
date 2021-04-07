@@ -1,6 +1,3 @@
-
-#include<QLabel>
-#include <QLayout>
 #include"startpage.h"
 
 StartPage::StartPage(QWidget *parent ): Page (parent){

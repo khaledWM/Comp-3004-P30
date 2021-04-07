@@ -1,10 +1,13 @@
 #ifndef PROGRAMSPAGE_H
 #define PROGRAMSPAGE_H
-
-
+#include"page.h"
 #include <QWidget>
 #include <QListWidget>
-#include"page.h"
+#include<QDebug>
+#include<QLabel>
+#include <QLayout>
+
+
 
 
 class ProgramsPage: public Page{

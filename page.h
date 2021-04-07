@@ -3,6 +3,10 @@
 
 #include <QWidget>
 #include <QListWidget>
+#include<QDebug>
+#include<QLabel>
+#include <QLayout>
+
 class Page: public QWidget{
     Q_OBJECT
 
@@ -16,13 +20,8 @@ public:
 
 
 private:
-
     static int nextID;
     int id;
-
-
-
-
 };
 
 

@@ -1,10 +1,10 @@
 #ifndef STARTPAGE_H
 #define STARTPAGE_H
 
-
 #include <QWidget>
 #include <QListWidget>
 #include<QLabel>
+#include <QLayout>
 #include"page.h"
 
 

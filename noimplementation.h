@@ -4,6 +4,8 @@
 #include <QObject>
 #include <QWidget>
 #include<QLabel>
+#include<QLayout>
+
 #include"page.h"
 
 class NoImplementation : public Page

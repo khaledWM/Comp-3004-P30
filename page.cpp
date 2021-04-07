@@ -1,8 +1,4 @@
 #include "page.h"
-#include<QDebug>
-#include<QLabel>
-#include <QLayout>
-
 
 
 int Page::nextID=1;

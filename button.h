@@ -2,6 +2,9 @@
 #define BUTTON_H
 #include <QToolButton>
 #include<QPushButton>
+#include <QtWidgets>
+#include<QDebug>
+
 
 class Button: public QPushButton{
     Q_OBJECT

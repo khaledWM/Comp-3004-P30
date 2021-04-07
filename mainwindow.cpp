@@ -1,11 +1,4 @@
 #include "mainwindow.h"
-#include "ui_mainwindow.h"
-#include<QDebug>
-#include <QGridLayout>
-#include <QtWidgets>
-#include"display.h"
-#include"powerlevel.h"
-
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),

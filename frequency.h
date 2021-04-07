@@ -8,6 +8,7 @@
 #include <QObject>
 #include <QLabel>
 #include <QLayout>
+#include <iostream>
 
 using namespace std;
 

@@ -1,7 +1,5 @@
 #include "powerlevel.h"
-#include<QDebug>
-#include<QLabel>
-#include <QLayout>
+
 
 PowerLevel::PowerLevel(int p, QWidget *parent ): QLCDNumber (parent)
 {

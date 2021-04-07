@@ -1,6 +1,3 @@
-#include<QDebug>
-#include<QLabel>
-#include <QLayout>
 #include"programspage.h"
 
 ProgramsPage::ProgramsPage(QWidget *parent ): Page (parent){

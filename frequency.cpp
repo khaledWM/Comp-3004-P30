@@ -1,4 +1,3 @@
-#include <iostream>
 #include "frequency.h"
 
 Frequency::Frequency(QWidget *parent) :

@@ -1,6 +1,11 @@
 #ifndef POWERLEVEL_H
 #define POWERLEVEL_H
 #include<QLCDNumber>
+#include<QDebug>
+#include<QLabel>
+#include <QLayout>
+
+
 
 class PowerLevel : public QLCDNumber{
 
