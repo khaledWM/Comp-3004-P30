@@ -10,7 +10,7 @@ class TherapyPage : public Page
 
 public:
 
-    TherapyPage(QString name = "pain", QString freq = "77", QString powerLevel = "8", int timerMins=11, int timerSecs=6, QWidget *parent = nullptr);
+    TherapyPage(QString name, int freq, int powerLevel, int timerMins, int timerSecs, QWidget *parent = nullptr);
 
     ~TherapyPage();
     int getMins();
@@ -23,8 +23,8 @@ private:
     int timerMins;
     int timerSecs;
     QString name;
-    QString freq;
-    QString powerLevel;
+    int freq;
+    int powerLevel;
 };
 
 #endif // THERAPYPAGE_H

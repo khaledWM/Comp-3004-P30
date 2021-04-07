@@ -1,11 +1,14 @@
+using namespace std;
 #include "therapypage.h"
 
+#include <string>
 #include <QLayout>
 #include <QLabel>
 #include <QTimer>
 #include <QTime>
 
-TherapyPage::TherapyPage(QString name, QString freq, QString powerLevel, int timerMins, int timerSecs,QWidget *parent): Page(parent)
+TherapyPage::TherapyPage(QString name, int freq, int powerLevel, int timerMins, int timerSecs,QWidget *parent):
+    Page(parent)
 
 {
     this->name=name;
@@ -19,8 +22,8 @@ TherapyPage::TherapyPage(QString name, QString freq, QString powerLevel, int tim
     QLabel *label3 = new QLabel();
 
     label->setText(name);
-    label2->setText(freq);
-    label3->setText(powerLevel);
+    label2->setNum(freq);
+    label3->setNum(powerLevel);
    // QTimer *timer = new QTimer(this);
      //connect(timer, &QTimer::timeout, this, QOverload<>::of(&AnalogClock::update));
        //timer->start(1000);
@@ -52,4 +55,21 @@ int TherapyPage::getMins(){
 int TherapyPage::getSeconds(){
     return timerSecs;
 }
+
+QString TherapyPage::getName()
+{
+    return name;
+}
+
+int TherapyPage::getFrequency()
+{
+    return freq;
+}
+
+int TherapyPage::getPowerLevel()
+{
+    return powerLevel;
+}
+
+
 
