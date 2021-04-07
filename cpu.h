@@ -18,7 +18,7 @@
 #include"startpage.h"
 #include"therapypage.h"
 #include"mainwindow.h"
-
+#include"thread.h"
 class Cpu:public QObject
 {
     Q_OBJECT
@@ -29,6 +29,8 @@ public:
 
 private:
     MainWindow m;
+    Thread thread;
+
 };
 
 #endif // CPU_H
