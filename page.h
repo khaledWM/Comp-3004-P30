@@ -6,6 +6,7 @@
 #include<QDebug>
 #include<QLabel>
 #include <QLayout>
+
 class Page: public QWidget{
     Q_OBJECT
 

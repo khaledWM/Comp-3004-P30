@@ -9,6 +9,7 @@
 #include <QLabel>
 #include <QLayout>
 #include <iostream>
+
 using namespace std;
 
 class Frequency : public QSlider

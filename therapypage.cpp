@@ -2,6 +2,7 @@
 
 
 
+
 TherapyPage::TherapyPage(QString name, int freq, int powerLevel, int timerMins, int timerSecs,QWidget *parent):
     Page(parent)
 

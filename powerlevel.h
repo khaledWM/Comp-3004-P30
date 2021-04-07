@@ -6,6 +6,7 @@
 #include <QLayout>
 
 
+
 class PowerLevel : public QLCDNumber{
 
     Q_OBJECT

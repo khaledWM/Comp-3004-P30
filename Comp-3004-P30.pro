@@ -25,11 +25,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        battery.cpp \
         button.cpp \
+        cpu.cpp \
+        display.cpp \
+        frequency.cpp \
+        frequencypage.cpp \
+        historypage.cpp \
         main.cpp \
-<<<<<<< Updated upstream
-        mainwindow.cpp
-=======
         mainmenupage.cpp \
         mainwindow.cpp \
         noimplementation.cpp \
@@ -40,13 +43,11 @@ SOURCES += \
         therapypage.cpp \
         thread.cpp \
         viewhistorypage.cpp
->>>>>>> Stashed changes
+
 
 HEADERS += \
+        battery.h \
         button.h \
-<<<<<<< Updated upstream
-        mainwindow.h
-=======
         cpu.h \
         display.h \
         frequency.h \
@@ -62,7 +63,7 @@ HEADERS += \
         therapypage.h \
         thread.h \
         viewhistorypage.h
->>>>>>> Stashed changes
+
 
 FORMS += \
         mainwindow.ui

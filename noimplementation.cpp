@@ -1,4 +1,5 @@
 #include "noimplementation.h"
+
 NoImplementation::NoImplementation(QWidget *parent) : Page(parent)
 {
 

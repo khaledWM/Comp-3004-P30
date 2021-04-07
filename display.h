@@ -1,5 +1,6 @@
 #ifndef DISPLAY_H
 #define DISPLAY_H
+
 #include <QStackedWidget>
 #include<QPushButton>
 #include <QListWidget>
@@ -22,6 +23,7 @@ private:
     Page * pages[10];
     TherapyPage *tPages[6];
     int current;
+
 
 public:
     Display(QWidget *parent =nullptr);

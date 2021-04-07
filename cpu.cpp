@@ -1,5 +1,5 @@
 #include"cpu.h"
-
+#include"display.h"
 
 Cpu::Cpu(QWidget *parent):QObject(parent), thread(m.battery)
 {
@@ -28,6 +28,8 @@ void Cpu::startDevice(){
     connect(m.right,SIGNAL(clicked()),m.right,SLOT(rightButtonClicked()));
     connect(m.fs,SIGNAL(valueChanged(int)),m.display->getPage(3),SLOT(showValueOnDisplay(int)));
    // connect(m.start,SIGNAL(clicked()),&thread,SLOT(start()));
+
+   
     connect(m.right,SIGNAL(clicked()),m.power,SLOT(increasePower()));
     connect(m.left,SIGNAL(clicked()),m.power,SLOT(decreasePower()));
 

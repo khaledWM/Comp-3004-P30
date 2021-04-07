@@ -1,5 +1,6 @@
 #include "display.h"
 
+
 Display::Display(QWidget *parent ): QStackedWidget (parent){
 
 
@@ -27,16 +28,19 @@ Display::Display(QWidget *parent ): QStackedWidget (parent){
       this->addWidget(pages[6]);
       this->addWidget(pages[7]);
 
+
 }
 
 Display::~Display(){
 
 }
 
+
 Page* Display::getPage(int index)
 {
     return pages[index];
 }
+
 
 void Display::changeToMainPage()
 {
@@ -79,6 +83,7 @@ void Display:: selectChoice(){
         setCurrentIndex(6);
     }
 
+
 }
 
 void Display:: navigateDownList(){
@@ -92,6 +97,7 @@ void Display:: navigateDownList(){
     else if (this->currentIndex()==4) {
         this->pages[4]->list->setCurrentRow(this->pages[4]->list->currentRow()+1);
     }
+
     else if (this->currentIndex() == 5) {
         this->pages[5]->list->setCurrentRow(this->pages[5]->list->currentRow()+1);
     }

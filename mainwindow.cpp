@@ -1,37 +1,32 @@
 #include "mainwindow.h"
-<<<<<<< Updated upstream
-#include "ui_mainwindow.h"
-#include<QDebug>
-#include <QGridLayout>
-#include <QtWidgets>
-=======
-
->>>>>>> Stashed changes
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    this->setGeometry(0,40,1000,600);
 
-      Button *upButton = new Button(tr("Up"),0,0,this);
-    Button *downButton = new Button(tr("Down"),100,0,this);
-    Button *leftButton = new Button(tr("Left"),200,0,this);
-    Button *rightButton = new Button(tr("right"),300,0,this);
 
-    connect(upButton,SIGNAL(clicked()),upButton,SLOT(upButtonClicked()));
+        display = new Display(this);
+        battery = new Battery(100,700,50,this);
+        power = new PowerLevel(0,this);
 
-    connect(downButton,SIGNAL(clicked()),downButton,SLOT(downButtonClicked()));
+        QLabel *fslabel = new QLabel(this);
+        fslabel->setText("Frequency");
+        fslabel->setGeometry(700,100,80,30);
 
-    connect(leftButton,SIGNAL(clicked()),leftButton,SLOT(leftButtonClicked()));
+        fs = new Frequency(this);
 
-    connect(rightButton,SIGNAL(clicked()),rightButton,SLOT(rightButtonClicked()));
+        up = new Button(tr("Up"),400,400,this);
+        down  = new Button(tr("Down"),400,500,this);
+        left  = new Button(tr("Left"),250,450,this);
+        right  = new Button(tr("right"),550,450,this);
+        start  = new Button(tr("Start"),550,400,this);
+        ok = new Button(tr("Ok"),400,450,this);
+        back  = new Button(tr("Back"),250,400,this);
 
 }
-
-
-
-
 
 MainWindow::~MainWindow()
 {

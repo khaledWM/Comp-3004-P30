@@ -7,8 +7,8 @@
 #include <QLabel>
 #include <QTimer>
 #include <QTime>
-
 #include "page.h"
+
 class TherapyPage : public Page
 {
     Q_OBJECT

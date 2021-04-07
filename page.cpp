@@ -1,8 +1,6 @@
 #include "page.h"
 
 
-
-
 int Page::nextID=1;
 Page::Page(QWidget *parent ): QWidget (parent){
 
