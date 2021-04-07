@@ -4,7 +4,9 @@
 #include <QLabel>
 #include <QTimer>
 #include <QTime>
-therapypage::therapypage(QString name, QString freq, QString powerLevel, int timerMins, int timerSecs,QWidget *parent): Page(parent)
+
+TherapyPage::TherapyPage(QString name, QString freq, QString powerLevel, int timerMins, int timerSecs,QWidget *parent): Page(parent)
+
 {
     this->name=name;
     this->freq = freq;
@@ -30,19 +32,24 @@ therapypage::therapypage(QString name, QString freq, QString powerLevel, int tim
     //ui->timelabel->setText(time_text);
 
     QLayout *layout = new QVBoxLayout();
+
+//    layout->addWidget();
+
     layout->addWidget(label);
     //connect(timer,QTimer:timeout);
     layout->addWidget(label2);
     layout->addWidget(label3);
     setLayout(layout);
+
 }
 
-therapypage::~therapypage(){}
+TherapyPage::~TherapyPage(){}
 
-int therapypage::getMins(){
+int TherapyPage::getMins(){
     return timerMins;
 }
 
-int therapypage::getSeconds(){
+int TherapyPage::getSeconds(){
     return timerSecs;
 }
+
