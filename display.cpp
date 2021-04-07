@@ -32,7 +32,6 @@ Display::Display(QWidget *parent ): QStackedWidget (parent){
       this->addWidget(pages[5]);
       this->addWidget(pages[6]);
 
-      setCurrentIndex(6);
 }
 
 Display::~Display(){

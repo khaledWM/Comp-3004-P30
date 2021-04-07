@@ -22,7 +22,8 @@ void Battery::drainBattery() {
     while(this->value() != 1){
         this->setValue(level-1);
         level -= 1;
-        sleep(1000);
+        qDebug() << level;
+        sleep(1);
     }
 }
 
