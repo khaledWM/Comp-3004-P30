@@ -28,7 +28,7 @@ void Cpu::startDevice(){
     connect(m.right,SIGNAL(clicked()),m.right,SLOT(rightButtonClicked()));
     connect(m.fs,SIGNAL(valueChanged(int)),m.display->getPage(4),SLOT(showValueOnDisplay(int)));
 
-    connect(m.start,SIGNAL(clicked()),m.battery,SLOT(drainBattery()));
+   // connect(m.start,SIGNAL(clicked()),m.battery,SLOT(drainBattery()));
 
 //    if(m.display->getPage(1))
     connect(m.right,SIGNAL(clicked()),m.power,SLOT(increasePower()));
