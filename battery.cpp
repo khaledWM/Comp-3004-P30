@@ -1,8 +1,6 @@
 #include "battery.h"
-#include <QtWidgets>
-#include<QDebug>
-#include <unistd.h>
-#include <cstdlib>
+
+
 Battery::Battery(int l,int x, int y, QWidget *parent):QProgressBar (parent)
 {
    level = l;
@@ -19,6 +17,7 @@ Battery::~Battery(){
 }
 
 void Battery::drainBattery() {
+    qDebug()<<"running";
     while(this->value() != 1){
         this->setValue(level-1);
         level -= 1;

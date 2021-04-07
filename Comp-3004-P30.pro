@@ -40,7 +40,8 @@ SOURCES += \
         powerlevel.cpp \
         programspage.cpp \
         startpage.cpp \
-        therapypage.cpp
+        therapypage.cpp \
+        thread.cpp
 
 HEADERS += \
         battery.h \
@@ -57,7 +58,8 @@ HEADERS += \
         powerlevel.h \
         programspage.h \
         startpage.h \
-        therapypage.h
+        therapypage.h \
+        thread.h
 
 FORMS += \
         mainwindow.ui
