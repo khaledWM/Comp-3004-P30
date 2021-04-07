@@ -21,6 +21,7 @@ MainMenuPage::MainMenuPage(QWidget *parent ): Page (parent){
     layout->addWidget(list);
     setLayout(layout);
 
-
-
 }
+
+
+MainMenuPage::~MainMenuPage(){}

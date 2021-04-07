@@ -16,10 +16,7 @@ private slots:
 
 public:
     Button(const QString &text,int x, int y,QWidget *parent =nullptr);
-    QSize sizeHint() const override;
-
-
-
+    ~Button();
 };
 
 #endif // BUTTON_H

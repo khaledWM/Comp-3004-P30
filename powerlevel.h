@@ -8,6 +8,7 @@ class PowerLevel : public QLCDNumber{
 
 public:
     PowerLevel(QWidget *parent);
+    ~PowerLevel();
 
 };
 

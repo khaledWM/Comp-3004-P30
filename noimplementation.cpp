@@ -1,6 +1,6 @@
 #include "noimplementation.h"
 #include<QLayout>
-noImplementation::noImplementation(QWidget *parent) : Page(parent)
+NoImplementation::NoImplementation(QWidget *parent) : Page(parent)
 {
 
     label = new QLabel;
@@ -10,3 +10,5 @@ noImplementation::noImplementation(QWidget *parent) : Page(parent)
     setLayout(layout);
 
 }
+
+NoImplementation::~NoImplementation(){}

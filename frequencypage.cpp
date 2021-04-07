@@ -1,6 +1,6 @@
 #include "frequencypage.h"
 
-frequencypage::frequencypage(QWidget *parent) :
+FrequencyPage::FrequencyPage(QWidget *parent) :
     Page(parent)
 {
     promptLabel = new QLabel();
@@ -14,9 +14,9 @@ frequencypage::frequencypage(QWidget *parent) :
     setLayout(layout);
 }
 
-frequencypage::~frequencypage(){}
+FrequencyPage::~FrequencyPage(){}
 
-void frequencypage::showValueOnDisplay(int value)
+void FrequencyPage::showValueOnDisplay(int value)
 {
     promptLabel->setText("Frequency selected: ");
     frequencyValue->setNum(value);

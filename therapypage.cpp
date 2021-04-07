@@ -12,11 +12,10 @@ therapypage::therapypage(QWidget *parent, QString name, QString freq, QString po
     this->timerSecs = timerSecs;
 
     QLabel *label = new QLabel();
-
-
     QLayout *layout = new QVBoxLayout();
-    layout->addWidget()
 }
+
+therapypage::~therapypage(){}
 
 int therapypage::getMins(){
     return timerMins;

@@ -8,7 +8,8 @@
 #include "battery.h"
 #include "frequency.h"
 #include "frequencylayout.h"
-
+#include"display.h"
+#include"powerlevel.h"
 
 
 namespace Ui {
@@ -21,6 +22,17 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = nullptr);
+    Display *display;
+    Button *start;
+    Button *up;
+    Button*down;
+    Button*left;
+    Button*right;
+    Button*ok;
+    Button*back;
+    Battery *battery;
+    PowerLevel *power;
+    Frequency *fs;
     ~MainWindow();
 
 private:

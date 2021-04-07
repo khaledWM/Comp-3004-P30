@@ -6,11 +6,13 @@
 #include<QLabel>
 #include"page.h"
 
-class noImplementation : public Page
+class NoImplementation : public Page
 {
     Q_OBJECT
 public:
-    explicit noImplementation(QWidget *parent = nullptr);
+    explicit NoImplementation(QWidget *parent = nullptr);
+    ~NoImplementation();
+
 
 signals:
 

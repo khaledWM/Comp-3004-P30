@@ -10,7 +10,7 @@ private slots:
 
 public:
     Battery(int level,int x, int y,QWidget *parent =nullptr);
-    //QSize sizeHint() const override;
+    ~Battery();
 };
 
 #endif // BATTERY_H

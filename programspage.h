@@ -12,7 +12,7 @@ class ProgramsPage: public Page{
 
 public:
     ProgramsPage(QWidget *parent =nullptr);
-   // QListWidget getList();
+   ~ProgramsPage();
 
 
 

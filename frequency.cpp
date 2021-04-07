@@ -8,26 +8,15 @@ Frequency::Frequency(QWidget *parent) :
     setOrientation(Qt::Horizontal);
     setRange(60,200);
 
-//    frequencyLabel = new QLabel;
-
-//    frequencyLabel->setText("Frequency");
-//    frequencyLabel->setGeometry(650,100,50,20);
-
-//    QLayout *layout = new QHBoxLayout ();
-
-//    layout->addWidget(frequencyLabel);
-//    layout->addWidget(this);
-//    setLayout(layout);
-
 }
+Frequency::~Frequency()
+{}
 
 int Frequency::getValue()
 {
     return value;
 }
 
-Frequency::~Frequency()
-{}
 
-//void Frequency::sliderMoved(int position)
+
 

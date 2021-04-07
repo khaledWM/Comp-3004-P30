@@ -12,6 +12,7 @@ public:
     Page(QWidget *parent =nullptr);
     int getID();
     QListWidget *list ;
+    ~Page();
 
 
 private:

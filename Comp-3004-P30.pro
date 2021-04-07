@@ -27,6 +27,7 @@ CONFIG += c++11
 SOURCES += \
         battery.cpp \
         button.cpp \
+        cpu.cpp \
         display.cpp \
         frequency.cpp \
         frequencypage.cpp \
@@ -44,6 +45,7 @@ SOURCES += \
 HEADERS += \
         battery.h \
         button.h \
+        cpu.h \
         display.h \
         frequency.h \
         frequencypage.h \

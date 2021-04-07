@@ -14,6 +14,7 @@ Page::Page(QWidget *parent ): QWidget (parent){
     ++nextID;
 }
 
+Page::~Page(){};
 
 int Page::getID(){
     return id;

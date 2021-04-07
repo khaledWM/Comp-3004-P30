@@ -5,13 +5,13 @@
 #include <QLabel>
 #include <QLayout>
 
-class frequencypage : public Page
+class FrequencyPage : public Page
 {
     Q_OBJECT
 
 public:
-    frequencypage(QWidget *parent = nullptr);
-    ~frequencypage();
+    FrequencyPage(QWidget *parent = nullptr);
+    ~FrequencyPage();
 
 private:
     QLabel *promptLabel;
