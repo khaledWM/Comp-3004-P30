@@ -10,13 +10,10 @@ Button::Button(const QString &text,int x, int y, QWidget *parent):QPushButton (p
 }
 
 
-QSize Button::sizeHint() const
-{
-    QSize size = QPushButton::sizeHint();
-    size.rheight() += 20;
-    size.rwidth() = qMax(size.width(), size.height());
-    return size;
+Button::~Button(){
+
 }
+
 
 void Button::upButtonClicked(){
     qDebug()<<"Up";
@@ -35,4 +32,5 @@ void Button::rightButtonClicked(){
 void Button::leftButtonClicked(){
     qDebug()<<"left";
 }
+
 

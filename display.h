@@ -14,6 +14,7 @@ private:
 
 public:
     Display(QWidget *parent =nullptr);
+    ~Display();
     Page* getPage(int);
 
 private slots:

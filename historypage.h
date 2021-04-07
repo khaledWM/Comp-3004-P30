@@ -6,10 +6,10 @@
 #include <QLabel>
 #include <QListWidget>
 
-class historypage : public Page
+class HistoryPage : public Page
 {
 public:
-    historypage(QWidget *parent = nullptr);
+    HistoryPage(QWidget *parent = nullptr);
 
 };
 

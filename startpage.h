@@ -17,7 +17,7 @@ private:
 
 public:
     StartPage(QWidget *parent =nullptr);
-
+    ~StartPage();
 
 
 

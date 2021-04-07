@@ -20,5 +20,10 @@ ProgramsPage::ProgramsPage(QWidget *parent ): Page (parent){
 
 }
 
+ProgramsPage::~ProgramsPage(){}
+
+
+
+
 
 

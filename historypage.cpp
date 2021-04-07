@@ -1,6 +1,6 @@
 #include "historypage.h"
 
-historypage::historypage(QWidget *parent):
+HistoryPage::HistoryPage(QWidget *parent):
     Page(parent)
 {
     list = new QListWidget ();
@@ -13,3 +13,5 @@ historypage::historypage(QWidget *parent):
     layout->addWidget(this->list);
     setLayout(layout);
 }
+
+

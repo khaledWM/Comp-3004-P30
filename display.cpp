@@ -16,9 +16,9 @@ Display::Display(QWidget *parent ): QStackedWidget (parent){
       pages[0] = new StartPage;
       pages[1]  = new MainMenuPage;
       pages[2] = new ProgramsPage;
-      pages[3] = new noImplementation;
-      pages[4] = new frequencypage;
-      pages[5] = new historypage;
+      pages[3] = new NoImplementation;
+      pages[4] = new FrequencyPage;
+      pages[5] = new HistoryPage;
 
       this->addWidget(pages[0]);
       this->addWidget(pages[1]);
@@ -26,9 +26,9 @@ Display::Display(QWidget *parent ): QStackedWidget (parent){
       this->addWidget(pages[3]);
       this->addWidget(pages[4]);
       this->addWidget(pages[5]);
+}
 
-      qDebug()<< pages[0]->getID();
-
+Display::~Display(){
 
 }
 
@@ -97,7 +97,6 @@ Page* Display::getPage(int index)
 }
 
 void Display:: backOutOfPage(){
-    qDebug()<<"here";
     if(this->currentIndex()>1){
 
         setCurrentIndex(currentIndex()-1);

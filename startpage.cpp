@@ -11,3 +11,4 @@ StartPage::StartPage(QWidget *parent ): Page (parent){
     layout->addWidget(label);
     setLayout(layout);
 }
+StartPage::~StartPage(){}

@@ -10,7 +10,13 @@ Battery::Battery(int level,int x, int y, QWidget *parent):QProgressBar (parent)
    setValue(level);
 }
 
+
+Battery::~Battery(){
+
+}
+
 void Battery::batteryStatus() {
     qDebug()<<"test";
     qDebug() << value();
 }
+

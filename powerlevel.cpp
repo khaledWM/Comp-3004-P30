@@ -7,3 +7,6 @@ PowerLevel::PowerLevel(QWidget *parent ): QLCDNumber (parent)
 {
     move(700,150);
 }
+
+PowerLevel::~PowerLevel(){}
+
