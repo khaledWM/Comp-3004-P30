@@ -27,11 +27,42 @@ CONFIG += c++11
 SOURCES += \
         button.cpp \
         main.cpp \
+<<<<<<< Updated upstream
         mainwindow.cpp
+=======
+        mainmenupage.cpp \
+        mainwindow.cpp \
+        noimplementation.cpp \
+        page.cpp \
+        powerlevel.cpp \
+        programspage.cpp \
+        startpage.cpp \
+        therapypage.cpp \
+        thread.cpp \
+        viewhistorypage.cpp
+>>>>>>> Stashed changes
 
 HEADERS += \
         button.h \
+<<<<<<< Updated upstream
         mainwindow.h
+=======
+        cpu.h \
+        display.h \
+        frequency.h \
+        frequencypage.h \
+        historypage.h \
+        mainmenupage.h \
+        mainwindow.h \
+        noimplementation.h \
+        page.h \
+        powerlevel.h \
+        programspage.h \
+        startpage.h \
+        therapypage.h \
+        thread.h \
+        viewhistorypage.h
+>>>>>>> Stashed changes
 
 FORMS += \
         mainwindow.ui

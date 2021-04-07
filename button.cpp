@@ -1,6 +1,4 @@
 #include "button.h"
-#include <QtWidgets>
-#include<QDebug>
 
 Button::Button(const QString &text,int x, int y, QWidget *parent):QPushButton (parent)
 {

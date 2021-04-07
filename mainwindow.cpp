@@ -1,8 +1,12 @@
 #include "mainwindow.h"
+<<<<<<< Updated upstream
 #include "ui_mainwindow.h"
 #include<QDebug>
 #include <QGridLayout>
 #include <QtWidgets>
+=======
+
+>>>>>>> Stashed changes
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
