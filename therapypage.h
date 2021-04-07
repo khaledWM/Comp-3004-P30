@@ -4,11 +4,15 @@
 #include <QWidget>
 #include "page.h"
 
-class therapypage : public Page
+class TherapyPage : public Page
 {
+    Q_OBJECT
+
 public:
-    therapypage(QWidget *parent,QString name, int freq, int powerLevel, int timerMins, int timerSecs);
-    ~therapypage();
+
+    TherapyPage(QString name = "pain", QString freq = "77", QString powerLevel = "8", int timerMins=11, int timerSecs=6, QWidget *parent = nullptr);
+
+    ~TherapyPage();
     int getMins();
     int getSeconds();
     QString getName();

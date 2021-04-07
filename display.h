@@ -12,7 +12,7 @@ class Display: public QStackedWidget{
 
 private:
     Page * pages[10];
-    therapypage *tPages[6];
+    TherapyPage *tPages[6];
 
 public:
     Display(QWidget *parent =nullptr);
