@@ -12,6 +12,7 @@
 #include "frequencylayout.h"
 #include"display.h"
 #include"powerlevel.h"
+#include"ui_mainwindow.h"
 
 namespace Ui {
 class MainWindow;
