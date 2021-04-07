@@ -20,6 +20,8 @@ Display::Display(QWidget *parent ): QStackedWidget (parent){
       pages[4] = new FrequencyPage;
       pages[5] = new HistoryPage;
 
+      tPages[0] = new therapypage ()
+
       this->addWidget(pages[0]);
       this->addWidget(pages[1]);
       this->addWidget(pages[2]);

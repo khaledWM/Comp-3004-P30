@@ -5,12 +5,14 @@
 #include<QPushButton>
 #include "frequencypage.h"
 #include "historypage.h"
+#include "therapypage.h"
 
 class Display: public QStackedWidget{
     Q_OBJECT
 
 private:
     Page * pages[10];
+    therapypage *tPages[6];
 
 public:
     Display(QWidget *parent =nullptr);

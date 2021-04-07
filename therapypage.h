@@ -7,10 +7,14 @@
 class therapypage : public Page
 {
 public:
-    therapypage(QWidget *parent, QString name, QString freq, QString powerLevel, int timerMins, int timerSecs);
+    therapypage(QWidget *parent,QString name, int freq, int powerLevel, int timerMins, int timerSecs);
     ~therapypage();
     int getMins();
     int getSeconds();
+    QString getName();
+    int getFrequency();
+    int getPowerLevel();
+
 private:
     int timerMins;
     int timerSecs;

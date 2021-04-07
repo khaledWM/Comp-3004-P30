@@ -3,7 +3,8 @@
 #include <QLayout>
 #include <QLabel>
 
-therapypage::therapypage(QWidget *parent, QString name, QString freq, QString powerLevel, int timerMins, int timerSecs): Page(parent)
+therapypage::therapypage(QWidget *parent, QString name, int freq, int powerLevel, int timerMins, int timerSecs):
+    Page(parent)
 {
     this->name=name;
     this->freq = freq;
@@ -16,7 +17,7 @@ therapypage::therapypage(QWidget *parent, QString name, QString freq, QString po
     label->setText(name);
 
     QLayout *layout = new QVBoxLayout();
-    //layout->addWidget()
+//    layout->addWidget();
 }
 
 therapypage::~therapypage(){}
@@ -28,3 +29,4 @@ int therapypage::getMins(){
 int therapypage::getSeconds(){
     return timerSecs;
 }
+
