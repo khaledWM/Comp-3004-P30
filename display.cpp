@@ -5,6 +5,7 @@
 #include"startpage.h"
 #include"programspage.h"
 #include"noimplementation.h"
+#include"therapypage.h"
 
 
 Display::Display(QWidget *parent ): QStackedWidget (parent){
@@ -19,6 +20,9 @@ Display::Display(QWidget *parent ): QStackedWidget (parent){
       pages[3] = new NoImplementation;
       pages[4] = new FrequencyPage;
       pages[5] = new HistoryPage;
+      pages[6] = new TherapyPage;
+
+//      tPages[0] = new TherapyPage ()
 
       this->addWidget(pages[0]);
       this->addWidget(pages[1]);
@@ -26,6 +30,8 @@ Display::Display(QWidget *parent ): QStackedWidget (parent){
       this->addWidget(pages[3]);
       this->addWidget(pages[4]);
       this->addWidget(pages[5]);
+      this->addWidget(pages[6]);
+
 }
 
 Display::~Display(){

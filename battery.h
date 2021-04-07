@@ -4,12 +4,13 @@
 
 class Battery: public QProgressBar {
     Q_OBJECT
-
+private:
+    int level;
 private slots:
-    void batteryStatus();
+    void drainBattery();
 
 public:
-    Battery(int level,int x, int y,QWidget *parent =nullptr);
+    Battery(int l,int x, int y,QWidget *parent =nullptr);
     ~Battery();
 };
 
