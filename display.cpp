@@ -7,26 +7,24 @@ Display::Display(QWidget *parent ): QStackedWidget (parent){
       setGeometry(240,40,390,320);
       setStyleSheet("background-color:rgb(211, 215, 207);");
 
-      pages[0] = new StartPage;
-      pages[1]  = new MainMenuPage;
-      pages[2] = new ProgramsPage;
-      pages[3] = new FrequencyPage;
-      pages[4] = new HistoryPage;
-      pages[5] = new TherapyPage("pain",77,100,0,0,nullptr);
-      pages[6]= new ViewHistoryPage;
-      pages[7] = new NoImplementation;
+      sp = new StartPage(this);
+      mp  = new MainMenuPage;
+      pp = new ProgramsPage;
+      fp = new FrequencyPage;
+      hp = new HistoryPage;
+      tp = new TherapyPage;
+      vp = new ViewHistoryPage;
+      np = new NoImplementation;
 
 
-
-
-      this->addWidget(pages[0]);
-      this->addWidget(pages[1]);
-      this->addWidget(pages[2]);
-      this->addWidget(pages[3]);
-      this->addWidget(pages[4]);
-      this->addWidget(pages[5]);
-      this->addWidget(pages[6]);
-      this->addWidget(pages[7]);
+      this->addWidget(sp);
+      this->addWidget(mp);
+      this->addWidget(pp);
+      this->addWidget(fp);
+      this->addWidget(hp);
+      this->addWidget(tp);
+      this->addWidget(vp);
+      this->addWidget(np);
 
 
 }
@@ -36,11 +34,39 @@ Display::~Display(){
 }
 
 
-Page* Display::getPage(int index)
+StartPage* Display::getStartPage()
 {
-    return pages[index];
+    return sp;
 }
 
+MainMenuPage* Display::getMainPage()
+{
+    return mp;
+}
+ProgramsPage* Display::getProgramsPage()
+{
+    return pp;
+}
+FrequencyPage* Display::getFrequencyPage()
+{
+    return fp;
+}
+HistoryPage* Display::getHistoryPage()
+{
+    return hp;
+}
+TherapyPage* Display::getTherapyPage()
+{
+    return tp;
+}
+ViewHistoryPage* Display::getViewHistoryPage()
+{
+    return vp;
+}
+NoImplementation* Display::getNoImplementationPage()
+{
+    return np;
+}
 
 
 void Display::changeToMainPage()
@@ -57,17 +83,20 @@ void Display:: selectChoice(){
         return;
     }
 
-    else if (this->currentIndex()== 1){
-        int currentRow=this->pages[1]->list->currentRow();
+    else if (this->currentIndex()== 1)
+    {
+        int currentRow=this->mp->list->currentRow();
 
 
-        if (currentRow==0){
+        if (currentRow==0)
+        {
             setCurrentIndex(2);
         }
         else if(currentRow ==1){
             setCurrentIndex(3);
         }
-        else if(currentRow==2){
+        else if(currentRow==2)
+        {
             setCurrentIndex(4);
         }
         else {
@@ -75,12 +104,15 @@ void Display:: selectChoice(){
         }
 
     }
-    else if (this->currentIndex()==2) {
+    else if (this->currentIndex()==2)
+    {
+        tp->setName(pp->list->currentItem()->text());
+        tp->setFrequency(fp->getValue().toInt());
 
         setCurrentIndex(5);
     }
     else if(this->currentIndex()==4){
-       // int currentRow=this->pages[1]->list->currentRow();
+       // int currentRow=this->mp->list->currentRow();
         setCurrentIndex(6);
     }
 
@@ -90,33 +122,33 @@ void Display:: selectChoice(){
 void Display:: navigateDownList(){
 
     if(this->currentIndex()==1){
-        this->pages[1]->list->setCurrentRow(this->pages[1]->list->currentRow()+1);
+        this->mp->list->setCurrentRow(this->mp->list->currentRow()+1);
     }
     else if (this->currentIndex()==2) {
-        this->pages[2]->list->setCurrentRow(this->pages[2]->list->currentRow()+1);
+        this->pp->list->setCurrentRow(this->pp->list->currentRow()+1);
     }
     else if (this->currentIndex()==4) {
-        this->pages[4]->list->setCurrentRow(this->pages[4]->list->currentRow()+1);
+        this->hp->list->setCurrentRow(this->hp->list->currentRow()+1);
     }
 
     else if (this->currentIndex() == 5) {
-        this->pages[5]->list->setCurrentRow(this->pages[5]->list->currentRow()+1);
+        this->tp->list->setCurrentRow(this->tp->list->currentRow()+1);
     }
 }
 
 void Display:: navigateUpList(){
 
     if(this->currentIndex()==1){
-        this->pages[1]->list->setCurrentRow(this->pages[1]->list->currentRow()-1);
+        this->mp->list->setCurrentRow(this->mp->list->currentRow()-1);
     }
     else if (this->currentIndex()==2) {
-        this->pages[2]->list->setCurrentRow(this->pages[2]->list->currentRow()-1);
+        this->pp->list->setCurrentRow(this->pp->list->currentRow()-1);
     }
     else if (this->currentIndex()==4) {
-        this->pages[4]->list->setCurrentRow(this->pages[4]->list->currentRow()-1);
+        this->hp->list->setCurrentRow(this->hp->list->currentRow()-1);
     }
     else if (this->currentIndex() == 5) {
-        this->pages[5]->list->setCurrentRow(this->pages[5]->list->currentRow()-1);
+        this->tp->list->setCurrentRow(this->tp->list->currentRow()-1);
     }
 }
 

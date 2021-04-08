@@ -11,6 +11,8 @@
 #include <QPushButton>
 #include <QDebug>
 #include "page.h"
+#include "frequencypage.h"
+#include "frequency.h"
 
 class TherapyPage : public Page
 {
@@ -18,7 +20,7 @@ class TherapyPage : public Page
 
 public:
 
-    TherapyPage(QString name, int freq, int powerLevel, int timerMins, int timerSecs, QWidget *parent = nullptr);
+    TherapyPage(QString = "NULL", int = 0, QWidget *parent = nullptr);
 
     ~TherapyPage();
     int getMins();
@@ -29,6 +31,9 @@ public:
     QPushButton* getStartStop();
     QPushButton* getEnd();
 
+    void setName(QString);
+    void setPowerLevel(int);
+    void setFrequency(int);
 
 private:
     int timerMins;
@@ -38,6 +43,10 @@ private:
     int powerLevel;
     QLCDNumber *therapyTimerDisplay;
     QTimer *timer;
+
+    QLabel *label;
+    QLabel *label2;
+    QLabel *label3;
 
 
 private slots:

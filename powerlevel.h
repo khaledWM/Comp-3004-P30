@@ -14,6 +14,7 @@ class PowerLevel : public QLCDNumber{
 public:
     PowerLevel(int, QWidget *parent = nullptr);
     ~PowerLevel();
+    int getPowerLevel();
 
 private slots:
     void increasePower();

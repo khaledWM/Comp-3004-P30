@@ -14,21 +14,39 @@
 #include"programspage.h"
 #include"noimplementation.h"
 #include"viewhistorypage.h"
+#include "powerlevel.h"
 
 
 class Display: public QStackedWidget{
     Q_OBJECT
 
 private:
-    Page * pages[10];
-    TherapyPage *tPages[6];
+    StartPage *sp;
+    MainMenuPage *mp;
+    ProgramsPage *pp;
+    FrequencyPage *fp;
+    HistoryPage *hp;
+    TherapyPage *tp;
+    NoImplementation *np;
+    ViewHistoryPage *vp;
+
+    PowerLevel *pl;
+
     int current;
 
 
 public:
     Display(QWidget *parent =nullptr);
     ~Display();
-    Page* getPage(int);
+//    Page* getPage(int);
+    StartPage* getStartPage();
+    MainMenuPage* getMainPage();
+    ProgramsPage* getProgramsPage();
+    FrequencyPage* getFrequencyPage();
+    HistoryPage* getHistoryPage();
+    TherapyPage* getTherapyPage();
+    ViewHistoryPage* getViewHistoryPage();
+    NoImplementation* getNoImplementationPage();
 
 private slots:
     void changeToMainPage();

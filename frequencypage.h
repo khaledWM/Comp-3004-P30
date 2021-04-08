@@ -12,11 +12,13 @@ class FrequencyPage : public Page
 public:
     FrequencyPage(QWidget *parent = nullptr);
     ~FrequencyPage();
+    QString getValue();
 
 private:
     QLabel *promptLabel;
     QLabel *frequencyValue;
     QLayout *layout;
+
 
 private slots:
     void showValueOnDisplay(int);
