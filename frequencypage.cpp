@@ -22,3 +22,8 @@ void FrequencyPage::showValueOnDisplay(int value)
     frequencyValue->setNum(value);
     layout->addWidget(frequencyValue);
 }
+
+QString FrequencyPage::getValue()
+{
+    return frequencyValue->text();
+}

@@ -19,3 +19,7 @@ void PowerLevel::decreasePower()
     display(--power);
 }
 
+int PowerLevel::getPowerLevel()
+{
+    return power;
+}

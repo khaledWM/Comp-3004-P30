@@ -1,15 +1,15 @@
 #include "therapypage.h"
 
 
-TherapyPage::TherapyPage(QString name, int freq, int powerLevel, int timerMins, int timerSecs,QWidget *parent):
+TherapyPage::TherapyPage(QString name, int freq, QWidget *parent):
     Page(parent)
 
 {
-    this->name=name;
+    this->name = name;
     this->freq = freq;
-    this->powerLevel = powerLevel;
+    this->powerLevel = 0;
     this->timerMins = 0;
-    this->timerSecs = 55;
+    this->timerSecs = 0;
 
     timer = new QTimer();
 
@@ -17,9 +17,9 @@ TherapyPage::TherapyPage(QString name, int freq, int powerLevel, int timerMins, 
     startStop->setText("start");
     end->setText("end");
 
-    QLabel *label = new QLabel();
-    QLabel *label2 = new QLabel();
-    QLabel *label3 = new QLabel();
+    label = new QLabel();
+    label2 = new QLabel();
+    label3 = new QLabel();
 
     QString qstr = QString::number(timerMins);
     QString qstr2 = QString::number(timerSecs);
@@ -71,6 +71,24 @@ int TherapyPage::getFrequency()
 int TherapyPage::getPowerLevel()
 {
     return powerLevel;
+}
+
+void TherapyPage::setName(QString name)
+{
+    this->name = name;
+    label->setText(name);
+}
+
+void TherapyPage::setFrequency(int value)
+{
+    freq = value;
+    label2->setNum(value);
+}
+
+void TherapyPage::setPowerLevel(int level)
+{
+    powerLevel = level;
+    label3->setNum(level);
 }
 
 void TherapyPage::startTimer(){
