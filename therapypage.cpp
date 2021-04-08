@@ -9,7 +9,7 @@ TherapyPage::TherapyPage(QString name, int freq, int powerLevel, int timerMins, 
     this->freq = freq;
     this->powerLevel = powerLevel;
     this->timerMins = 0;
-    this->timerSecs = 0;
+    this->timerSecs = 55;
 
     timer = new QTimer();
 
@@ -44,6 +44,7 @@ layout->addWidget(therapyTimerDisplay);
     layout->addWidget(end);
 
     setLayout(layout);
+    connect(timer,SIGNAL(timeout()),this,SLOT(showTime()));
 
 }
 
@@ -79,14 +80,14 @@ void TherapyPage::startTimer(){
         return;
     }
     startStop->setText("stop");
-    connect(timer,SIGNAL(timeout()),this,SLOT(showTime()));
+    qDebug() << "test";
+
     timer->start(1000);
 }
 
 void TherapyPage::showTime(){
-
 timerSecs++;
-if(timerSecs == 59){
+if(timerSecs == 60){
     timerSecs=0;
     timerMins++;
 }
@@ -97,7 +98,7 @@ if (timerMins<10 && timerSecs<10) {
     therapyTimerDisplay->display("0" + qstr + ":" + "0" + qstr2);
 }else if(timerMins<10) {
     therapyTimerDisplay->display("0" + qstr + ":" + qstr2);
-}else if(timerMins>10) {
+}else if(timerSecs<10) {
     therapyTimerDisplay->display(qstr + ":" + "0" + qstr2);
 }
 }
