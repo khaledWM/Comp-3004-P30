@@ -6,6 +6,7 @@
 #include<QDebug>
 #include<QLabel>
 #include <QLayout>
+#include <QPushButton>
 
 class Page: public QWidget{
     Q_OBJECT
@@ -17,11 +18,17 @@ public:
     int getID();
     QListWidget *list ;
     ~Page();
+    virtual Page* getPage();
+    QPushButton* getStartStop();
+    QPushButton* getEnd();
+    QPushButton *startStop;
+    QPushButton *end;
 
 
 private:
     static int nextID;
     int id;
+
 };
 
 

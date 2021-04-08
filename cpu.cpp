@@ -27,12 +27,13 @@ void Cpu::startDevice(){
     connect(m.left,SIGNAL(clicked()),m.left,SLOT(leftButtonClicked()));
     connect(m.right,SIGNAL(clicked()),m.right,SLOT(rightButtonClicked()));
     connect(m.fs,SIGNAL(valueChanged(int)),m.display->getPage(3),SLOT(showValueOnDisplay(int)));
-   // connect(m.start,SIGNAL(clicked()),&thread,SLOT(start()));
+    connect(m.start,SIGNAL(clicked()),&thread,SLOT(start()));
 
-   
+
     connect(m.right,SIGNAL(clicked()),m.power,SLOT(increasePower()));
     connect(m.left,SIGNAL(clicked()),m.power,SLOT(decreasePower()));
-
+    connect(m.display->getPage(5)->startStop,SIGNAL(clicked()),m.display->getPage(5),SLOT(startTimer()));
+    connect(m.display->getPage(5)->end,SIGNAL(clicked()),m.display->getPage(5),SLOT(endTimer()));
 
 
 

@@ -12,7 +12,7 @@ Display::Display(QWidget *parent ): QStackedWidget (parent){
       pages[2] = new ProgramsPage;
       pages[3] = new FrequencyPage;
       pages[4] = new HistoryPage;
-      pages[5] = new TherapyPage("pain",77,100,2,2,nullptr);
+      pages[5] = new TherapyPage("pain",77,100,0,0,nullptr);
       pages[6]= new ViewHistoryPage;
       pages[7] = new NoImplementation;
 
@@ -40,6 +40,7 @@ Page* Display::getPage(int index)
 {
     return pages[index];
 }
+
 
 
 void Display::changeToMainPage()

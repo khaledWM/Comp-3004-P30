@@ -7,6 +7,9 @@
 #include <QLabel>
 #include <QTimer>
 #include <QTime>
+#include <QLCDNumber>
+#include <QPushButton>
+#include <QDebug>
 #include "page.h"
 
 class TherapyPage : public Page
@@ -23,6 +26,9 @@ public:
     QString getName();
     int getFrequency();
     int getPowerLevel();
+    QPushButton* getStartStop();
+    QPushButton* getEnd();
+
 
 private:
     int timerMins;
@@ -30,6 +36,14 @@ private:
     QString name;
     int freq;
     int powerLevel;
+    QLCDNumber *therapyTimerDisplay;
+    QTimer *timer;
+
+
+private slots:
+    void showTime();
+    void startTimer();
+    void endTimer();
 };
 
 #endif // THERAPYPAGE_H
