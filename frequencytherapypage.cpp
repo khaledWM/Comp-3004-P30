@@ -1,15 +1,13 @@
-#include "therapypage.h"
+#include "frequencytherapypage.h"
 
-
-TherapyPage::TherapyPage(QString name, int freq, QWidget *parent):
+FrequencyTherapyPage::FrequencyTherapyPage(QString name, int freq, QWidget *parent):
     Page(parent)
-
 {
-//    this->name = name;
-//    this->freq = freq;
+    this->name = name;
+    this->freq = freq;
     this->powerLevel = 0;
-//    this->timerMins = 0;
-//    this->timerSecs = 0;
+    this->timerMins = 0;
+    this->timerSecs = 0;
 
     timer = new QTimer();
 
@@ -21,9 +19,11 @@ TherapyPage::TherapyPage(QString name, int freq, QWidget *parent):
     label2 = new QLabel();
     label3 = new QLabel();
 
+    QString qstr = QString::number(timerMins);
+    QString qstr2 = QString::number(timerSecs);
 
     therapyTimerDisplay = new QLCDNumber();
-
+    therapyTimerDisplay->display("0" + qstr + ":" + "0" + qstr2);
 
     label->setText(name);
     label2->setNum(freq);
@@ -46,119 +46,100 @@ layout->addWidget(therapyTimerDisplay);
 
 }
 
-TherapyPage::~TherapyPage(){}
+FrequencyTherapyPage::~FrequencyTherapyPage(){}
 
-int TherapyPage::getMins(){
+int FrequencyTherapyPage::getMins(){
     return timerMins;
 }
 
-int TherapyPage::getSeconds(){
+int FrequencyTherapyPage::getSeconds(){
     return timerSecs;
 }
 
-QString TherapyPage::getName()
+QString FrequencyTherapyPage::getName()
 {
     return name;
 }
 
-int TherapyPage::getFrequency()
+int FrequencyTherapyPage::getFrequency()
 {
     return freq;
 }
 
-int TherapyPage::getPowerLevel()
+int FrequencyTherapyPage::getPowerLevel()
 {
     return powerLevel;
 }
 
-void TherapyPage::setName(QString name)
+void FrequencyTherapyPage::setName(QString name)
 {
     this->name = name;
     label->setText(name);
 }
 
-void TherapyPage::setFrequency(int value)
+void FrequencyTherapyPage::setFrequency(int value)
 {
     freq = value;
-    this->prevFreq=value;
     label2->setNum(freq);
 }
-void TherapyPage::setMinsAndSecs(int minutes,int seconds){
-    this->timerMins=minutes;
-    this->timerSecs=seconds;
-    this->prevMins=minutes;
-    this->prevSeconds=seconds;
-    minString = QString::number(minutes);
-    secsString = QString::number(seconds);
-    validateTime(minString,secsString);
 
-}
-
-void TherapyPage::increasePowerLevel()
+void FrequencyTherapyPage::increasePowerLevel()
 {
     if(powerLevel<100)
     ++powerLevel;
     label3->setNum(powerLevel);
 }
 
-void TherapyPage::decreasePowerLevel()
+void FrequencyTherapyPage::decreasePowerLevel()
 {
     if(powerLevel>0)
     --powerLevel;
     label3->setNum(powerLevel);
 }
 
-void TherapyPage::showFrequencyOnDisplay(int value)
+void FrequencyTherapyPage::showFrequencyOnDisplay(int value)
 {
     freq = value;
     label2->setNum(freq);
 }
 
-void TherapyPage::startTimer(){
+void FrequencyTherapyPage::startTimer(){
+
     if(timer->isActive()) {
         timer->stop();
         startStop->setText("start");
         return;
     }
     startStop->setText("stop");
-
-
     timer->start(1000);
 }
 
-void TherapyPage::showTime(){
-timerSecs--;
-
-if (timerSecs==-1 && timerMins==0){
-    sleep(1);
-
-    endTimer();
+void FrequencyTherapyPage::showTime(){
+timerSecs++;
+if(timerSecs == 60){
+    timerSecs=0;
+    timerMins++;
 }
-if(timerSecs == -1){
-    timerSecs=59;
-    timerMins--;
-}
-
 QString qstr = QString::number(timerMins);
 QString qstr2 = QString::number(timerSecs);
 
 validateTime(qstr,qstr2);
 }
 
-
-
-void TherapyPage::endTimer(){
+void FrequencyTherapyPage::endTimer(){
     timer->stop();
     startStop->setText("start");
     therapyTimerDisplay->display("00:00");
     QTime time = QTime::currentTime();
+    qDebug() << timerMins;
+    qDebug() << timerSecs;
     qDebug() << time.toString("hh : mm");
-    setFrequency(prevFreq);
-    setMinsAndSecs(prevMins,prevSeconds);
+    timerMins = 0;
+    timerSecs=0;
 
 }
 
-void TherapyPage::validateTime(QString qstr, QString qstr2){
+void FrequencyTherapyPage::validateTime(QString qstr, QString qstr2){
     if (timerMins<10 && timerSecs<10) {
         therapyTimerDisplay->display("0" + qstr + ":" + "0" + qstr2);
     }else if(timerMins<10) {
@@ -167,11 +148,3 @@ void TherapyPage::validateTime(QString qstr, QString qstr2){
         therapyTimerDisplay->display(qstr + ":" + "0" + qstr2);
     }
 }
-
-
-
-
-
-
-
-

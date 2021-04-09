@@ -7,9 +7,11 @@ FrequencyPage::FrequencyPage(QWidget *parent) :
     promptLabel->setText("Move slider on side to set frequency");
 
     frequencyValue = new QLabel();
-
+    startFrequency = new QPushButton;
+    startFrequency->setText("start Frequency");
     layout = new QVBoxLayout();
     layout->addWidget(promptLabel);
+    layout->addWidget(startFrequency);
 
     setLayout(layout);
 }
@@ -26,4 +28,9 @@ void FrequencyPage::showValueOnDisplay(int value)
 QString FrequencyPage::getValue()
 {
     return frequencyValue->text();
+}
+
+QPushButton* FrequencyPage::getStartFrequency(){
+
+    return startFrequency;
 }

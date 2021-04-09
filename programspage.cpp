@@ -1,10 +1,10 @@
 #include"programspage.h"
 
 ProgramsPage::ProgramsPage(QWidget *parent ): Page (parent){
-    this->list->addItem("Throat");
-    this->list->addItem("Feet");
-    this->list->addItem("Stomach");
-    this->list->addItem("Screening");
+    this->list->addItem("Allergy");
+    this->list->addItem("Bloating");
+    this->list->addItem("Trauma");
+    this->list->addItem("Kidneys");
     this->list->addItem("back");
     this->list->addItem("arms");
 

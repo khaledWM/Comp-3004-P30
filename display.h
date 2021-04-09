@@ -15,6 +15,11 @@
 #include"noimplementation.h"
 #include"viewhistorypage.h"
 #include "powerlevel.h"
+#include"frequencytherapypage.h"
+#include"bloating.h"
+#include"allergy.h"
+#include"trauma.h"
+#include"kidney.h"
 
 
 class Display: public QStackedWidget{
@@ -29,16 +34,19 @@ private:
     TherapyPage *tp;
     NoImplementation *np;
     ViewHistoryPage *vp;
-
+    FrequencyTherapyPage* ftp;
     PowerLevel *pl;
-
+    Trauma *trauma;
+    Allergy *allergy;
+    Bloating *bloating;
+    Kidney *kidney;
     int current;
 
 
 public:
     Display(QWidget *parent =nullptr);
     ~Display();
-//    Page* getPage(int);
+    void startProgram(int programNumber);
     StartPage* getStartPage();
     MainMenuPage* getMainPage();
     ProgramsPage* getProgramsPage();
@@ -46,11 +54,14 @@ public:
     HistoryPage* getHistoryPage();
     TherapyPage* getTherapyPage();
     ViewHistoryPage* getViewHistoryPage();
+    FrequencyTherapyPage* getFrequencyTherapyPage();
     NoImplementation* getNoImplementationPage();
+
 
 private slots:
     void changeToMainPage();
     void selectChoice();
+    void startFrequency();
     void navigateDownList();
     void navigateUpList();
     void backOutOfPage();

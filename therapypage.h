@@ -13,6 +13,8 @@
 #include "page.h"
 #include "frequencypage.h"
 #include "frequency.h"
+#include <unistd.h>
+#include <cstdlib>
 
 class TherapyPage : public Page
 {
@@ -23,36 +25,48 @@ public:
     TherapyPage(QString = "NULL", int = 0, QWidget *parent = nullptr);
 
     ~TherapyPage();
-    int getMins();
-    int getSeconds();
     QString getName();
-    int getFrequency();
-    int getPowerLevel();
     QPushButton* getStartStop();
     QPushButton* getEnd();
-
+    int getMins();
+    int getSeconds();
+    int getFrequency();
+    int getPowerLevel();
     void setName(QString);
-//    void setPowerLevel(int);
     void setFrequency(int);
+    void setMinsAndSecs(int,int);
+        //    void setPowerLevel(int);
+private:
+    void validateTime(QString,QString);
+    void resetTimer();
+
 
 private:
-    int timerMins;
-    int timerSecs;
+    QString minString ;
+    QString secsString;
     QString name;
-    int freq;
-    int powerLevel;
     QLCDNumber *therapyTimerDisplay;
     QTimer *timer;
-
     QLabel *label;
     QLabel *label2;
     QLabel *label3;
+
+    int timerMins;
+    int timerSecs;
+    int freq;
+    int powerLevel;
+    int prevMins;
+    int prevSeconds;
+    int prevFreq;
+
+
+public slots:
+     void endTimer();
 
 
 private slots:
     void showTime();
     void startTimer();
-    void endTimer();
     void increasePowerLevel();
     void decreasePowerLevel();
     void showFrequencyOnDisplay(int);

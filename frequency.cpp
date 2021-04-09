@@ -7,6 +7,8 @@ Frequency::Frequency(QWidget *parent) :
     setOrientation(Qt::Horizontal);
     setRange(60,200);
 
+
+
 }
 Frequency::~Frequency()
 {}

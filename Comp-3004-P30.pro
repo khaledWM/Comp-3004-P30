@@ -25,43 +25,55 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        allergy.cpp \
         battery.cpp \
+        bloating.cpp \
         button.cpp \
         cpu.cpp \
         display.cpp \
         frequency.cpp \
         frequencypage.cpp \
+        frequencytherapypage.cpp \
         historypage.cpp \
+        kidney.cpp \
         main.cpp \
         mainmenupage.cpp \
         mainwindow.cpp \
         noimplementation.cpp \
         page.cpp \
         powerlevel.cpp \
+        program.cpp \
         programspage.cpp \
         startpage.cpp \
         therapypage.cpp \
         thread.cpp \
+        trauma.cpp \
         viewhistorypage.cpp
 
 
 HEADERS += \
+        allergy.h \
         battery.h \
+        bloating.h \
         button.h \
         cpu.h \
         display.h \
         frequency.h \
         frequencypage.h \
+        frequencytherapypage.h \
         historypage.h \
+        kidney.h \
         mainmenupage.h \
         mainwindow.h \
         noimplementation.h \
         page.h \
         powerlevel.h \
+        program.h \
         programspage.h \
         startpage.h \
         therapypage.h \
         thread.h \
+        trauma.h \
         viewhistorypage.h
 
 
