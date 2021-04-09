@@ -15,6 +15,8 @@ Display::Display(QWidget *parent ): QStackedWidget (parent){
       tp = new TherapyPage;
       vp = new ViewHistoryPage;
       np = new NoImplementation;
+      ftp= new FrequencyTherapyPage;
+
 
 
       this->addWidget(sp);
@@ -25,7 +27,7 @@ Display::Display(QWidget *parent ): QStackedWidget (parent){
       this->addWidget(tp);
       this->addWidget(vp);
       this->addWidget(np);
-
+      this->addWidget(ftp);
 
 }
 
@@ -63,11 +65,16 @@ ViewHistoryPage* Display::getViewHistoryPage()
 {
     return vp;
 }
+
 NoImplementation* Display::getNoImplementationPage()
 {
     return np;
 }
 
+FrequencyTherapyPage * Display::getFrequencyTherapyPage(){
+
+    return ftp;
+}
 
 void Display::changeToMainPage()
 {
@@ -106,48 +113,81 @@ void Display:: selectChoice(){
     }
     else if (this->currentIndex()==2)
     {
-        tp->setName(pp->list->currentItem()->text());
-        tp->setFrequency(fp->getValue().toInt());
-//        tp->setPowerLevel()
-        setCurrentIndex(5);
+        int currentRow=this->pp->list->currentRow();
+        startProgram(currentRow);
     }
     else if(this->currentIndex()==4){
-       // int currentRow=this->mp->list->currentRow();
         setCurrentIndex(6);
     }
 
 
 }
 
+void Display:: startProgram(int programNumber){
+
+    if (programNumber == 0){
+        allergy= new Allergy;
+        tp->setMinsAndSecs(allergy->minutes,allergy->seconds);
+        tp->setName(allergy->programName);
+        tp->setFrequency(allergy->frequency);
+    }
+    else if(programNumber==1){
+        bloating= new Bloating;
+        tp->setMinsAndSecs(bloating->minutes,bloating->seconds);
+        tp->setName(bloating->programName);
+        tp->setFrequency(bloating->frequency);
+    }
+    else if (programNumber==2) {
+        trauma= new Trauma;
+        tp->setMinsAndSecs(trauma->minutes,trauma->seconds);
+        tp->setName(trauma->programName);
+        tp->setFrequency(trauma->frequency);
+    }
+    else if(programNumber==3){
+        kidney =new Kidney;
+        tp->setMinsAndSecs( kidney->minutes, kidney->seconds);
+        tp->setName( kidney->programName);
+        tp->setFrequency(kidney->frequency);
+    }
+
+setCurrentIndex(5);
+}
+void Display:: startFrequency(){
+ftp->setName("Frequency");
+ftp->setFrequency(fp->getValue().toInt());
+        setCurrentIndex(8);
+}
+
 void Display:: navigateDownList(){
 
-    if(this->currentIndex()==1){
+
+    if(this->currentIndex()==1 && this->mp->list->currentRow()<this->mp->list->count()-1){
         this->mp->list->setCurrentRow(this->mp->list->currentRow()+1);
     }
-    else if (this->currentIndex()==2) {
+    else if (this->currentIndex()==2 && this->pp->list->currentRow()<this->pp->list->count()-1) {
         this->pp->list->setCurrentRow(this->pp->list->currentRow()+1);
     }
-    else if (this->currentIndex()==4) {
+    else if (this->currentIndex()==4 && this->hp->list->currentRow()<this->hp->list->count()-1) {
         this->hp->list->setCurrentRow(this->hp->list->currentRow()+1);
     }
 
-    else if (this->currentIndex() == 5) {
+    else if (this->currentIndex() == 5 && this->tp->list->currentRow()<this->tp->list->count()-1) {
         this->tp->list->setCurrentRow(this->tp->list->currentRow()+1);
     }
 }
 
 void Display:: navigateUpList(){
 
-    if(this->currentIndex()==1){
+    if(this->currentIndex()==1 && this->mp->list->currentRow()>0){
         this->mp->list->setCurrentRow(this->mp->list->currentRow()-1);
     }
-    else if (this->currentIndex()==2) {
+    else if (this->currentIndex()==2 && this->pp->list->currentRow()>0) {
         this->pp->list->setCurrentRow(this->pp->list->currentRow()-1);
     }
-    else if (this->currentIndex()==4) {
+    else if (this->currentIndex()==4 && this->hp->list->currentRow()>0) {
         this->hp->list->setCurrentRow(this->hp->list->currentRow()-1);
     }
-    else if (this->currentIndex() == 5) {
+    else if (this->currentIndex() == 5 && this->tp->list->currentRow()>0) {
         this->tp->list->setCurrentRow(this->tp->list->currentRow()-1);
     }
 }
@@ -156,10 +196,16 @@ void Display:: navigateUpList(){
 void Display:: backOutOfPage(){
     if(this->currentIndex()>1){
          if (this->currentIndex()==5) {
+             this->tp->endTimer();
             setCurrentIndex(2);
         }
          else if (this->currentIndex()==6) {
+
              setCurrentIndex(4);
+         }
+         else if(this->currentIndex() == 8){
+             this->ftp->endTimer();
+             setCurrentIndex(1);
          }
         else {
             setCurrentIndex(1);

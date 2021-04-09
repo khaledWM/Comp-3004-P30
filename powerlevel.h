@@ -12,7 +12,7 @@ class PowerLevel : public QLCDNumber{
     Q_OBJECT
 
 public:
-    PowerLevel(int, QWidget *parent = nullptr);
+    PowerLevel( QWidget *parent = nullptr);
     ~PowerLevel();
     int getPowerLevel();
 

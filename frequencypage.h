@@ -13,8 +13,10 @@ public:
     FrequencyPage(QWidget *parent = nullptr);
     ~FrequencyPage();
     QString getValue();
+    QPushButton * getStartFrequency();
 
 private:
+    QPushButton * startFrequency;
     QLabel *promptLabel;
     QLabel *frequencyValue;
     QLayout *layout;
