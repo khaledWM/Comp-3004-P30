@@ -32,7 +32,7 @@ public:
     QPushButton* getEnd();
 
     void setName(QString);
-    void setPowerLevel(int);
+//    void setPowerLevel(int);
     void setFrequency(int);
 
 private:
@@ -53,6 +53,9 @@ private slots:
     void showTime();
     void startTimer();
     void endTimer();
+    void increasePowerLevel();
+    void decreasePowerLevel();
+    void showFrequencyOnDisplay(int);
 };
 
 #endif // THERAPYPAGE_H

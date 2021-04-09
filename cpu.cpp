@@ -28,17 +28,14 @@ void Cpu::startDevice(){
     connect(m.right,SIGNAL(clicked()),m.right,SLOT(rightButtonClicked()));
     connect(m.fs,SIGNAL(valueChanged(int)),m.display->getFrequencyPage(),SLOT(showValueOnDisplay(int)));
     connect(m.display->getTherapyPage()->startStop,SIGNAL(clicked()),&thread,SLOT(start()));
-
     connect(m.display->getTherapyPage()->end,SIGNAL(clicked()),&thread,SLOT(terminate()));
     connect(m.right,SIGNAL(clicked()),m.power,SLOT(increasePower()));
     connect(m.left,SIGNAL(clicked()),m.power,SLOT(decreasePower()));
+    connect(m.right,SIGNAL(clicked()),m.display->getTherapyPage(),SLOT(increasePowerLevel()));
+    connect(m.left,SIGNAL(clicked()),m.display->getTherapyPage(),SLOT(decreasePowerLevel()));
+    connect(m.fs,SIGNAL(valueChanged(int)),m.display->getTherapyPage(),SLOT(showFrequencyOnDisplay(int)));
     connect(m.display->getTherapyPage()->startStop,SIGNAL(clicked()),m.display->getTherapyPage(),SLOT(startTimer()));
     connect(m.display->getTherapyPage()->end,SIGNAL(clicked()),m.display->getTherapyPage(),SLOT(endTimer()));
-
-
-
-
-
 
 }
 
