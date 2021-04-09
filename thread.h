@@ -12,6 +12,7 @@ public:
 
     Thread(Battery *battery);
     void run();
+    void stop();
     Battery *battery;
 };
 

@@ -17,14 +17,15 @@ Battery::~Battery(){
 }
 
 void Battery::drainBattery() {
-    qDebug()<<"running";
+
     while(this->value() != 1){
         this->setValue(level-1);
         level -= 1;
-        qDebug() << level;
         sleep(1);
     }
 }
+
+
 
 
 

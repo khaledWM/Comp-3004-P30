@@ -12,3 +12,8 @@ void Thread::run(){
 
 battery->drainBattery();
 }
+
+void Thread::stop(){
+
+    this->quit();
+}
