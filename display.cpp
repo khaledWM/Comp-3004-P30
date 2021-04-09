@@ -108,7 +108,7 @@ void Display:: selectChoice(){
     {
         tp->setName(pp->list->currentItem()->text());
         tp->setFrequency(fp->getValue().toInt());
-
+//        tp->setPowerLevel()
         setCurrentIndex(5);
     }
     else if(this->currentIndex()==4){

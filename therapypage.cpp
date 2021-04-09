@@ -82,13 +82,25 @@ void TherapyPage::setName(QString name)
 void TherapyPage::setFrequency(int value)
 {
     freq = value;
-    label2->setNum(value);
+//    label2->setNum(freq);
 }
 
-void TherapyPage::setPowerLevel(int level)
+void TherapyPage::increasePowerLevel()
 {
-    powerLevel = level;
-    label3->setNum(level);
+    ++powerLevel;
+    label3->setNum(powerLevel);
+}
+
+void TherapyPage::decreasePowerLevel()
+{
+    --powerLevel;
+    label3->setNum(powerLevel);
+}
+
+void TherapyPage::showFrequencyOnDisplay(int value)
+{
+    freq = value;
+    label2->setNum(freq);
 }
 
 void TherapyPage::startTimer(){
