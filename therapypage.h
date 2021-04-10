@@ -41,14 +41,6 @@ public:
     void setMinsAndSecs(int,int);
 
 private:
-    void validateTime(int,int);
-    void resetTimer();
-    void createRecording(QString,QString, QTime,int,int,int,int);
-
-signals:
-    void emitStopThread();
-    void emitRecording(Recording *);
-private:
     QString minString ;
     QString secsString;
     QString name;
@@ -57,6 +49,8 @@ private:
     QLabel *label;
     QLabel *label2;
     QLabel *label3;
+    QLabel *setPowerLabel;
+    QLayout *layout;
 
     bool therapyStarted=false;
     int timerMins;
@@ -69,6 +63,15 @@ private:
     int prevSeconds;
     int prevFreq;
     void recordMinutesAndSecond();
+    void validateTime(int,int);
+    void resetTimer();
+    void createRecording(QString,QString, QTime,int,int,int,int);
+
+
+signals:
+    void emitStopThread();
+    void emitRecording(Recording *);
+    void emitTurnOffStart(int);
 
 
 public slots:

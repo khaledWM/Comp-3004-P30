@@ -20,35 +20,40 @@ public:
     QPushButton* getStartStop();
     QPushButton* getEnd();
     QString getName();
-//    int getMins();
-//    int getSeconds();
-//    int getFrequency();
-//    int getPowerLevel();
     void setName(QString);
     void setFrequency(int);
-    void createRecording(QString ,QString, QTime , int , int , int, int );
+    //    int getMins();
+    //    int getSeconds();
+    //    int getFrequency();
+    //    int getPowerLevel();
+
 signals:
     void emitStopThread();
     void emitRecording(Recording*);
+    void emitTurnOffStart(int);
+
 public slots:
      void endTimer();
 
 private:
+    QString minString ;
+    QString secsString;
+    QString name;
+    QLCDNumber *frequenctTherapyTimerDisplay;
+    QTimer *timer;
+    QLabel *label;
+    QLabel *label2;
+    QLabel *label3;
+    QLabel *setPowerLabel;
+    QLayout *layout;
+    Recording * r;
     int timerMins;
     int timerSecs;
     int freq;
     int powerLevel;
     bool frequencyTherapyStarted=false;
-    Recording * r;
-    QString minString ;
-    QString secsString;
-    QString name;
-    QLCDNumber *therapyTimerDisplay;
-    QTimer *timer;
-    QLabel *label;
-    QLabel *label2;
-    QLabel *label3;
     void validateTime(int, int);
+    void createRecording(QString ,QString, QTime , int , int , int, int );
 
 private slots:
     void showTime();

@@ -50,6 +50,12 @@ m.show();
     connect(m.display->getFrequencyTherapyPage(),SIGNAL(emitStopThread()),&thread,SLOT(stopThread()));
     connect(m.display->getTherapyPage(),SIGNAL(emitRecording(Recording*)),m.display->getViewHistoryPage(),SLOT(addRecording(Recording *)));
      connect(m.display->getFrequencyTherapyPage(),SIGNAL(emitRecording(Recording*)),m.display->getViewHistoryPage(),SLOT(addRecording(Recording *)));
+
+    connect(m.display->getTherapyPage(),SIGNAL(emitTurnOffStart(int)),m.power,SLOT(adjustPowerLevelDuringTherapy(int)));
+    connect(m.display->getFrequencyTherapyPage(),SIGNAL(emitTurnOffStart(int)),m.power,SLOT(adjustPowerLevelDuringTherapy(int)));
+
+    connect(m.display,SIGNAL(emitClearHistory()),m.display->getViewHistoryPage(),SLOT(clearHistory()));
+
 }
 
 
