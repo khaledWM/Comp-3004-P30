@@ -7,6 +7,7 @@
 #include<QTimer>
 #include<QTime>
 #include "page.h"
+#include"recording.h"
 
 class FrequencyTherapyPage : public Page
 {
@@ -19,14 +20,16 @@ public:
     QPushButton* getStartStop();
     QPushButton* getEnd();
     QString getName();
-    int getMins();
-    int getSeconds();
-    int getFrequency();
-    int getPowerLevel();
+//    int getMins();
+//    int getSeconds();
+//    int getFrequency();
+//    int getPowerLevel();
     void setName(QString);
     void setFrequency(int);
+    void createRecording(QString ,QString, QTime , int , int , int, int );
 signals:
     void emitStopThread();
+    void emitRecording(Recording*);
 public slots:
      void endTimer();
 
@@ -35,13 +38,17 @@ private:
     int timerSecs;
     int freq;
     int powerLevel;
+    bool frequencyTherapyStarted=false;
+    Recording * r;
+    QString minString ;
+    QString secsString;
     QString name;
     QLCDNumber *therapyTimerDisplay;
     QTimer *timer;
     QLabel *label;
     QLabel *label2;
     QLabel *label3;
-    void validateTime(QString, QString);
+    void validateTime(int, int);
 
 private slots:
     void showTime();

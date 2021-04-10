@@ -7,27 +7,27 @@ Display::Display(QWidget *parent ): QStackedWidget (parent){
       setGeometry(240,40,390,320);
       setStyleSheet("background-color:rgb(211, 215, 207);");
 
-      sp = new StartPage(this);
-      mp  = new MainMenuPage;
-      pp = new ProgramsPage;
-      fp = new FrequencyPage;
-      hp = new HistoryPage;
-      tp = new TherapyPage;
-      vp = new ViewHistoryPage;
-      np = new NoImplementation;
-      ftp= new FrequencyTherapyPage;
+      startPage = new StartPage(this);
+      mainMenuPage  = new MainMenuPage;
+      programsPage = new ProgramsPage;
+      frequencyPage = new FrequencyPage;
+      historyOptionsPage = new HistoryPage;
+      therapyPage = new TherapyPage;
+      viewHistoryPage = new ViewHistoryPage;
+      noImplementationPage = new NoImplementation;
+      frequencyTherapyPage= new FrequencyTherapyPage;
 
 
 
-      this->addWidget(sp);
-      this->addWidget(mp);
-      this->addWidget(pp);
-      this->addWidget(fp);
-      this->addWidget(hp);
-      this->addWidget(tp);
-      this->addWidget(vp);
-      this->addWidget(np);
-      this->addWidget(ftp);
+      this->addWidget(startPage);
+      this->addWidget(mainMenuPage);
+      this->addWidget(programsPage);
+      this->addWidget(frequencyPage);
+      this->addWidget(historyOptionsPage);
+      this->addWidget(therapyPage);
+      this->addWidget(viewHistoryPage);
+      this->addWidget(noImplementationPage);
+      this->addWidget(frequencyTherapyPage);
 
 }
 
@@ -38,42 +38,42 @@ Display::~Display(){
 
 StartPage* Display::getStartPage()
 {
-    return sp;
+    return startPage;
 }
 
 MainMenuPage* Display::getMainPage()
 {
-    return mp;
+    return mainMenuPage;
 }
 ProgramsPage* Display::getProgramsPage()
 {
-    return pp;
+    return programsPage;
 }
 FrequencyPage* Display::getFrequencyPage()
 {
-    return fp;
+    return frequencyPage;
 }
 HistoryPage* Display::getHistoryPage()
 {
-    return hp;
+    return historyOptionsPage;
 }
 TherapyPage* Display::getTherapyPage()
 {
-    return tp;
+    return therapyPage;
 }
 ViewHistoryPage* Display::getViewHistoryPage()
 {
-    return vp;
+    return viewHistoryPage;
 }
 
 NoImplementation* Display::getNoImplementationPage()
 {
-    return np;
+    return noImplementationPage;
 }
 
 FrequencyTherapyPage * Display::getFrequencyTherapyPage(){
 
-    return ftp;
+    return frequencyTherapyPage;
 }
 void Display:: enableButtons(bool x)
 {
@@ -92,7 +92,7 @@ void Display::changeToMainPage()
 {
     if(this->currentIndex() == 0)
     {
-        setCurrentIndex(1);
+        setCurrentIndex(mainMenuPage->getID());
     }
 }
 
@@ -103,9 +103,9 @@ void Display:: selectChoice(){
         return;
     }
 
-    else if (this->currentIndex()== 1)
+    else if (this->currentIndex()== mainMenuPage->getID())
     {
-        int currentRow=this->mp->list->currentRow();
+        int currentRow=this->mainMenuPage->list->currentRow();
 
 
         if (currentRow==0)
@@ -124,14 +124,15 @@ void Display:: selectChoice(){
         }
 
     }
-    else if (this->currentIndex()==2)
+    else if (this->currentIndex()==programsPage->getID())
     {
-        int currentRow=this->pp->list->currentRow();
+        int currentRow=this->programsPage->list->currentRow();
         enableButtons(true);
+        qDebug()<<currentRow;
         startProgram(currentRow);
     }
-    else if(this->currentIndex()==4){
-        setCurrentIndex(6);
+    else if(this->currentIndex()==historyOptionsPage->getID()){
+        setCurrentIndex(viewHistoryPage->getID());
     }
 
 
@@ -141,40 +142,44 @@ void Display:: startProgram(int programNumber){
 
     if (programNumber == 0){
         allergy= new Allergy;
-        tp->setMinsAndSecs(allergy->minutes,allergy->seconds);
-        tp->setName(allergy->programName);
-        tp->setFrequency(allergy->frequency);
+        therapyPage->setMinsAndSecs(allergy->minutes,allergy->seconds);
+        therapyPage->setName(allergy->programName);
+        therapyPage->setFrequency(allergy->frequency);
         setFrequencyOnSlider(allergy->frequency);
 
     }
     else if(programNumber==1){
         bloating= new Bloating;
-        tp->setMinsAndSecs(bloating->minutes,bloating->seconds);
-        tp->setName(bloating->programName);
-        tp->setFrequency(bloating->frequency);
+        therapyPage->setMinsAndSecs(bloating->minutes,bloating->seconds);
+        therapyPage->setName(bloating->programName);
+        therapyPage->setFrequency(bloating->frequency);
          setFrequencyOnSlider(bloating->frequency);
     }
     else if (programNumber==2) {
         trauma= new Trauma;
-        tp->setMinsAndSecs(trauma->minutes,trauma->seconds);
-        tp->setName(trauma->programName);
-        tp->setFrequency(trauma->frequency);
+        therapyPage->setMinsAndSecs(trauma->minutes,trauma->seconds);
+        therapyPage->setName(trauma->programName);
+        therapyPage->setFrequency(trauma->frequency);
          setFrequencyOnSlider(trauma->frequency);
     }
     else if(programNumber==3){
         kidney =new Kidney;
-        tp->setMinsAndSecs( kidney->minutes, kidney->seconds);
-        tp->setName( kidney->programName);
-        tp->setFrequency(kidney->frequency);
+        therapyPage->setMinsAndSecs( kidney->minutes, kidney->seconds);
+        therapyPage->setName( kidney->programName);
+        therapyPage->setFrequency(kidney->frequency);
          setFrequencyOnSlider(kidney->frequency);
+    }
+    else{
+        setCurrentIndex(noImplementationPage->getID());
+        return;
     }
 
 setCurrentIndex(5);
 }
 void Display:: startFrequency(){
-    ftp->setName("Frequency");
-    ftp->setFrequency(fp->getValue().toInt());
-    setFrequencyOnSlider(fp->getValue().toInt());
+    frequencyTherapyPage->setName("Frequency");
+    frequencyTherapyPage->setFrequency(frequencyPage->getValue().toInt());
+    setFrequencyOnSlider(frequencyPage->getValue().toInt());
     enableButtons(true);
     setCurrentIndex(8);
 }
@@ -182,58 +187,58 @@ void Display:: startFrequency(){
 void Display:: navigateDownList(){
 
 
-    if(this->currentIndex()==1 && this->mp->list->currentRow()<this->mp->list->count()-1){
-        this->mp->list->setCurrentRow(this->mp->list->currentRow()+1);
+    if(this->currentIndex()==mainMenuPage->getID() && this->mainMenuPage->list->currentRow()<this->mainMenuPage->list->count()-1){
+        this->mainMenuPage->list->setCurrentRow(this->mainMenuPage->list->currentRow()+1);
     }
-    else if (this->currentIndex()==2 && this->pp->list->currentRow()<this->pp->list->count()-1) {
-        this->pp->list->setCurrentRow(this->pp->list->currentRow()+1);
+    else if (this->currentIndex()==programsPage->getID() && this->programsPage->list->currentRow()<this->programsPage->list->count()-1) {
+        this->programsPage->list->setCurrentRow(this->programsPage->list->currentRow()+1);
     }
-    else if (this->currentIndex()==4 && this->hp->list->currentRow()<this->hp->list->count()-1) {
-        this->hp->list->setCurrentRow(this->hp->list->currentRow()+1);
+    else if (this->currentIndex()==historyOptionsPage->getID() && this->historyOptionsPage->list->currentRow()<this->historyOptionsPage->list->count()-1) {
+        this->historyOptionsPage->list->setCurrentRow(this->historyOptionsPage->list->currentRow()+1);
     }
 
-    else if (this->currentIndex() == 5 && this->tp->list->currentRow()<this->tp->list->count()-1) {
-        this->tp->list->setCurrentRow(this->tp->list->currentRow()+1);
+    else if (this->currentIndex() == viewHistoryPage->getID() && this->therapyPage->list->currentRow()<this->therapyPage->list->count()-1) {
+        this->therapyPage->list->setCurrentRow(this->therapyPage->list->currentRow()+1);
     }
 }
 
 void Display:: navigateUpList(){
 
-    if(this->currentIndex()==1 && this->mp->list->currentRow()>0){
-        this->mp->list->setCurrentRow(this->mp->list->currentRow()-1);
+    if(this->currentIndex()==mainMenuPage->getID() && this->mainMenuPage->list->currentRow()>0){
+        this->mainMenuPage->list->setCurrentRow(this->mainMenuPage->list->currentRow()-1);
     }
-    else if (this->currentIndex()==2 && this->pp->list->currentRow()>0) {
-        this->pp->list->setCurrentRow(this->pp->list->currentRow()-1);
+    else if (this->currentIndex()==programsPage->getID() && this->programsPage->list->currentRow()>0) {
+        this->programsPage->list->setCurrentRow(this->programsPage->list->currentRow()-1);
     }
-    else if (this->currentIndex()==4 && this->hp->list->currentRow()>0) {
-        this->hp->list->setCurrentRow(this->hp->list->currentRow()-1);
+    else if (this->currentIndex()==historyOptionsPage->getID() && this->historyOptionsPage->list->currentRow()>0) {
+        this->historyOptionsPage->list->setCurrentRow(this->historyOptionsPage->list->currentRow()-1);
     }
-    else if (this->currentIndex() == 5 && this->tp->list->currentRow()>0) {
-        this->tp->list->setCurrentRow(this->tp->list->currentRow()-1);
+    else if (this->currentIndex() == viewHistoryPage->getID() && this->therapyPage->list->currentRow()>0) {
+        this->therapyPage->list->setCurrentRow(this->therapyPage->list->currentRow()-1);
     }
 }
 
 
 void Display:: backOutOfPage(){
-    if(this->currentIndex()>1){
-         if (this->currentIndex()==5) {
-             this->tp->endTimer();
+    if(this->currentIndex()>mainMenuPage->getID()){
+         if (this->currentIndex()==therapyPage->getID()) {
+             this->therapyPage->endTimer();
              enableButtons(false);
              resetFrequencyOnSlider();
-             setCurrentIndex(2);
+             setCurrentIndex(programsPage->getID());
         }
-         else if (this->currentIndex()==6) {
-
-             setCurrentIndex(4);
-         }
-         else if(this->currentIndex() == 8){
-             this->ftp->endTimer();
+         else if(this->currentIndex() == frequencyTherapyPage->getID()){
+             this->frequencyTherapyPage->endTimer();
              resetFrequencyOnSlider();
              enableButtons(false);
-             setCurrentIndex(1);
+             setCurrentIndex(mainMenuPage->getID());
          }
+         else if (this->currentIndex()==viewHistoryPage->getID()) {
+             setCurrentIndex(historyOptionsPage->getID());
+         }
+
         else {
-            setCurrentIndex(1);
+            setCurrentIndex(mainMenuPage->getID());
         }
     }
 

@@ -8,8 +8,9 @@ class Recording: public QObject
 {
     Q_OBJECT
 public:
-    Recording(QString, QTime,int,int,int,int);
+    Recording(QString,QString, QTime,int,int,int,int);
     QString getName();
+    QString getType();
     QTime getDate();
     int getPowerLevel();
     int getFreq();
@@ -17,6 +18,7 @@ public:
     int getMinutes();
 private:
     QString name;
+    QString type;
     QTime date;
     int powerLevel;
     int freq;

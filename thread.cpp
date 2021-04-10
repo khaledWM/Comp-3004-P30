@@ -14,6 +14,8 @@ battery->drainBattery();
 }
 
 void Thread::stopThread(){
+    if(this->isRunning()){
+    this->terminate();
 
-this->terminate();
+    }
 }
