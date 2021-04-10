@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -26,7 +27,11 @@ MainWindow::MainWindow(QWidget *parent) :
         ok = new Button(tr("Ok"),400,450,this);
         back  = new Button(tr("Back"),250,400,this);
 
+
+
 }
+
+
 
 MainWindow::~MainWindow()
 {

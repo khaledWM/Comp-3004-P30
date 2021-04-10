@@ -4,6 +4,7 @@
 #include<QDebug>
 #include<QLabel>
 #include <QLayout>
+#include<QDebug>
 
 
 
@@ -15,13 +16,16 @@ public:
     PowerLevel( QWidget *parent = nullptr);
     ~PowerLevel();
     int getPowerLevel();
-
+signals:
+  void  emitPowerLevel(int);
 private slots:
     void increasePower();
     void decreasePower();
+    void checkallowButtonBool(bool);
 
 private:
     int power;
+    bool checkOnPowerTherapyPage;
 
 };
 

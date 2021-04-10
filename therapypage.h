@@ -40,7 +40,8 @@ private:
     void validateTime(QString,QString);
     void resetTimer();
 
-
+signals:
+    void emitStopThread();
 private:
     QString minString ;
     QString secsString;
@@ -64,11 +65,12 @@ public slots:
      void endTimer();
 
 
+
 private slots:
     void showTime();
     void startTimer();
-    void increasePowerLevel();
-    void decreasePowerLevel();
+    void increasePowerLevel(int);
+    void decreasePowerLevel(int);
     void showFrequencyOnDisplay(int);
 };
 

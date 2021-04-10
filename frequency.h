@@ -25,6 +25,10 @@ public:
 private:
     int value;
 
+private slots:
+   void setFrequencyValue(int);
+   void enableFrequencyChange();
+
 
 };
 
