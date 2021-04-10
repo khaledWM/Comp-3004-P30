@@ -1,7 +1,7 @@
 #include "page.h"
 
 
-int Page::nextID=1;
+int Page::nextID=0;
 Page::Page( QWidget *parent ): QWidget (parent){
 
     setGeometry(240,40,390,320);

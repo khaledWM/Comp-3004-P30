@@ -6,14 +6,18 @@
 #include"QGridLayout"
 class ViewHistoryPage : public Page
 {
+    Q_OBJECT
 public:
     ViewHistoryPage(QWidget *parent=nullptr);
     ~ViewHistoryPage();
 
 private:
     QGridLayout *layout;
+    int row=0;
+    int col=0;
 private slots:
-    void addRecording(int);
+    void addRecording(Recording*);
+
 
 };
 

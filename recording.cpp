@@ -1,8 +1,9 @@
 #include "recording.h"
 
-Recording::Recording(QString n,QTime t, int pl,int f,int s,int m)
+Recording::Recording(QString type,QString name,QTime t, int pl,int f,int s,int m)
 {
-    this->name = n;
+    this->type=type;
+    this->name = name;
     this->date = t;
     this->powerLevel = pl;
     this->freq = f;
@@ -12,6 +13,9 @@ Recording::Recording(QString n,QTime t, int pl,int f,int s,int m)
 
 QString Recording::getName(){
     return this->name;
+}
+QString Recording::getType(){
+    return this->type;
 }
 
 QTime Recording::getDate(){
@@ -33,3 +37,5 @@ int Recording::getSeconds(){
 int Recording::getMinutes(){
     return this->minutes;
 }
+
+

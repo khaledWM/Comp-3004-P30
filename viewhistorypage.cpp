@@ -10,27 +10,31 @@ label->setText("No data to display");
 
 layout = new QGridLayout();
 layout->addWidget(label);
-/*QLayout *layout2 = new QHBoxLayout();
-QLayout *layout3= new QHBoxLayout();
-QListWidget *list1 = new QListWidget();
-QListWidget *list2 = new QListWidget();
-list1->addItem("frequency");
-list1->addItem("77");
-list2->addItem("therapy");
-list2->addItem("85");
-layout2->addWidget(list1);
-layout3->addWidget(list2);
-layout->addLayout(layout2,0,0);
-layout->addLayout(layout3,2,0);*/
-
 setLayout(layout);
 }
 
 ViewHistoryPage::~ViewHistoryPage(){};
 
-void ViewHistoryPage::addRecording(int pl){
-    //QLayout *layout2 = new QHBoxLayout();
-    //QListWidget *list1 = new QListWidget();
-    qDebug() << pl;
+void ViewHistoryPage::addRecording(Recording* r){
+    QLayout *layout2 = new QHBoxLayout();
+    QListWidget *list1 = new QListWidget();
+    QString freq = QString::number(r->getFreq());
+    QString mins = QString::number(r->getMinutes());
+    QString secs = QString::number(r->getSeconds());
+    QString powerLevel = QString::number(r->getPowerLevel());
+    list1->addItem(r->getDate().toString("hh : mm"));
+    if(r->getType()=="Program"){
+        list1->addItem("Treatment: "+r->getType()+", " +r->getName());
+    }
+    else{
+        list1->addItem("Treatment: "+r->getType());
+    }
 
+    list1->addItem("Power level: "+ powerLevel);
+    list1->addItem("Frequency "+freq);
+    list1->addItem("Duration: "+ mins +"m"+secs+"s");
+
+    layout2->addWidget(list1);
+    layout->addLayout(layout2,row,col);
+    this->row++;
 }

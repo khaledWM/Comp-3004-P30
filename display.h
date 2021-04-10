@@ -29,15 +29,15 @@ class Display: public QStackedWidget{
 
 
 private:
-    StartPage *sp;
-    MainMenuPage *mp;
-    ProgramsPage *pp;
-    FrequencyPage *fp;
-    HistoryPage *hp;
-    TherapyPage *tp;
-    NoImplementation *np;
-    ViewHistoryPage *vp;
-    FrequencyTherapyPage* ftp;
+    StartPage *startPage;
+    MainMenuPage *mainMenuPage;
+    ProgramsPage *programsPage;
+    FrequencyPage *frequencyPage;
+    HistoryPage *historyOptionsPage;
+    TherapyPage *therapyPage;
+    NoImplementation *noImplementationPage;
+    ViewHistoryPage *viewHistoryPage;
+    FrequencyTherapyPage* frequencyTherapyPage;
     PowerLevel *pl;
     Trauma *trauma;
     Allergy *allergy;

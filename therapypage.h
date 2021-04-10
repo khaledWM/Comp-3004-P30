@@ -26,25 +26,28 @@ public:
     TherapyPage(QString = "NULL", int = 0, QWidget *parent = nullptr);
 
     ~TherapyPage();
-    QString getName();
+
     QPushButton* getStartStop();
     QPushButton* getEnd();
-    int getMins();
-    int getSeconds();
-    int getFrequency();
-    int getPowerLevel();
+// QString getName();
+//    int getMins();
+//    int getSeconds();
+//    int getFrequency();
+//    int getPowerLevel();
+//    void setPowerLevel(int);
+    //bool getTherapyStarted();
     void setName(QString);
     void setFrequency(int);
     void setMinsAndSecs(int,int);
-        //    void setPowerLevel(int);
+
 private:
-    void validateTime(QString,QString);
+    void validateTime(int,int);
     void resetTimer();
-    void createRecording(QString, QTime,int,int,int,int);
+    void createRecording(QString,QString, QTime,int,int,int,int);
 
 signals:
     void emitStopThread();
-    void emitRecording(int);
+    void emitRecording(Recording *);
 private:
     QString minString ;
     QString secsString;
@@ -55,13 +58,17 @@ private:
     QLabel *label2;
     QLabel *label3;
 
+    bool therapyStarted=false;
     int timerMins;
     int timerSecs;
+    int recordingMinutes;
+    int recordingSeconds;
     int freq;
     int powerLevel;
     int prevMins;
     int prevSeconds;
     int prevFreq;
+    void recordMinutesAndSecond();
 
 
 public slots:
