@@ -1,5 +1,6 @@
 #ifndef DISPLAY_H
 #define DISPLAY_H
+class Cpu;
 
 #include <QStackedWidget>
 #include<QPushButton>
@@ -22,8 +23,10 @@
 #include"kidney.h"
 
 
+
 class Display: public QStackedWidget{
     Q_OBJECT
+
 
 private:
     StartPage *sp;
@@ -40,6 +43,7 @@ private:
     Allergy *allergy;
     Bloating *bloating;
     Kidney *kidney;
+    Cpu *cpu;
     int current;
 
 
@@ -56,6 +60,16 @@ public:
     ViewHistoryPage* getViewHistoryPage();
     FrequencyTherapyPage* getFrequencyTherapyPage();
     NoImplementation* getNoImplementationPage();
+
+private:
+    void enableButtons(bool);
+    void setFrequencyOnSlider(int);
+    void resetFrequencyOnSlider();
+
+signals:
+    void allowButton(bool);
+    void emitFrequency(int);
+    void resetFrequency();
 
 
 private slots:

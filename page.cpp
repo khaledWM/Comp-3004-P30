@@ -31,3 +31,6 @@ QPushButton* Page::getEnd(){
 }
 
 
+
+
+

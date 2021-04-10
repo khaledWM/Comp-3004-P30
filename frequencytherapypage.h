@@ -25,7 +25,8 @@ public:
     int getPowerLevel();
     void setName(QString);
     void setFrequency(int);
-
+signals:
+    void emitStopThread();
 public slots:
      void endTimer();
 
@@ -45,8 +46,8 @@ private:
 private slots:
     void showTime();
     void startTimer();
-    void increasePowerLevel();
-    void decreasePowerLevel();
+    void increasePowerLevel(int);
+    void decreasePowerLevel(int);
     void showFrequencyOnDisplay(int);
 
 };

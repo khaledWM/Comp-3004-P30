@@ -83,18 +83,16 @@ void FrequencyTherapyPage::setFrequency(int value)
     label2->setNum(freq);
 }
 
-void FrequencyTherapyPage::increasePowerLevel()
+void FrequencyTherapyPage::increasePowerLevel(int power)
 {
-    if(powerLevel<100)
-    ++powerLevel;
-    label3->setNum(powerLevel);
+
+    label3->setNum(power);
 }
 
-void FrequencyTherapyPage::decreasePowerLevel()
+void FrequencyTherapyPage::decreasePowerLevel(int power)
 {
-    if(powerLevel>0)
-    --powerLevel;
-    label3->setNum(powerLevel);
+
+    label3->setNum(power);
 }
 
 void FrequencyTherapyPage::showFrequencyOnDisplay(int value)
@@ -108,6 +106,7 @@ void FrequencyTherapyPage::startTimer(){
     if(timer->isActive()) {
         timer->stop();
         startStop->setText("start");
+        emit emitStopThread();
         return;
     }
     startStop->setText("stop");
@@ -131,12 +130,10 @@ void FrequencyTherapyPage::endTimer(){
     startStop->setText("start");
     therapyTimerDisplay->display("00:00");
     QTime time = QTime::currentTime();
-    qDebug() << timerMins;
-    qDebug() << timerSecs;
     qDebug() << time.toString("hh : mm");
     timerMins = 0;
     timerSecs=0;
-
+    emit emitStopThread();
 }
 
 void FrequencyTherapyPage::validateTime(QString qstr, QString qstr2){

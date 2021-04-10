@@ -5,8 +5,11 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    Cpu cpu;
-    cpu.startDevice();
+
+    Cpu *cpu;
+    cpu = new Cpu();
+
+    cpu->startDevice();
 
     return a.exec();
 }

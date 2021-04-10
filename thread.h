@@ -14,6 +14,9 @@ public:
     void run();
     void stop();
     Battery *battery;
+
+private slots:
+    void stopThread();
 };
 
 #endif // THREAD_H

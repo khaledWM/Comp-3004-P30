@@ -94,18 +94,14 @@ void TherapyPage::setMinsAndSecs(int minutes,int seconds){
 
 }
 
-void TherapyPage::increasePowerLevel()
+void TherapyPage::increasePowerLevel(int power)
 {
-    if(powerLevel<100)
-    ++powerLevel;
-    label3->setNum(powerLevel);
+    label3->setNum(power);
 }
 
-void TherapyPage::decreasePowerLevel()
+void TherapyPage::decreasePowerLevel(int power)
 {
-    if(powerLevel>0)
-    --powerLevel;
-    label3->setNum(powerLevel);
+    label3->setNum(power);
 }
 
 void TherapyPage::showFrequencyOnDisplay(int value)
@@ -118,6 +114,7 @@ void TherapyPage::startTimer(){
     if(timer->isActive()) {
         timer->stop();
         startStop->setText("start");
+        emit emitStopThread();
         return;
     }
     startStop->setText("stop");
@@ -131,7 +128,6 @@ timerSecs--;
 
 if (timerSecs==-1 && timerMins==0){
     sleep(1);
-
     endTimer();
 }
 if(timerSecs == -1){
@@ -155,6 +151,7 @@ void TherapyPage::endTimer(){
     qDebug() << time.toString("hh : mm");
     setFrequency(prevFreq);
     setMinsAndSecs(prevMins,prevSeconds);
+    emit emitStopThread();
 
 }
 

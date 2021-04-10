@@ -13,7 +13,7 @@ void Thread::run(){
 battery->drainBattery();
 }
 
-void Thread::stop(){
+void Thread::stopThread(){
 
-    this->quit();
+this->terminate();
 }

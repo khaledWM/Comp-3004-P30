@@ -19,5 +19,18 @@ int Frequency::getValue()
 }
 
 
+void Frequency::setFrequencyValue(int freq){
+    setValue(freq);
+   setDisabled(true);
+}
+
+void Frequency::enableFrequencyChange (){
+    setValue(0);
+    setDisabled(false);
+}
+
+
+
+
 
 

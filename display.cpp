@@ -1,6 +1,6 @@
 #include "display.h"
 
-
+#include"cpu.h"
 Display::Display(QWidget *parent ): QStackedWidget (parent){
 
 
@@ -75,7 +75,19 @@ FrequencyTherapyPage * Display::getFrequencyTherapyPage(){
 
     return ftp;
 }
+void Display:: enableButtons(bool x)
+{
 
+    allowButton(x);
+}
+
+void Display:: setFrequencyOnSlider(int freq){
+    emitFrequency(freq);
+}
+
+void Display:: resetFrequencyOnSlider(){
+    emit resetFrequency();
+}
 void Display::changeToMainPage()
 {
     if(this->currentIndex() == 0)
@@ -83,6 +95,7 @@ void Display::changeToMainPage()
         setCurrentIndex(1);
     }
 }
+
 
 
 void Display:: selectChoice(){
@@ -114,6 +127,7 @@ void Display:: selectChoice(){
     else if (this->currentIndex()==2)
     {
         int currentRow=this->pp->list->currentRow();
+        enableButtons(true);
         startProgram(currentRow);
     }
     else if(this->currentIndex()==4){
@@ -130,32 +144,39 @@ void Display:: startProgram(int programNumber){
         tp->setMinsAndSecs(allergy->minutes,allergy->seconds);
         tp->setName(allergy->programName);
         tp->setFrequency(allergy->frequency);
+        setFrequencyOnSlider(allergy->frequency);
+
     }
     else if(programNumber==1){
         bloating= new Bloating;
         tp->setMinsAndSecs(bloating->minutes,bloating->seconds);
         tp->setName(bloating->programName);
         tp->setFrequency(bloating->frequency);
+         setFrequencyOnSlider(bloating->frequency);
     }
     else if (programNumber==2) {
         trauma= new Trauma;
         tp->setMinsAndSecs(trauma->minutes,trauma->seconds);
         tp->setName(trauma->programName);
         tp->setFrequency(trauma->frequency);
+         setFrequencyOnSlider(trauma->frequency);
     }
     else if(programNumber==3){
         kidney =new Kidney;
         tp->setMinsAndSecs( kidney->minutes, kidney->seconds);
         tp->setName( kidney->programName);
         tp->setFrequency(kidney->frequency);
+         setFrequencyOnSlider(kidney->frequency);
     }
 
 setCurrentIndex(5);
 }
 void Display:: startFrequency(){
-ftp->setName("Frequency");
-ftp->setFrequency(fp->getValue().toInt());
-        setCurrentIndex(8);
+    ftp->setName("Frequency");
+    ftp->setFrequency(fp->getValue().toInt());
+    setFrequencyOnSlider(fp->getValue().toInt());
+    enableButtons(true);
+    setCurrentIndex(8);
 }
 
 void Display:: navigateDownList(){
@@ -197,7 +218,9 @@ void Display:: backOutOfPage(){
     if(this->currentIndex()>1){
          if (this->currentIndex()==5) {
              this->tp->endTimer();
-            setCurrentIndex(2);
+             enableButtons(false);
+             resetFrequencyOnSlider();
+             setCurrentIndex(2);
         }
          else if (this->currentIndex()==6) {
 
@@ -205,6 +228,8 @@ void Display:: backOutOfPage(){
          }
          else if(this->currentIndex() == 8){
              this->ftp->endTimer();
+             resetFrequencyOnSlider();
+             enableButtons(false);
              setCurrentIndex(1);
          }
         else {

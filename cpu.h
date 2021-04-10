@@ -27,6 +27,11 @@ public:
     ~Cpu();
     void startDevice();
 
+
+
+signals:
+
+
 private:
     MainWindow m;
     Thread thread;
