@@ -1,14 +1,15 @@
-#include "recording.h"
+﻿#include "recording.h"
 
 Recording::Recording(QString type,QString name,QTime t, int pl,int f,int s,int m)
 {
     this->type=type;
     this->name = name;
-    this->date = t;
+    this->time = t;
     this->powerLevel = pl;
     this->freq = f;
     this->seconds = s;
     this->minutes = m;
+    date = QDateTime::currentDateTime();
 }
 
 QString Recording::getName(){
@@ -18,8 +19,8 @@ QString Recording::getType(){
     return this->type;
 }
 
-QTime Recording::getDate(){
-    return this->date;
+QTime Recording::getTime(){
+    return this->time;
 }
 
 int Recording::getPowerLevel(){
@@ -36,6 +37,12 @@ int Recording::getSeconds(){
 
 int Recording::getMinutes(){
     return this->minutes;
+}
+
+QString Recording::getDay(){
+
+  return QDateTime::currentDateTime().toString("yyyy/MM/dd HH:mm:ss");
+
 }
 
 

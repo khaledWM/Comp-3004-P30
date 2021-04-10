@@ -18,26 +18,27 @@ FrequencyTherapyPage::FrequencyTherapyPage(QString name, int freq, QWidget *pare
     label = new QLabel();
     label2 = new QLabel();
     label3 = new QLabel();
-
+    setPowerLabel= new QLabel();
     QString qstr = QString::number(timerMins);
     QString qstr2 = QString::number(timerSecs);
 
-    therapyTimerDisplay = new QLCDNumber();
-    therapyTimerDisplay->display("0" + qstr + ":" + "0" + qstr2);
+    frequenctTherapyTimerDisplay = new QLCDNumber();
+    frequenctTherapyTimerDisplay->display("0" + qstr + ":" + "0" + qstr2);
 
     label->setText(name);
     label2->setNum(freq);
     label3->setNum(powerLevel);
-    therapyTimerDisplay->setGeometry(80,50,221,61);
+    frequenctTherapyTimerDisplay->setGeometry(80,50,221,61);
 
 
 
-    QLayout *layout = new QVBoxLayout();
+    layout = new QVBoxLayout();
 
-    layout->addWidget(therapyTimerDisplay);
+    layout->addWidget(frequenctTherapyTimerDisplay);
     layout->addWidget(label);
     layout->addWidget(label2);
     layout->addWidget(label3);
+    layout->addWidget(setPowerLabel);
     layout->addWidget(startStop);
     layout->addWidget(end);
 
@@ -105,6 +106,14 @@ void FrequencyTherapyPage::showFrequencyOnDisplay(int value)
 }
 
 void FrequencyTherapyPage::startTimer(){
+    if(powerLevel==0){
+        setPowerLabel->setText("This therapy cannot start without adjusting power level");
+        emitStopThread();
+        return;
+    }
+
+    setPowerLabel->setText("The power level has been asjusted ");
+    emit emitTurnOffStart(powerLevel);
     this->frequencyTherapyStarted=true;
     if(timer->isActive()) {
         timer->stop();
@@ -131,12 +140,17 @@ void FrequencyTherapyPage::endTimer(){
     if(this->frequencyTherapyStarted==true){
     timer->stop();
     startStop->setText("start");
-    therapyTimerDisplay->display("00:00");
+    frequenctTherapyTimerDisplay->display("00:00");
     QTime time = QTime::currentTime();
     createRecording("Frequency",this->name,time,this->powerLevel,this->freq,this->timerSecs,this->timerMins);
     timerMins = 0;
     timerSecs=0;
     this->frequencyTherapyStarted=false;
+    this->powerLevel=0;
+    label3->setNum(0);
+    setPowerLabel->setText("This therapy cannot start without adjusting power level");
+    this->frequencyTherapyStarted=false;
+    emit emitTurnOffStart(0);
     emit emitStopThread();
     }
 }
@@ -146,11 +160,11 @@ void FrequencyTherapyPage::validateTime(int mins, int secs){
     secsString = QString::number(secs);
 
     if (timerMins<10 && timerSecs<10) {
-        therapyTimerDisplay->display("0" + minString + ":" + "0" + secsString);
+        frequenctTherapyTimerDisplay->display("0" + minString + ":" + "0" + secsString);
     }else if(timerMins<10) {
-        therapyTimerDisplay->display("0" + minString + ":" + secsString);
+        frequenctTherapyTimerDisplay->display("0" + minString + ":" + secsString);
     }else if(timerSecs<10) {
-        therapyTimerDisplay->display(minString + ":" + "0" + secsString);
+        frequenctTherapyTimerDisplay->display(minString + ":" + "0" + secsString);
     }
 }
 

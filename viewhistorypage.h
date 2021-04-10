@@ -4,6 +4,7 @@
 #include "recording.h"
 #include"QLabel"
 #include"QGridLayout"
+#include"QFrame"
 class ViewHistoryPage : public Page
 {
     Q_OBJECT
@@ -13,10 +14,9 @@ public:
 
 private:
     QGridLayout *layout;
-    int row=0;
-    int col=0;
 private slots:
     void addRecording(Recording*);
+    void clearHistory();
 
 
 };

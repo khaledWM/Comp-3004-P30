@@ -70,6 +70,7 @@ signals:
     void allowButton(bool);
     void emitFrequency(int);
     void resetFrequency();
+    void emitClearHistory();
 
 
 private slots:

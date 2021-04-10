@@ -22,9 +22,12 @@ private slots:
     void increasePower();
     void decreasePower();
     void checkallowButtonBool(bool);
+    void adjustPowerLevelDuringTherapy(int);
 
 private:
     int power;
+    int maxPower;
+    int minPower;
     bool checkOnPowerTherapyPage;
 
 };

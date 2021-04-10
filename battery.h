@@ -12,6 +12,7 @@ class Battery: public QProgressBar {
 private:
     int level;
 
+
 private slots:
 
 

@@ -128,10 +128,14 @@ void Display:: selectChoice(){
     {
         int currentRow=this->programsPage->list->currentRow();
         enableButtons(true);
-        qDebug()<<currentRow;
         startProgram(currentRow);
     }
     else if(this->currentIndex()==historyOptionsPage->getID()){
+
+        if(this->historyOptionsPage->list->currentRow()==1){
+           emit emitClearHistory();
+        }
+
         setCurrentIndex(viewHistoryPage->getID());
     }
 
