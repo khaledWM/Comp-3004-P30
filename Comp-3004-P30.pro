@@ -44,6 +44,7 @@ SOURCES += \
         powerlevel.cpp \
         program.cpp \
         programspage.cpp \
+        recording.cpp \
         startpage.cpp \
         therapypage.cpp \
         thread.cpp \
@@ -70,6 +71,7 @@ HEADERS += \
         powerlevel.h \
         program.h \
         programspage.h \
+        recording.h \
         startpage.h \
         therapypage.h \
         thread.h \

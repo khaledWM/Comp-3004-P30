@@ -19,6 +19,7 @@
 #include"therapypage.h"
 #include"mainwindow.h"
 #include"thread.h"
+#include"recording.h"
 class Cpu:public QObject
 {
     Q_OBJECT

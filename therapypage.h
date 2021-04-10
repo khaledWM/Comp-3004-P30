@@ -13,6 +13,7 @@
 #include "page.h"
 #include "frequencypage.h"
 #include "frequency.h"
+#include "recording.h"
 #include <unistd.h>
 #include <cstdlib>
 
@@ -39,9 +40,11 @@ public:
 private:
     void validateTime(QString,QString);
     void resetTimer();
+    void createRecording(QString, QTime,int,int,int,int);
 
 signals:
     void emitStopThread();
+    void emitRecording(int);
 private:
     QString minString ;
     QString secsString;

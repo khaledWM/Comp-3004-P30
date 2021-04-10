@@ -48,6 +48,7 @@ m.show();
 
     connect(m.display->getTherapyPage(),SIGNAL(emitStopThread()),&thread,SLOT(stopThread()));
     connect(m.display->getFrequencyTherapyPage(),SIGNAL(emitStopThread()),&thread,SLOT(stopThread()));
+    connect(m.display->getTherapyPage(),SIGNAL(emitRecording(int)),m.display->getViewHistoryPage(),SLOT(addRecording(int)));
 }
 
 

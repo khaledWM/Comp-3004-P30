@@ -149,6 +149,7 @@ void TherapyPage::endTimer(){
     therapyTimerDisplay->display("00:00");
     QTime time = QTime::currentTime();
     qDebug() << time.toString("hh : mm");
+    createRecording("program",time,this->powerLevel,this->freq,this->timerSecs,this->timerMins);
     setFrequency(prevFreq);
     setMinsAndSecs(prevMins,prevSeconds);
     emit emitStopThread();
@@ -165,7 +166,11 @@ void TherapyPage::validateTime(QString qstr, QString qstr2){
     }
 }
 
-
+void TherapyPage::createRecording(QString n, QTime t, int pl, int f, int s, int m){
+    Recording *r = new Recording(n,t,pl,f,s,m);
+    qDebug() << n;
+    emit emitRecording(pl);
+}
 
 
 
