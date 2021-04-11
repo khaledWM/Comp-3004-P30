@@ -7,16 +7,16 @@ Display::Display(QWidget *parent ): QStackedWidget (parent){
       setGeometry(240,40,390,320);
       setStyleSheet("background-color:rgb(211, 215, 207);");
 
-      startPage = new StartPage(this);
-      mainMenuPage  = new MainMenuPage;
-      programsPage = new ProgramsPage;
-      frequencyPage = new FrequencyPage;
-      historyOptionsPage = new HistoryPage;
-      therapyPage = new TherapyPage;
-      viewHistoryPage = new ViewHistoryPage;
-      noImplementationPage = new NoImplementation;
-      frequencyTherapyPage= new FrequencyTherapyPage;
-      powerDownPage = new PowerDownPage;
+      startPage = new StartPage(this);                  // 0
+      mainMenuPage  = new MainMenuPage;                 // 1
+      programsPage = new ProgramsPage;                  // 2
+      frequencyPage = new FrequencyPage;                // 3
+      historyOptionsPage = new HistoryPage;             // 4
+      therapyPage = new TherapyPage;                    // 5
+      viewHistoryPage = new ViewHistoryPage;            // 6
+      noImplementationPage = new NoImplementation;      // 7
+      frequencyTherapyPage= new FrequencyTherapyPage;   // 8
+
 
 
       this->addWidget(startPage);
@@ -90,7 +90,7 @@ void Display:: resetFrequencyOnSlider(){
 }
 void Display::changeToMainPage()
 {
-    if(this->currentIndex() == 0)
+    if(this->currentIndex() == startPage->getID())
     {
         setCurrentIndex(mainMenuPage->getID());
     }
@@ -110,17 +110,17 @@ void Display:: selectChoice(){
 
         if (currentRow==0)
         {
-            setCurrentIndex(2);
+            setCurrentIndex(programsPage->getID());
         }
         else if(currentRow ==1){
-            setCurrentIndex(3);
+            setCurrentIndex(frequencyPage->getID());
         }
         else if(currentRow==2)
         {
-            setCurrentIndex(4);
+            setCurrentIndex(historyOptionsPage->getID());
         }
         else {
-            setCurrentIndex(7);
+            setCurrentIndex(noImplementationPage->getID());
         }
 
     }
@@ -179,14 +179,14 @@ void Display:: startProgram(int programNumber){
         return;
     }
 
-setCurrentIndex(5);
+setCurrentIndex(therapyPage->getID());
 }
 void Display:: startFrequency(){
     frequencyTherapyPage->setName("Frequency");
     frequencyTherapyPage->setFrequencyAndPower(frequencyPage->getValue().toInt());
     setFrequencyOnSlider(frequencyPage->getValue().toInt());
     enableButtons(true);
-    setCurrentIndex(8);
+    setCurrentIndex(frequencyTherapyPage->getID());
 }
 
 void Display:: navigateDownList(){
@@ -231,12 +231,15 @@ void Display:: backOutOfPage(){
              enableButtons(false);
              resetFrequencyOnSlider();
              setCurrentIndex(programsPage->getID());
+             emit emitTurnOffStart(0);
+
         }
          else if(this->currentIndex() == frequencyTherapyPage->getID()){
              this->frequencyTherapyPage->endTimer();
              resetFrequencyOnSlider();
              enableButtons(false);
              setCurrentIndex(mainMenuPage->getID());
+             emit emitTurnOffStart(0);
          }
          else if (this->currentIndex()==viewHistoryPage->getID()) {
              setCurrentIndex(historyOptionsPage->getID());

@@ -74,6 +74,7 @@ signals:
     void resetFrequency();
     void emitClearHistory();
     void emitRechargeBattery();
+    void emitTurnOffStart(int);
 
 
 private slots:
