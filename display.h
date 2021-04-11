@@ -71,6 +71,7 @@ signals:
     void emitFrequency(int);
     void resetFrequency();
     void emitClearHistory();
+    void emitTurnOffStart(int);
 
 
 private slots:
