@@ -11,10 +11,7 @@ class Button: public QPushButton{
 
 
 private slots:
-    void upButtonClicked();
-    void downButtonClicked();
-    void rightButtonClicked();
-    void leftButtonClicked();
+
 
 
 public:

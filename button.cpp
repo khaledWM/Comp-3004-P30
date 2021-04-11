@@ -13,22 +13,5 @@ Button::~Button(){
 }
 
 
-void Button::upButtonClicked(){
-    qDebug()<<"Up";
-}
-
-
-void Button::downButtonClicked(){
-
-}
-
-void Button::rightButtonClicked(){
-    qDebug()<<"right";
-}
-
-
-void Button::leftButtonClicked(){
-    qDebug()<<"left";
-}
 
 

@@ -1,7 +1,7 @@
 #include"cpu.h"
 
 
-Cpu::Cpu(QWidget *parent):QObject(parent), thread(m.battery), thread2(m.battery)
+Cpu::Cpu(QWidget *parent):QObject(parent), thread(m.battery)
 {
 
 
@@ -14,7 +14,7 @@ void Cpu::startDevice(){
 
 
 
-m.show();
+    m.show();
 
     connect(m.start,SIGNAL(clicked()),m.display,SLOT(changeToMainPage()));
     connect(m.ok,SIGNAL(clicked()),m.display,SLOT(selectChoice()));
@@ -30,9 +30,6 @@ m.show();
     connect(m.power,SIGNAL(emitPowerLevel(int)),m.display->getFrequencyTherapyPage(),SLOT(decreasePowerLevel(int)));
     connect(m.fs,SIGNAL(valueChanged(int)),m.display->getTherapyPage(),SLOT(showFrequencyOnDisplay(int)));
     connect(m.fs,SIGNAL(valueChanged(int)),m.display->getFrequencyTherapyPage(),SLOT(showFrequencyOnDisplay(int)));
-
-
-
     connect(m.display->getTherapyPage()->startStop,SIGNAL(clicked()),&thread,SLOT(start()));
     connect(m.display->getTherapyPage()->startStop,SIGNAL(clicked()),m.display->getTherapyPage(),SLOT(startTimer()));
     connect(m.display->getTherapyPage()->end,SIGNAL(clicked()),m.display->getTherapyPage(),SLOT(endTimer()));
@@ -44,22 +41,19 @@ m.show();
     connect(m.display,SIGNAL(allowButton(bool)),m.power,SLOT(checkallowButtonBool(bool)));
     connect(m.display,SIGNAL(emitFrequency(int)),m.fs,SLOT(setFrequencyValue(int)));
     connect(m.display,SIGNAL(resetFrequency()),m.fs,SLOT(enableFrequencyChange()));
-
-
     connect(m.display->getTherapyPage(),SIGNAL(emitStopThread()),&thread,SLOT(stopThread()));
     connect(m.display->getFrequencyTherapyPage(),SIGNAL(emitStopThread()),&thread,SLOT(stopThread()));
     connect(m.display->getTherapyPage(),SIGNAL(emitRecording(Recording*)),m.display->getViewHistoryPage(),SLOT(addRecording(Recording *)));
-     connect(m.display->getFrequencyTherapyPage(),SIGNAL(emitRecording(Recording*)),m.display->getViewHistoryPage(),SLOT(addRecording(Recording *)));
-
+    connect(m.display->getFrequencyTherapyPage(),SIGNAL(emitRecording(Recording*)),m.display->getViewHistoryPage(),SLOT(addRecording(Recording *)));
     connect(m.display->getTherapyPage(),SIGNAL(emitTurnOffStart(int)),m.power,SLOT(adjustPowerLevelDuringTherapy(int)));
     connect(m.display->getFrequencyTherapyPage(),SIGNAL(emitTurnOffStart(int)),m.power,SLOT(adjustPowerLevelDuringTherapy(int)));
-     connect(m.display,SIGNAL(emitTurnOffStart(int)),m.power,SLOT(adjustPowerLevelDuringTherapy(int)));
-
+    connect(m.display,SIGNAL(emitTurnOffStart(int)),m.power,SLOT(adjustPowerLevelDuringTherapy(int)));
     connect(m.display,SIGNAL(emitClearHistory()),m.display->getViewHistoryPage(),SLOT(clearHistory()));
-
-    connect(m.battery,SIGNAL(emitPowerOff()),m.display,SLOT(powerOff()));
-   connect(m.display,SIGNAL(emitRechargeBattery()),&thread2,SLOT(start()));
-
+    connect(m.battery,SIGNAL(emitPowerOff()),m.display,SLOT(rechargeBattery()));
+    connect(m.display,SIGNAL(emitStartCharge()),&thread,SLOT(start()));
+    connect(m.display,SIGNAL(emitChangetoStartPage()),m.display,SLOT(changetoStartPage()));
+    connect(m.display,SIGNAL(emitStopThread()),&thread,SLOT(stopThread()));
+    connect(m.display,SIGNAL(emitRecharged(int)),m.battery,SLOT(setBatteryLevel(int)));
 
 }
 

@@ -49,7 +49,6 @@ SOURCES += \
         startpage.cpp \
         therapypage.cpp \
         thread.cpp \
-        thread2.cpp \
         trauma.cpp \
         viewhistorypage.cpp
 
@@ -78,7 +77,6 @@ HEADERS += \
         startpage.h \
         therapypage.h \
         thread.h \
-        thread2.h \
         trauma.h \
         viewhistorypage.h
 
