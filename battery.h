@@ -14,16 +14,20 @@ private:
 
 
 public slots:
-    void rechargeBattery();
+    void setBatteryLevel(int);
+
 
 public:
     Battery(int l,int x, int y,QWidget *parent =nullptr);
     void drainBattery();
+    void rechargeBattery();
+    int getBatteryLevel();
     ~Battery();
 
 
 signals:
     void emitPowerOff();
+    void emitStartDevice();
 };
 
 #endif // BATTERY_H

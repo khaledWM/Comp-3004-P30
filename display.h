@@ -73,8 +73,11 @@ signals:
     void emitFrequency(int);
     void resetFrequency();
     void emitClearHistory();
-    void emitRechargeBattery();
     void emitTurnOffStart(int);
+    void emitStartCharge();
+    void emitChangetoStartPage();
+    void emitStopThread();
+    void emitRecharged(int);
 
 
 private slots:
@@ -84,7 +87,9 @@ private slots:
     void navigateDownList();
     void navigateUpList();
     void backOutOfPage();
-    void powerOff();
+    void rechargeBattery();
+    void changetoStartPage();
+
 };
 
 #endif // DISPLAY_H
