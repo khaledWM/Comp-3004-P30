@@ -19,6 +19,7 @@
 #include"therapypage.h"
 #include"mainwindow.h"
 #include"thread.h"
+#include"thread2.h"
 #include"recording.h"
 class Cpu:public QObject
 {
@@ -36,6 +37,7 @@ signals:
 private:
     MainWindow m;
     Thread thread;
+    Thread2 thread2;
 
 };
 

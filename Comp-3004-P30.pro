@@ -41,6 +41,7 @@ SOURCES += \
         mainwindow.cpp \
         noimplementation.cpp \
         page.cpp \
+        powerdownpage.cpp \
         powerlevel.cpp \
         program.cpp \
         programspage.cpp \
@@ -48,6 +49,7 @@ SOURCES += \
         startpage.cpp \
         therapypage.cpp \
         thread.cpp \
+        thread2.cpp \
         trauma.cpp \
         viewhistorypage.cpp
 
@@ -68,6 +70,7 @@ HEADERS += \
         mainwindow.h \
         noimplementation.h \
         page.h \
+        powerdownpage.h \
         powerlevel.h \
         program.h \
         programspage.h \
@@ -75,6 +78,7 @@ HEADERS += \
         startpage.h \
         therapypage.h \
         thread.h \
+        thread2.h \
         trauma.h \
         viewhistorypage.h
 

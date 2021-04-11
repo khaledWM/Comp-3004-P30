@@ -1,7 +1,7 @@
 #include"cpu.h"
 
 
-Cpu::Cpu(QWidget *parent):QObject(parent), thread(m.battery)
+Cpu::Cpu(QWidget *parent):QObject(parent), thread(m.battery), thread2(m.battery)
 {
 
 
@@ -55,6 +55,10 @@ m.show();
     connect(m.display->getFrequencyTherapyPage(),SIGNAL(emitTurnOffStart(int)),m.power,SLOT(adjustPowerLevelDuringTherapy(int)));
 
     connect(m.display,SIGNAL(emitClearHistory()),m.display->getViewHistoryPage(),SLOT(clearHistory()));
+
+    connect(m.battery,SIGNAL(emitPowerOff()),m.display,SLOT(powerOff()));
+   connect(m.display,SIGNAL(emitRechargeBattery()),&thread2,SLOT(start()));
+
 
 }
 

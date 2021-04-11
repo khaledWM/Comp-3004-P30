@@ -13,13 +13,17 @@ private:
     int level;
 
 
-private slots:
-
+public slots:
+    void rechargeBattery();
 
 public:
     Battery(int l,int x, int y,QWidget *parent =nullptr);
     void drainBattery();
     ~Battery();
+
+
+signals:
+    void emitPowerOff();
 };
 
 #endif // BATTERY_H

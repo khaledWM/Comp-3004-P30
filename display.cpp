@@ -16,7 +16,7 @@ Display::Display(QWidget *parent ): QStackedWidget (parent){
       viewHistoryPage = new ViewHistoryPage;
       noImplementationPage = new NoImplementation;
       frequencyTherapyPage= new FrequencyTherapyPage;
-
+      powerDownPage = new PowerDownPage;
 
 
       this->addWidget(startPage);
@@ -28,7 +28,7 @@ Display::Display(QWidget *parent ): QStackedWidget (parent){
       this->addWidget(viewHistoryPage);
       this->addWidget(noImplementationPage);
       this->addWidget(frequencyTherapyPage);
-
+      this->addWidget(powerDownPage);
 }
 
 Display::~Display(){
@@ -248,6 +248,16 @@ void Display:: backOutOfPage(){
     }
 
 
+}
+
+void Display:: powerOff(){
+    this->therapyPage->endTimer();
+    this->frequencyTherapyPage->endTimer();
+    setCurrentIndex(powerDownPage->getID());
+   // sleep(5);
+
+    emit emitRechargeBattery();
+   // setCurrentIndex(0);
 }
 
 

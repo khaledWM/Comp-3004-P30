@@ -13,6 +13,7 @@ class Cpu;
 #include"mainmenupage.h"
 #include"startpage.h"
 #include"programspage.h"
+#include"powerdownpage.h"
 #include"noimplementation.h"
 #include"viewhistorypage.h"
 #include "powerlevel.h"
@@ -38,6 +39,7 @@ private:
     NoImplementation *noImplementationPage;
     ViewHistoryPage *viewHistoryPage;
     FrequencyTherapyPage* frequencyTherapyPage;
+    PowerDownPage* powerDownPage;
     PowerLevel *pl;
     Trauma *trauma;
     Allergy *allergy;
@@ -71,6 +73,7 @@ signals:
     void emitFrequency(int);
     void resetFrequency();
     void emitClearHistory();
+    void emitRechargeBattery();
 
 
 private slots:
@@ -80,6 +83,7 @@ private slots:
     void navigateDownList();
     void navigateUpList();
     void backOutOfPage();
+    void powerOff();
 };
 
 #endif // DISPLAY_H
