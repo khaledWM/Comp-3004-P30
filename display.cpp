@@ -1,6 +1,6 @@
 #include "display.h"
 
-#include"cpu.h"
+
 Display::Display(QWidget *parent ): QStackedWidget (parent){
 
 
@@ -134,6 +134,7 @@ void Display:: selectChoice(){
 
         if(this->historyOptionsPage->list->currentRow()==1){
            emit emitClearHistory();
+            return;
         }
 
         setCurrentIndex(viewHistoryPage->getID());
@@ -148,7 +149,7 @@ void Display:: startProgram(int programNumber){
         allergy= new Allergy;
         therapyPage->setMinsAndSecs(allergy->minutes,allergy->seconds);
         therapyPage->setName(allergy->programName);
-        therapyPage->setFrequency(allergy->frequency);
+        therapyPage->setFrequencyAndPower(allergy->frequency);
         setFrequencyOnSlider(allergy->frequency);
 
     }
@@ -156,21 +157,21 @@ void Display:: startProgram(int programNumber){
         bloating= new Bloating;
         therapyPage->setMinsAndSecs(bloating->minutes,bloating->seconds);
         therapyPage->setName(bloating->programName);
-        therapyPage->setFrequency(bloating->frequency);
+        therapyPage->setFrequencyAndPower(bloating->frequency);
          setFrequencyOnSlider(bloating->frequency);
     }
     else if (programNumber==2) {
         trauma= new Trauma;
         therapyPage->setMinsAndSecs(trauma->minutes,trauma->seconds);
         therapyPage->setName(trauma->programName);
-        therapyPage->setFrequency(trauma->frequency);
+        therapyPage->setFrequencyAndPower(trauma->frequency);
          setFrequencyOnSlider(trauma->frequency);
     }
     else if(programNumber==3){
         kidney =new Kidney;
         therapyPage->setMinsAndSecs( kidney->minutes, kidney->seconds);
         therapyPage->setName( kidney->programName);
-        therapyPage->setFrequency(kidney->frequency);
+        therapyPage->setFrequencyAndPower(kidney->frequency);
          setFrequencyOnSlider(kidney->frequency);
     }
     else{
@@ -182,7 +183,7 @@ setCurrentIndex(5);
 }
 void Display:: startFrequency(){
     frequencyTherapyPage->setName("Frequency");
-    frequencyTherapyPage->setFrequency(frequencyPage->getValue().toInt());
+    frequencyTherapyPage->setFrequencyAndPower(frequencyPage->getValue().toInt());
     setFrequencyOnSlider(frequencyPage->getValue().toInt());
     enableButtons(true);
     setCurrentIndex(8);

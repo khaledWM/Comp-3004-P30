@@ -27,7 +27,7 @@ FrequencyTherapyPage::FrequencyTherapyPage(QString name, int freq, QWidget *pare
 
     label->setText(name);
     label2->setNum(freq);
-    label3->setNum(powerLevel);
+    label3->setNum(0);
     frequenctTherapyTimerDisplay->setGeometry(80,50,221,61);
 
 
@@ -81,10 +81,12 @@ void FrequencyTherapyPage::setName(QString name)
     label->setText(name);
 }
 
-void FrequencyTherapyPage::setFrequency(int value)
+void FrequencyTherapyPage::setFrequencyAndPower(int value)
 {
     freq = value;
     label2->setNum(freq);
+    this->powerLevel=0;
+    this->label3->setNum(0);
 }
 
 void FrequencyTherapyPage::increasePowerLevel(int power)
@@ -111,13 +113,13 @@ void FrequencyTherapyPage::startTimer(){
         emitStopThread();
         return;
     }
-
+    qDebug()<<powerLevel;
     setPowerLabel->setText("The power level has been asjusted ");
     emit emitTurnOffStart(powerLevel);
     this->frequencyTherapyStarted=true;
     if(timer->isActive()) {
         timer->stop();
-        startStop->setText("start");
+        startStop->setText("Continue Therapy");
         emit emitStopThread();
         return;
     }

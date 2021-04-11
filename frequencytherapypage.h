@@ -21,7 +21,7 @@ public:
     QPushButton* getEnd();
     QString getName();
     void setName(QString);
-    void setFrequency(int);
+    void setFrequencyAndPower(int);
     //    int getMins();
     //    int getSeconds();
     //    int getFrequency();

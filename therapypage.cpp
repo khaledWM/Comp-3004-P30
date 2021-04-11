@@ -83,11 +83,13 @@ void TherapyPage::setName(QString name)
     label->setText(name);
 }
 
-void TherapyPage::setFrequency(int value)
+void TherapyPage::setFrequencyAndPower(int value)
 {
     freq = value;
     this->prevFreq=value;
     label2->setNum(freq);
+    this->powerLevel=0;
+    this->label3->setNum(0);
 }
 void TherapyPage::setMinsAndSecs(int minutes,int seconds){
     this->timerMins=minutes;
@@ -128,7 +130,7 @@ void TherapyPage::startTimer(){
 
     if(timer->isActive()) {
         timer->stop();
-        startStop->setText("start");
+        startStop->setText("Continue Therapy");
         emit emitStopThread();
         return;
     }
@@ -173,7 +175,7 @@ void TherapyPage::endTimer(){
     createRecording("Program",this->name,time,this->powerLevel,this->freq,this->recordingSeconds,this->recordingMinutes);
     recordingMinutes=0;
     recordingSeconds=0;
-    setFrequency(prevFreq);
+    setFrequencyAndPower(prevFreq);
     setMinsAndSecs(prevMins,prevSeconds);
     this->therapyStarted=false;
     this->powerLevel=0;

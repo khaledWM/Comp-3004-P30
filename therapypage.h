@@ -37,7 +37,7 @@ public:
 //    void setPowerLevel(int);
     //bool getTherapyStarted();
     void setName(QString);
-    void setFrequency(int);
+    void setFrequencyAndPower(int);
     void setMinsAndSecs(int,int);
 
 private:

@@ -43,7 +43,7 @@ private:
     Allergy *allergy;
     Bloating *bloating;
     Kidney *kidney;
-    Cpu *cpu;
+
     int current;
 
 
