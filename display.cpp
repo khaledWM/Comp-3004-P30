@@ -231,12 +231,15 @@ void Display:: backOutOfPage(){
              enableButtons(false);
              resetFrequencyOnSlider();
              setCurrentIndex(programsPage->getID());
+             emit emitTurnOffStart(0);
+
         }
          else if(this->currentIndex() == frequencyTherapyPage->getID()){
              this->frequencyTherapyPage->endTimer();
              resetFrequencyOnSlider();
              enableButtons(false);
              setCurrentIndex(mainMenuPage->getID());
+             emit emitTurnOffStart(0);
          }
          else if (this->currentIndex()==viewHistoryPage->getID()) {
              setCurrentIndex(historyOptionsPage->getID());
