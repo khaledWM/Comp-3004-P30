@@ -31,6 +31,7 @@ SOURCES += \
         button.cpp \
         cpu.cpp \
         display.cpp \
+        electrode.cpp \
         frequency.cpp \
         frequencypage.cpp \
         frequencytherapypage.cpp \
@@ -60,6 +61,7 @@ HEADERS += \
         button.h \
         cpu.h \
         display.h \
+        electrode.h \
         frequency.h \
         frequencypage.h \
         frequencytherapypage.h \

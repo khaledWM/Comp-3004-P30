@@ -78,7 +78,7 @@ signals:
     void emitChangetoStartPage();
     void emitStopThread();
     void emitRecharged(int);
-
+    void emitSensorOffSkin();
 
 private slots:
     void changeToMainPage();
@@ -89,6 +89,7 @@ private slots:
     void backOutOfPage();
     void rechargeBattery();
     void changetoStartPage();
+
 
 };
 

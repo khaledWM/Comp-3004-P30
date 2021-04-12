@@ -13,6 +13,7 @@
 #include"display.h"
 #include"powerlevel.h"
 #include"ui_mainwindow.h"
+#include"electrode.h"
 
 namespace Ui {
 class MainWindow;
@@ -35,6 +36,7 @@ public:
     Battery *battery;
     PowerLevel *power;
     Frequency *fs;
+    Electrode *electrode;
     ~MainWindow();
 
 private:

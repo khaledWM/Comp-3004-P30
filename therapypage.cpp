@@ -101,6 +101,12 @@ void TherapyPage::setMinsAndSecs(int minutes,int seconds){
 
 }
 
+void TherapyPage::sensorOnSkin(bool placed)
+{
+    electrodePlaced = placed;
+    qDebug() << electrodePlaced;
+}
+
 void TherapyPage::increasePowerLevel(int power)
 {
     this->powerLevel=power;
@@ -119,25 +125,59 @@ void TherapyPage::showFrequencyOnDisplay(int value)
 }
 
 void TherapyPage::startTimer(){
-    if(powerLevel ==0){
-        setPowerLabel->setText("This therapy cannot start without adjusting power level");
-        emitStopThread();
-        return;
+
+    if(powerLevel != 0 && electrodePlaced == true)
+    {
+        setPowerLabel->setText(NULL);
+
+        if(counter == 1)
+        {
+            emit emitTurnOffStart(powerLevel);
+        }
+        this->therapyStarted= true;
+
+        if(timer->isActive())
+        {
+            counter += 1;
+            timer->stop();
+            startStop->setText("Continue Therapy");
+            emit emitStopThread();
+            return;
+        }
+        startStop->setText("stop");
+
+        timer->start(1000);
     }
-    setPowerLabel->setText("The power level has been asjusted ");
-    emit emitTurnOffStart(powerLevel);
-    this->therapyStarted= true;
-
-    if(timer->isActive()) {
-        timer->stop();
-        startStop->setText("Continue Therapy");
-        emit emitStopThread();
-        return;
+    else
+    {
+            setPowerLabel->setText("Please adjust power level and place electrode on skin.");
+            emitStopThread();
+            return;
     }
-    startStop->setText("stop");
 
-    timer->start(1000);
+}
 
+void TherapyPage::stopTimer()
+{
+    if(therapyStarted)
+    {
+        if(electrodePlaced == false)
+        {
+            counter += 1;
+            timer->stop();
+            startStop->setText("Continue Therapy");
+            emit emitStopThread();
+            return;
+        }
+
+        if(timer->isActive())
+        {
+            timer->stop();
+            startStop->setText("Continue Therapy");
+            emit emitStopThread();
+            return;
+        }
+    }
 }
 
 void TherapyPage::recordMinutesAndSecond(){
@@ -167,23 +207,35 @@ validateTime(timerMins,timerSecs);
 
 void TherapyPage::endTimer(){
 
-    if(this->therapyStarted==true){
-    timer->stop();
-    startStop->setText("start");
-    therapyTimerDisplay->display("00:00");
-    QTime time = QTime::currentTime();
-    createRecording("Program",this->name,time,this->powerLevel,this->freq,this->recordingSeconds,this->recordingMinutes);
-    recordingMinutes=0;
-    recordingSeconds=0;
-    setFrequencyAndPower(prevFreq);
-    setMinsAndSecs(prevMins,prevSeconds);
-    this->therapyStarted=false;
-    this->powerLevel=0;
-    label3->setNum(0);
-    setPowerLabel->setText("This therapy cannot start without adjusting power level");
-    emit emitTurnOffStart(0);
-    emit emitStopThread();
-}
+    if(this->therapyStarted==true)
+    {
+        timer->stop();
+        startStop->setText("start");
+        therapyTimerDisplay->display("00:00");
+
+        QTime time = QTime::currentTime();
+
+        createRecording("Program",this->name,time,this->powerLevel,this->freq,this->recordingSeconds,this->recordingMinutes);
+
+        recordingMinutes=0;
+        recordingSeconds=0;
+
+        setFrequencyAndPower(prevFreq);
+        setMinsAndSecs(prevMins,prevSeconds);
+
+        this->therapyStarted=false;
+        this->powerLevel=0;
+        counter = 1;
+
+        label3->setNum(0);
+
+        setPowerLabel->setText("Please adjust power level and place electrode on skin.");
+
+        emit emitTurnOffStart(0);
+        emit emitStopThread();
+        emit emitSensorOffSkin();
+
+    }
 
 }
 

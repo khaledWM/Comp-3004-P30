@@ -53,6 +53,7 @@ private:
     QLayout *layout;
 
     bool therapyStarted=false;
+    bool electrodePlaced=false;
     int timerMins;
     int timerSecs;
     int recordingMinutes;
@@ -62,6 +63,7 @@ private:
     int prevMins;
     int prevSeconds;
     int prevFreq;
+    int counter = 1;
     void recordMinutesAndSecond();
     void validateTime(int,int);
     void resetTimer();
@@ -72,7 +74,7 @@ signals:
     void emitStopThread();
     void emitRecording(Recording *);
     void emitTurnOffStart(int);
-
+    void emitSensorOffSkin();
 
 public slots:
      void endTimer();
@@ -82,9 +84,11 @@ public slots:
 private slots:
     void showTime();
     void startTimer();
+    void stopTimer();
     void increasePowerLevel(int);
     void decreasePowerLevel(int);
     void showFrequencyOnDisplay(int);
+    void sensorOnSkin(bool);
 };
 
 #endif // THERAPYPAGE_H
