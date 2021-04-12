@@ -32,6 +32,7 @@ void Cpu::startDevice(){
     connect(m.fs,SIGNAL(valueChanged(int)),m.display->getFrequencyTherapyPage(),SLOT(showFrequencyOnDisplay(int)));
     connect(m.display->getTherapyPage()->startStop,SIGNAL(clicked()),&thread,SLOT(start()));
     connect(m.display->getTherapyPage()->startStop,SIGNAL(clicked()),m.display->getTherapyPage(),SLOT(startTimer()));
+//    connect(m.display->getTherapyPage()->startStop,SIGNAL(clicked()),m.display->getTherapyPage(),SLOT(stopTimer()));
     connect(m.display->getTherapyPage()->end,SIGNAL(clicked()),m.display->getTherapyPage(),SLOT(endTimer()));
     connect(m.display->getFrequencyPage()->getStartFrequency(),SIGNAL(clicked()),m.display,SLOT(startFrequency()));
     connect(m.display->getFrequencyTherapyPage()->startStop,SIGNAL(clicked()),&thread,SLOT(start()));
@@ -54,7 +55,10 @@ void Cpu::startDevice(){
     connect(m.display,SIGNAL(emitChangetoStartPage()),m.display,SLOT(changetoStartPage()));
     connect(m.display,SIGNAL(emitStopThread()),&thread,SLOT(stopThread()));
     connect(m.display,SIGNAL(emitRecharged(int)),m.battery,SLOT(setBatteryLevel(int)));
-
+    connect(m.electrode,SIGNAL(toggled(bool)),m.display->getTherapyPage(),SLOT(sensorOnSkin(bool)));
+    connect(m.electrode,SIGNAL(toggled(bool)),m.display->getTherapyPage(),SLOT(stopTimer()));
+    connect(m.display->getTherapyPage(),SIGNAL(emitSensorOffSkin()),m.electrode,SLOT(sensorOffSkin()));
+    connect(m.display,SIGNAL(emitSensorOffSkin()),m.electrode,SLOT(sensorOffSkin()));
 }
 
 

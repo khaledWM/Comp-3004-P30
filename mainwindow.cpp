@@ -10,13 +10,18 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
         display = new Display(this);
-        battery = new Battery(30,700,50,this);
+        battery = new Battery(100,700,50,this);
+//        QLabel batteryLabel
+
         power = new PowerLevel(this);
+
+        electrode = new Electrode(this);
+        QLabel *electrodeLabel = new QLabel("Electrode",this);
+        electrodeLabel->move(700,200);
 
         QLabel *fslabel = new QLabel(this);
         fslabel->setText("Frequency");
         fslabel->setGeometry(700,100,80,30);
-
         fs = new Frequency(this);
 
         up = new Button(tr("Up"),400,400,this);

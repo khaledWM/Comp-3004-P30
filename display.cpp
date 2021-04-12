@@ -227,14 +227,15 @@ void Display:: navigateUpList(){
 
 void Display:: backOutOfPage(){
     if(this->currentIndex()>mainMenuPage->getID()){
-         if (this->currentIndex()==therapyPage->getID()) {
+         if (this->currentIndex()==therapyPage->getID())
+         {
              this->therapyPage->endTimer();
              enableButtons(false);
              resetFrequencyOnSlider();
              setCurrentIndex(programsPage->getID());
              emit emitTurnOffStart(0);
-
-        }
+             emit emitSensorOffSkin();
+         }
          else if(this->currentIndex() == frequencyTherapyPage->getID()){
              this->frequencyTherapyPage->endTimer();
              resetFrequencyOnSlider();
@@ -246,7 +247,8 @@ void Display:: backOutOfPage(){
              setCurrentIndex(historyOptionsPage->getID());
          }
 
-        else {
+        else
+        {
             setCurrentIndex(mainMenuPage->getID());
         }
     }
