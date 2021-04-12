@@ -19,6 +19,7 @@ public slots:
 
 public:
     Battery(int l,int x, int y,QWidget *parent =nullptr);
+    QPalette p;
     void drainBattery();
     void rechargeBattery();
     int getBatteryLevel();

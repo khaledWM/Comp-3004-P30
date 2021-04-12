@@ -10,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
         display = new Display(this);
-        battery = new Battery(100,700,50,this);
+        battery = new Battery(30,700,50,this);
         power = new PowerLevel(this);
 
         QLabel *fslabel = new QLabel(this);
