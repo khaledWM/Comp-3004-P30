@@ -70,6 +70,8 @@ void Cpu::startDevice(){
     connect(m.display->getFrequencyTherapyPage(),SIGNAL(emitSensorOffSkin()),m.electrode,SLOT(sensorOffSkin()));
 
     connect(m.display,SIGNAL(emitSensorOffSkin()),m.electrode,SLOT(sensorOffSkin()));
+
+    connect(m.power,SIGNAL(emitPowerLevel(int)),m.battery,SLOT(setDrainingSpeed(int)));
 }
 
 

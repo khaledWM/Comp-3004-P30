@@ -23,6 +23,18 @@ int Battery::getBatteryLevel(){
     return level;
 }
 
+void Battery::drainingSpeed()
+{
+    if(drainSpeed <= 5)
+        sleep(4);
+    else if(drainSpeed <= 10 && drainSpeed >= 6)
+        usleep(3);
+    else if(drainSpeed <= 25 && drainSpeed >= 11)
+        sleep(2);
+    else
+        sleep(1);
+
+}
 
 void Battery::drainBattery() {
     while(this->value() != 0){
@@ -33,7 +45,8 @@ void Battery::drainBattery() {
         p.setColor(QPalette::Highlight, Qt::red);
         this->setPalette(p);
         }
-        sleep(1);
+//        sleep(1);
+        drainingSpeed();
     }
 
     emit emitPowerOff();
@@ -59,5 +72,9 @@ void Battery:: setBatteryLevel(int num){
     level= num;
 }
 
+void Battery::setDrainingSpeed(int power)
+{
+    drainSpeed = power;
+}
 
 

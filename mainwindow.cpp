@@ -36,8 +36,6 @@ MainWindow::MainWindow(QWidget *parent) :
         ok = new Button(tr("Ok"),150,350,this);
         back  = new Button(tr("Back"),25,300,this);
 
-
-
 }
 
 
