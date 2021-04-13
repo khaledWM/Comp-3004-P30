@@ -128,7 +128,7 @@ void TherapyPage::startTimer(){
 
     if(powerLevel != 0 && electrodePlaced == true)
     {
-        setPowerLabel->setText(NULL);
+        setPowerLabel->setText(nullptr);
 
         if(counter == 1)
         {

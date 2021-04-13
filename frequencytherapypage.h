@@ -13,7 +13,7 @@ class FrequencyTherapyPage : public Page
 {
     Q_OBJECT
 public:
-    FrequencyTherapyPage(QString = "NULL", int = 0, QWidget *parent = nullptr);
+    FrequencyTherapyPage(QString = "NULL", int = 60, QWidget *parent = nullptr);
     ~FrequencyTherapyPage();
 
 

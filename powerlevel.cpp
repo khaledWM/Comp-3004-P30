@@ -50,8 +50,10 @@ void PowerLevel:: adjustPowerLevelDuringTherapy(int powerToBeAdjusted)
 {
     if(powerToBeAdjusted!=0){
         this->maxPower=powerToBeAdjusted;
+        this->minPower=1;
     }else {
         this->maxPower=100;
+        this->minPower=0;
         this->power=0;
         display(0);
 

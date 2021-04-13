@@ -10,7 +10,8 @@ FrequencyTherapyPage::FrequencyTherapyPage(QString name, int freq, QWidget *pare
     this->timerSecs = 0;
 
     timer = new QTimer();
-
+    qDebug()<<this->freq;
+    qDebug()<<freq;
 
     startStop->setText("start");
     end->setText("end");
@@ -116,7 +117,7 @@ void FrequencyTherapyPage::sensorOnSkin(bool placed)
 void FrequencyTherapyPage::startTimer(){
     if(powerLevel != 0 && electrodePlaced == true)
     {
-        setPowerLabel->setText(NULL);
+        setPowerLabel->setText(nullptr);
 
         if(counter == 1)
         {
