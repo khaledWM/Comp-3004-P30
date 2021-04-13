@@ -1,5 +1,5 @@
 #include "therapypage.h"
-
+#include <QFont>
 
 TherapyPage::TherapyPage(QString name, int freq, QWidget *parent):
     Page(parent)
@@ -16,14 +16,17 @@ TherapyPage::TherapyPage(QString name, int freq, QWidget *parent):
     startStop->setText("start");
     end->setText("end");
 
-    label = new QLabel();
-    label2 = new QLabel();
-    label3 = new QLabel();
+    label = new QLabel();           // for name
+    label2 = new QLabel();          // for freq
+    label3 = new QLabel();          // for power level
     setPowerLabel= new QLabel();
 
+    setPowerLabel->setFont(QFont( "Arial", 8, QFont::Bold));
 
     therapyTimerDisplay = new QLCDNumber();
-
+    therapyTimerDisplay->setFrameShape(QFrame::NoFrame);
+//    therapyTimerDisplay->setFont(QFont( "Arial", 10, QFont::Bold));
+//    therapyTimerDisplay
 
     label->setText(name);
     label2->setNum(freq);
@@ -35,14 +38,16 @@ TherapyPage::TherapyPage(QString name, int freq, QWidget *parent):
 
     layout = new QVBoxLayout();
 
-    layout->addWidget(therapyTimerDisplay);
     layout->addWidget(label);
+    layout->addWidget(therapyTimerDisplay);
     layout->addWidget(label2);
     layout->addWidget(label3);
     layout->addWidget(setPowerLabel);
     layout->addWidget(startStop);
     layout->addWidget(end);
 
+    label->setAlignment(Qt::AlignCenter);
+//    label2->
     setLayout(layout);
     connect(timer,SIGNAL(timeout()),this,SLOT(showTime()));
 

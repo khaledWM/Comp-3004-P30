@@ -3,7 +3,7 @@
 Frequency::Frequency(QWidget *parent) :
     QSlider (parent)
 {
-    setGeometry(800,100,200,30);
+    setGeometry(475,100,200,30);
     setOrientation(Qt::Horizontal);
     setRange(60,200);
 //    setValue(60);
