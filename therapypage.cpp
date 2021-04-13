@@ -5,7 +5,7 @@ TherapyPage::TherapyPage(QString name, int freq, QWidget *parent):
     Page(parent)
 
 {
-
+    this->name = name;
     this->powerLevel = 0;
     this->recordingMinutes=0;
     this->recordingSeconds=0;
@@ -104,7 +104,7 @@ void TherapyPage::setMinsAndSecs(int minutes,int seconds){
 void TherapyPage::sensorOnSkin(bool placed)
 {
     electrodePlaced = placed;
-    qDebug() << electrodePlaced;
+
 }
 
 void TherapyPage::increasePowerLevel(int power)

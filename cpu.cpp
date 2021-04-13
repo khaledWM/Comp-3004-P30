@@ -55,9 +55,20 @@ void Cpu::startDevice(){
     connect(m.display,SIGNAL(emitChangetoStartPage()),m.display,SLOT(changetoStartPage()));
     connect(m.display,SIGNAL(emitStopThread()),&thread,SLOT(stopThread()));
     connect(m.display,SIGNAL(emitRecharged(int)),m.battery,SLOT(setBatteryLevel(int)));
+
+
+
     connect(m.electrode,SIGNAL(toggled(bool)),m.display->getTherapyPage(),SLOT(sensorOnSkin(bool)));
     connect(m.electrode,SIGNAL(toggled(bool)),m.display->getTherapyPage(),SLOT(stopTimer()));
+
+    connect(m.electrode,SIGNAL(toggled(bool)),m.display->getFrequencyTherapyPage(),SLOT(sensorOnSkin(bool)));
+    connect(m.electrode,SIGNAL(toggled(bool)),m.display->getFrequencyTherapyPage(),SLOT(stopTimer()));
+
+
     connect(m.display->getTherapyPage(),SIGNAL(emitSensorOffSkin()),m.electrode,SLOT(sensorOffSkin()));
+
+    connect(m.display->getFrequencyTherapyPage(),SIGNAL(emitSensorOffSkin()),m.electrode,SLOT(sensorOffSkin()));
+
     connect(m.display,SIGNAL(emitSensorOffSkin()),m.electrode,SLOT(sensorOffSkin()));
 }
 
