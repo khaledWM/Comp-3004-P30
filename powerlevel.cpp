@@ -3,7 +3,7 @@
 
 PowerLevel::PowerLevel( QWidget *parent ): QLCDNumber (parent)
 {
-    move(700,150);
+    move(475,150);
     power = 0;
     checkOnPowerTherapyPage=false;
     this->maxPower=100;

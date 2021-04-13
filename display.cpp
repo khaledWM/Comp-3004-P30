@@ -4,8 +4,8 @@
 Display::Display(QWidget *parent ): QStackedWidget (parent){
 
 
-      setGeometry(240,40,390,320);
-      setStyleSheet("background-color:rgb(211, 215, 207);");
+      setGeometry(25,25,325,250);
+      setStyleSheet("background-color:rgb(210, 210, 207);");
 
       startPage = new StartPage(this);                  // 0
       mainMenuPage  = new MainMenuPage;                 // 1
