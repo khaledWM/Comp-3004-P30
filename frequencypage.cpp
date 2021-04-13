@@ -12,7 +12,9 @@ FrequencyPage::FrequencyPage(QWidget *parent) :
     layout = new QVBoxLayout();
     frequencyValue->setNum(60);
     layout->addWidget(promptLabel);
+    layout->addWidget(frequencyValue);
     layout->addWidget(startFrequency);
+
 
     setLayout(layout);
 }
