@@ -95,6 +95,10 @@ void Display::changeToMainPage()
     {
         setCurrentIndex(mainMenuPage->getID());
     }
+    else if(currentIndex() == mainMenuPage->getID())
+    {
+        setCurrentIndex(startPage->getID());
+    }
 }
 
 
@@ -242,6 +246,7 @@ void Display:: backOutOfPage(){
              enableButtons(false);
              setCurrentIndex(mainMenuPage->getID());
              emit emitTurnOffStart(0);
+             emit emitSensorOffSkin();
          }
          else if (this->currentIndex()==viewHistoryPage->getID()) {
              setCurrentIndex(historyOptionsPage->getID());
@@ -262,6 +267,7 @@ void Display::rechargeBattery(){
     this->frequencyTherapyPage->endTimer();
     enableButtons(false);
     resetFrequencyOnSlider();
+    emit emitSensorOffSkin();
 
     emit emitStartCharge();
     sleep(9);

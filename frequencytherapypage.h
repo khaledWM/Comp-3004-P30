@@ -31,6 +31,7 @@ signals:
     void emitStopThread();
     void emitRecording(Recording*);
     void emitTurnOffStart(int);
+    void emitSensorOffSkin();
 
 public slots:
      void endTimer();
@@ -47,10 +48,13 @@ private:
     QLabel *setPowerLabel;
     QLayout *layout;
     Recording * r;
+
+    bool electrodePlaced=false;
     int timerMins;
     int timerSecs;
     int freq;
     int powerLevel;
+    int counter = 1;
     bool frequencyTherapyStarted=false;
     void validateTime(int, int);
     void createRecording(QString ,QString, QTime , int , int , int, int );
@@ -58,9 +62,11 @@ private:
 private slots:
     void showTime();
     void startTimer();
+    void stopTimer();
     void increasePowerLevel(int);
     void decreasePowerLevel(int);
     void showFrequencyOnDisplay(int);
+    void sensorOnSkin(bool);
 
 };
 

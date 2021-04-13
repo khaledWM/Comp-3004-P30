@@ -6,7 +6,7 @@ Frequency::Frequency(QWidget *parent) :
     setGeometry(800,100,200,30);
     setOrientation(Qt::Horizontal);
     setRange(60,200);
-
+//    setValue(60);s
 
 
 }

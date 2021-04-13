@@ -29,7 +29,7 @@ public:
 
     QPushButton* getStartStop();
     QPushButton* getEnd();
-// QString getName();
+    QString getName();
 //    int getMins();
 //    int getSeconds();
 //    int getFrequency();

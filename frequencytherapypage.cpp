@@ -107,24 +107,64 @@ void FrequencyTherapyPage::showFrequencyOnDisplay(int value)
     label2->setNum(freq);
 }
 
+void FrequencyTherapyPage::sensorOnSkin(bool placed)
+{
+    electrodePlaced = placed;
+
+}
+
 void FrequencyTherapyPage::startTimer(){
-    if(powerLevel==0){
-        setPowerLabel->setText("This therapy cannot start without adjusting power level");
-        emitStopThread();
-        return;
+    if(powerLevel != 0 && electrodePlaced == true)
+    {
+        setPowerLabel->setText(NULL);
+
+        if(counter == 1)
+        {
+            emit emitTurnOffStart(powerLevel);
+        }
+        this->frequencyTherapyStarted= true;
+
+        if(timer->isActive())
+        {
+            counter += 1;
+            timer->stop();
+            startStop->setText("Continue Therapy");
+            emit emitStopThread();
+            return;
+        }
+        startStop->setText("stop");
+
+        timer->start(1000);
     }
-    qDebug()<<powerLevel;
-    setPowerLabel->setText("The power level has been asjusted ");
-    emit emitTurnOffStart(powerLevel);
-    this->frequencyTherapyStarted=true;
-    if(timer->isActive()) {
-        timer->stop();
-        startStop->setText("Continue Therapy");
-        emit emitStopThread();
-        return;
+    else
+    {
+            setPowerLabel->setText("Please adjust power level and place electrode on skin.");
+            emitStopThread();
+            return;
     }
-    startStop->setText("stop");
-    timer->start(1000);
+}
+
+void FrequencyTherapyPage::stopTimer()
+{
+    if(frequencyTherapyStarted)
+    {
+        if(electrodePlaced == false)
+        {
+            counter += 1;
+            timer->stop();
+            startStop->setText("Continue Therapy");
+            emit emitStopThread();
+            return;
+        }
+
+        if(timer->isActive())
+        {
+            timer->stop();
+            startStop->setText("Continue Therapy");
+            emit emitStopThread();
+            return;
+        }
+    }
 }
 
 void FrequencyTherapyPage::showTime(){
@@ -149,11 +189,13 @@ void FrequencyTherapyPage::endTimer(){
     timerSecs=0;
     this->frequencyTherapyStarted=false;
     this->powerLevel=0;
+    counter = 1;
     label3->setNum(0);
     setPowerLabel->setText("This therapy cannot start without adjusting power level");
     this->frequencyTherapyStarted=false;
     emit emitTurnOffStart(0);
     emit emitStopThread();
+    emit emitSensorOffSkin();
     }
 }
 
