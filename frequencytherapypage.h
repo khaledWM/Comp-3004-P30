@@ -42,7 +42,7 @@ private:
     QLabel *frequencyLabel;
     QLabel *powerLabel;
     QLabel *setPowerLabel;
-    QLCDNumber *frequenctTherapyTimerDisplay;
+    QLCDNumber *frequencyTherapyTimerDisplay;
     QLayout *layout;
     Recording * r;
 
