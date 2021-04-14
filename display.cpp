@@ -270,7 +270,7 @@ void Display::rechargeBattery(){
     emit emitSensorOffSkin();
 
     emit emitStartCharge();
-    sleep(9);
+    sleep(5);
     emit emitChangetoStartPage();
 }
 

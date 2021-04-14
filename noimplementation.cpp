@@ -7,6 +7,8 @@ NoImplementation::NoImplementation(QWidget *parent) : Page(parent)
     label->setText("Features have not been implemented");
     QLayout *layout = new QVBoxLayout();
     layout->addWidget(label);
+    label->setAlignment(Qt::AlignCenter);
+    label->setFont(QFont( "Arial", 12, QFont::Bold));
     setLayout(layout);
 
 }
