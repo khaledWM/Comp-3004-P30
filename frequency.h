@@ -8,6 +8,7 @@
  * attributes:
  *  value
 */
+
 #ifndef FREQUENCY_H
 #define FREQUENCY_H
 
@@ -30,13 +31,13 @@ class Frequency : public QSlider
 public:
     explicit Frequency(QWidget *parent = nullptr);
     ~Frequency();
-    int getValue();
+    int getValue();   // getter for frequency value selected from slider.
 
 private:
-    //value of the slider
-    int value;
+    int value;      // stores the value selected from slider.
 
 private slots:
+   // slot for connecting to the signal emitted by the slider when moved.
    void setFrequencyValue(int);
    //resets the value of the slider
    void enableFrequencyChange();
