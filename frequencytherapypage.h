@@ -40,11 +40,13 @@ private:
     QString minString ;
     QString secsString;
     QString name;
-    QLCDNumber *frequenctTherapyTimerDisplay;
+    QLCDNumber *frequencyTherapyTimerDisplay;
     QTimer *timer;
     QLabel *label;
     QLabel *label2;
     QLabel *label3;
+    QLabel *frequencyLabel;
+    QLabel *powerLabel;
     QLabel *setPowerLabel;
     QLayout *layout;
     Recording * r;

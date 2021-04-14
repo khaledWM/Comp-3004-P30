@@ -1,5 +1,6 @@
 #include "therapypage.h"
 #include <QFont>
+#include <QPalette>
 
 TherapyPage::TherapyPage(QString name, int freq, QWidget *parent):
     Page(parent)
@@ -19,35 +20,51 @@ TherapyPage::TherapyPage(QString name, int freq, QWidget *parent):
     label = new QLabel();           // for name
     label2 = new QLabel();          // for freq
     label3 = new QLabel();          // for power level
+    frequencyLabel = new QLabel();
+    powerLabel = new QLabel();
     setPowerLabel= new QLabel();
 
     setPowerLabel->setFont(QFont( "Arial", 8, QFont::Bold));
 
     therapyTimerDisplay = new QLCDNumber();
     therapyTimerDisplay->setFrameShape(QFrame::NoFrame);
-//    therapyTimerDisplay->setFont(QFont( "Arial", 10, QFont::Bold));
+    therapyTimerDisplay->setFont(QFont( "Calibri", 15));
 //    therapyTimerDisplay
 
     label->setText(name);
     label2->setNum(freq);
     label3->setNum(powerLevel);
-
-    therapyTimerDisplay->setGeometry(80,50,221,61);
-
-
+    frequencyLabel->setText("Frequency:");
+    powerLabel->setText("Power Level:");
 
     layout = new QVBoxLayout();
 
     layout->addWidget(label);
     layout->addWidget(therapyTimerDisplay);
-    layout->addWidget(label2);
-    layout->addWidget(label3);
+
+    QHBoxLayout *labelLayout = new QHBoxLayout();
+    labelLayout->addWidget(frequencyLabel);
+    labelLayout->addWidget(label2);
+    labelLayout->addStretch();
+    labelLayout->addWidget(powerLabel);
+    labelLayout->addWidget(label3);
+
+    frequencyLabel->setAlignment(Qt::AlignLeft);
+    label2->setAlignment(Qt::AlignJustify);
+    powerLabel->setAlignment(Qt::AlignRight);
+    powerLabel->setIndent(-15);
+    label3->setAlignment(Qt::AlignJustify);
+    labelLayout->setAlignment(Qt::AlignBottom);
+
+    layout->addItem(labelLayout);
     layout->addWidget(setPowerLabel);
     layout->addWidget(startStop);
     layout->addWidget(end);
 
     label->setAlignment(Qt::AlignCenter);
-//    label2->
+//    therapyTimerDisplay->setGeometry(10,50,275,100);
+
+
     setLayout(layout);
     connect(timer,SIGNAL(timeout()),this,SLOT(showTime()));
 

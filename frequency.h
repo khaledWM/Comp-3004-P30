@@ -1,3 +1,21 @@
+/*
+
+Frequency Class
+
+Concrete Enetity Class that extends QSlider.
+
+Attributes:
+value
+
+Member Functions:
+getter for value - getValue()
+
+slots:
+setFrequencyValue(int).
+enableFrequencyChange().
+
+*/
+
 #ifndef FREQUENCY_H
 #define FREQUENCY_H
 
@@ -20,13 +38,17 @@ class Frequency : public QSlider
 public:
     explicit Frequency(QWidget *parent = nullptr);
     ~Frequency();
-    int getValue();
+    int getValue();   // getter for frequency value selected from slider.
 
 private:
-    int value;
+    int value;      // stores the value selected from slider.
 
 private slots:
+
+   // slot for connecting to the signal emitted by the slider when moved.
    void setFrequencyValue(int);
+
+
    void enableFrequencyChange();
 
 

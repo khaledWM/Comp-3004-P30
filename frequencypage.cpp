@@ -25,7 +25,6 @@ void FrequencyPage::showValueOnDisplay(int value)
 {
     promptLabel->setText("Frequency selected: ");
     frequencyValue->setNum(value);
-    layout->addWidget(frequencyValue);
 }
 
 QString FrequencyPage::getValue()
