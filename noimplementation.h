@@ -1,3 +1,12 @@
+/* NoImplementation Class
+ *
+ * concrete entity class that extends
+ * the abstract Page class
+ *
+ * has  QLabel that displays to the screen:
+ *  "Features have not been implemented"
+ *
+*/
 #ifndef NOIMPLEMENTATION_H
 #define NOIMPLEMENTATION_H
 

@@ -1,3 +1,18 @@
+/* MainMenuPage Class
+ *
+ * concrete entity class that extends
+ * the abstract Page class
+ *
+ * displays all of the menu options to the user:
+ *  Programs
+ *  Frequency
+ *  History
+ *  Screening
+ *  Children
+ *  Settings
+ *
+ */
+
 #ifndef MAINMENUPAGE_H
 #define MAINMENUPAGE_H
 

@@ -1,3 +1,11 @@
+/* CPU Class
+ *
+ * inherits the QT class QObject
+ *
+ * The main component of the program which
+ * connects all of the slots and signals from
+ * every class to another.
+*/
 #ifndef CPU_H
 #define CPU_H
 

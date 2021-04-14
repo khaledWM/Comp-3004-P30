@@ -1,3 +1,11 @@
+/* MainWindow Class
+ *
+ * inherits the QT class QMainWindow
+ *
+ * initializes all of the buttons, battery,
+ * and display of the program
+ *
+ */
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 

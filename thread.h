@@ -1,3 +1,11 @@
+/* Thread class
+ *
+ * inherits the QT class QThread
+ *
+ * has a battery object and initialzies a
+ * thread so the battery can drain simultainously
+ * with the denas program.
+ */
 #ifndef THREAD_H
 #define THREAD_H
 #include<QtCore>

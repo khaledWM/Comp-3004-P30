@@ -1,3 +1,13 @@
+/* Button Class
+ *
+ * inherits the QT class QPushButton
+ *
+ * has no private attributes, everything
+ * gets initialized un the constructer arguements
+ *
+ * the constructer sets the buttons size, coordinate
+ * icon, and text.
+*/
 #ifndef BUTTON_H
 #define BUTTON_H
 #include <QToolButton>
