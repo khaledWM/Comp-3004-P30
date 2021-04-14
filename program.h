@@ -1,3 +1,17 @@
+/* Program Class
+ *
+ * abstract class
+ *
+ * A program can be trauma, allergy, kidney or bloating
+ *
+ * attributes:
+ *  programName
+ *  minutes
+ *  seconds
+ *  poweLevel
+ *  frequency
+ *
+ */
 #ifndef PROGRAM_H
 #define PROGRAM_H
 #include <QString>

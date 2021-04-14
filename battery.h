@@ -1,3 +1,15 @@
+/* Battery Class
+ *
+ * inhertits the QT class QProgressBar
+ *
+ * This class simulates a battery which loses power
+ * and gets recharged.
+ *
+ * attributes:
+ *  level
+ *  drainSpeed
+ *
+*/
 #ifndef BATTERY_H
 #define BATTERY_H
 #include<QProgressBar>
