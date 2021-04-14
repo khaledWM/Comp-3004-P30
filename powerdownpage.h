@@ -26,10 +26,6 @@ class PowerDownPage: public Page
 public:
     explicit PowerDownPage(QWidget *parent = nullptr);
 
-signals:
-
-public slots:
-
 private:
     QLabel *label;
 };

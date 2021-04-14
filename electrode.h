@@ -15,13 +15,14 @@
 
 class Electrode : public QCheckBox
 {
-    Q_OBJECT;
+    Q_OBJECT
 
 public:
     Electrode(QWidget *parent=nullptr);
     ~Electrode();
 
 private slots:
+    //sets the checkbox false
     void sensorOffSkin();
 };
 

@@ -68,34 +68,11 @@ FrequencyTherapyPage::FrequencyTherapyPage(QString name, int freq, QWidget *pare
     setLayout(layout);
 
 
-    connect(timer,SIGNAL(timeout()),this,SLOT(showTime()));
+    connect(timer,SIGNAL(timeout()),this,SLOT(updateTime()));
 
 }
 
 FrequencyTherapyPage::~FrequencyTherapyPage(){}
-
-//int FrequencyTherapyPage::getMins(){
-//    return timerMins;
-//}
-
-//int FrequencyTherapyPage::getSeconds(){
-//    return timerSecs;
-//}
-
-//QString FrequencyTherapyPage::getName()
-//{
-//    return name;
-//}
-
-//int FrequencyTherapyPage::getFrequency()
-//{
-//    return freq;
-//}
-
-//int FrequencyTherapyPage::getPowerLevel()
-//{
-//    return powerLevel;
-//}
 
 
 void FrequencyTherapyPage::setName(QString name)
@@ -140,13 +117,11 @@ void FrequencyTherapyPage::startTimer(){
     if(powerLevel != 0 && electrodePlaced == true)
     {
         setPowerLabel->setText(nullptr);
-
         if(counter == 1)
         {
             emit emitTurnOffStart(powerLevel);
         }
         this->frequencyTherapyStarted= true;
-
         if(timer->isActive())
         {
             counter += 1;
@@ -156,7 +131,6 @@ void FrequencyTherapyPage::startTimer(){
             return;
         }
         startStop->setText("stop");
-
         timer->start(1000);
     }
     else
@@ -190,14 +164,12 @@ void FrequencyTherapyPage::stopTimer()
     }
 }
 
-void FrequencyTherapyPage::showTime(){
+void FrequencyTherapyPage::updateTime(){
 timerSecs++;
 if(timerSecs == 60){
     timerSecs=0;
     timerMins++;
 }
-
-
 validateTime(timerMins,timerSecs);
 }
 

@@ -36,6 +36,7 @@ class Display: public QStackedWidget{
 
 
 private:
+    //pages displayed to the user
     StartPage *startPage;
     MainMenuPage *mainMenuPage;
     ProgramsPage *programsPage;
@@ -46,7 +47,9 @@ private:
     ViewHistoryPage *viewHistoryPage;
     FrequencyTherapyPage* frequencyTherapyPage;
     PowerDownPage* powerDownPage;
+    //power level
     PowerLevel *pl;
+    //programs
     Trauma *trauma;
     Allergy *allergy;
     Bloating *bloating;
@@ -58,6 +61,8 @@ private:
 public:
     Display(QWidget *parent =nullptr);
     ~Display();
+    //function responsible for starting a program, a program number is passed to
+    //it and depending on the number the program is appropriatley picked
     void startProgram(int programNumber);
     StartPage* getStartPage();
     MainMenuPage* getMainPage();
@@ -70,30 +75,52 @@ public:
     NoImplementation* getNoImplementationPage();
 
 private:
+    //function that calls a signal
     void enableButtons(bool);
+    //function that calls a signal
     void setFrequencyOnSlider(int);
+    //functions that calls a signal
     void resetFrequencyOnSlider();
 
 signals:
+    //function that sends a signal to enable/disable buttons
     void allowButton(bool);
+    //function that sends a signl with a frequency value to set it on the slider
     void emitFrequency(int);
+    //reset the frequency to 0
     void resetFrequency();
+    //clears the recording history
     void emitClearHistory();
+    //Function to turn off the start button of the program
     void emitTurnOffStart(int);
+    //Signal sent to start charging the device
     void emitStartCharge();
+    //signal sent to change to the Start page of the program
     void emitChangetoStartPage();
+    //signal sent to stop the thread
     void emitStopThread();
+    //signal sent with an integer to set the battery level to 100
     void emitRecharged(int);
+    //signal sent to notify that sensor is off the skin
     void emitSensorOffSkin();
 
 private slots:
+    //sets the index of pages to the main page
     void changeToMainPage();
+    //function to determine the choice selected and switch to the selected page
     void selectChoice();
+    //function switches to the frequency therapy page and sets the frequency approprietly
+    //and enables powerlevel buttons
     void startFrequency();
+    //navigated down the list
     void navigateDownList();
+    //navigates up the list
     void navigateUpList();
+    //function to back out the page
     void backOutOfPage();
+    //function that ends all therapies and emits a signal to start charging the device
     void rechargeBattery();
+    //changes back to the starting page of the program
     void changetoStartPage();
 
 

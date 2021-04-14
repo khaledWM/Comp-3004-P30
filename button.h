@@ -7,6 +7,8 @@
  *
  * the constructer sets the buttons size, coordinate
  * icon, and text.
+ *
+ * The button is added to the main window and functions asa QPushButton
 */
 #ifndef BUTTON_H
 #define BUTTON_H

@@ -37,11 +37,9 @@ private:
     int value;      // stores the value selected from slider.
 
 private slots:
-
    // slot for connecting to the signal emitted by the slider when moved.
    void setFrequencyValue(int);
-
-
+   //resets the value of the slider
    void enableFrequencyChange();
 
 
