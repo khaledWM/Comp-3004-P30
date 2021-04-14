@@ -28,13 +28,18 @@ MainWindow::MainWindow(QWidget *parent) :
         fslabel->move(375,100);
         fs = new Frequency(this);
 
-        up = new Button(tr("Up"),150,300,this);
-        down  = new Button(tr("Down"),125,400,this);
-        left  = new Button(tr("Left"),25,350,this);
-        right  = new Button(tr("right"),250,350,this);
-        start  = new Button(tr("Start"),250,300,this);
-        ok = new Button(tr("Ok"),150,350,this);
-        back  = new Button(tr("Back"),25,300,this);
+        style = new QCommonStyle();
+
+        QPixmap p1(":/resources/images/red-go-back-arrow.png");
+        QPixmap p2(":/resources/images/power.webp");
+
+        up = new Button(tr(""),143,300,style->standardIcon(QStyle::SP_ArrowUp),this);
+        down  = new Button(tr(""),143,510,style->standardIcon(QStyle::SP_ArrowDown),this);
+        left  = new Button(tr(""),25,405,style->standardIcon(QStyle::SP_ArrowLeft),this);
+        right  = new Button(tr(""),260,405,style->standardIcon(QStyle::SP_ArrowRight),this);
+        start  = new Button(tr(""),260,300, QIcon(p2),this);
+        ok = new Button(tr("OK"),143,405,QIcon(),this);
+        back  = new Button(tr(""),25,300, QIcon(p1),this);
 
 }
 

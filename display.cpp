@@ -5,7 +5,7 @@ Display::Display(QWidget *parent ): QStackedWidget (parent){
 
 
       setGeometry(25,25,325,250);
-      setStyleSheet("background-color:rgb(210, 210, 207);");
+      setStyleSheet("background-color:rgb(192, 192, 192);");
 
       startPage = new StartPage(this);                  // 0
       mainMenuPage  = new MainMenuPage;                 // 1
@@ -270,7 +270,7 @@ void Display::rechargeBattery(){
     emit emitSensorOffSkin();
 
     emit emitStartCharge();
-    sleep(9);
+    sleep(5);
     emit emitChangetoStartPage();
 }
 

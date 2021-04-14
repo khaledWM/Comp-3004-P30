@@ -6,6 +6,8 @@
 #include<QDebug>
 #include <QGridLayout>
 #include <QtWidgets>
+#include <QStyle>
+#include <QPixmap>
 #include "button.h"
 #include "battery.h"
 #include "frequency.h"
@@ -37,6 +39,7 @@ public:
     PowerLevel *power;
     Frequency *fs;
     Electrode *electrode;
+    QCommonStyle *style;
     ~MainWindow();
 
 private:

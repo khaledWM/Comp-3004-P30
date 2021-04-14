@@ -15,7 +15,7 @@ private slots:
 
 
 public:
-    Button(const QString &text,int x, int y,QWidget *parent =nullptr);
+    Button(const QString &text,int x, int y, const QIcon icon,QWidget *parent =nullptr);
     ~Button();
 };
 
