@@ -58,6 +58,8 @@ private:
     QLabel *label;
     QLabel *label2;
     QLabel *label3;
+    QLabel *frequencyLabel;
+    QLabel *powerLabel;
     QLabel *setPowerLabel;
     QLayout *layout;
 
