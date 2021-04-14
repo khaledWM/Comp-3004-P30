@@ -1,19 +1,12 @@
-/*
-
-Frequency Class
-
-Concrete Enetity Class that extends QSlider.
-
-Attributes:
-value
-
-Member Functions:
-getter for value - getValue()
-
-slots:
-setFrequencyValue(int).
-enableFrequencyChange().
-
+/* Frequency Class
+ *
+ * inherits the QT calss QSlider
+ *
+ * allows the user to set their desired
+ * frequency through a slider.
+ *
+ * attributes:
+ *  value
 */
 
 #ifndef FREQUENCY_H

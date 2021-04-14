@@ -1,3 +1,11 @@
+/* MainWindow Class
+ *
+ * inherits the QT class QMainWindow
+ *
+ * initializes all of the buttons, battery,
+ * and display of the program
+ *
+ */
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
@@ -6,6 +14,8 @@
 #include<QDebug>
 #include <QGridLayout>
 #include <QtWidgets>
+#include <QStyle>
+#include <QPixmap>
 #include "button.h"
 #include "battery.h"
 #include "frequency.h"
@@ -37,6 +47,7 @@ public:
     PowerLevel *power;
     Frequency *fs;
     Electrode *electrode;
+    QCommonStyle *style;
     ~MainWindow();
 
 private:

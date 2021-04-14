@@ -1,3 +1,11 @@
+/* Electrode Class
+ *
+ * inherits the QT class QCheckBox
+ *
+ * simulates the electrode of the device
+ * being placed on the user's skin through
+ * a checkbox.
+*/
 #ifndef ELECTRODE_H
 #define ELECTRODE_H
 

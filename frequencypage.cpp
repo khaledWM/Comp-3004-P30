@@ -14,6 +14,10 @@ FrequencyPage::FrequencyPage(QWidget *parent) :
     layout->addWidget(promptLabel);
     layout->addWidget(frequencyValue);
     layout->addWidget(startFrequency);
+    promptLabel->setAlignment(Qt::AlignCenter);
+    promptLabel->setFont(QFont( "Arial", 12, QFont::Bold));
+    frequencyValue->setAlignment(Qt::AlignCenter);
+    frequencyValue->setFont(QFont( "Arial", 15, QFont::Bold));
 
 
     setLayout(layout);

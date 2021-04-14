@@ -1,3 +1,16 @@
+/* PoweLevel Class
+ *
+ * inherits the QT class QLCDNumber
+ *
+ * displays and adjusts the power level
+ * to the user.
+ *
+ * attributes:
+ *  power
+ *  maxPower
+ *  minPower
+ *  checkOnPowerTherapyPage
+*/
 #ifndef POWERLEVEL_H
 #define POWERLEVEL_H
 #include<QLCDNumber>

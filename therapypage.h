@@ -1,3 +1,12 @@
+/* TherapyPage Class
+ *
+ * concrete entity calss that extends
+ * the abstarct Page class
+ *
+ * initliazes a therapy with a timer, a start/stop
+ * button, and an end therapy button.
+ *
+*/
 #ifndef THERAPYPAGE_H
 #define THERAPYPAGE_H
 
