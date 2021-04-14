@@ -33,10 +33,12 @@ public:
     int getValue();
 
 private:
+    //value of the slider
     int value;
 
 private slots:
    void setFrequencyValue(int);
+   //resets the value of the slider
    void enableFrequencyChange();
 
 

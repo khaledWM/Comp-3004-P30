@@ -39,12 +39,6 @@ public:
     QPushButton* getStartStop();
     QPushButton* getEnd();
     QString getName();
-//    int getMins();
-//    int getSeconds();
-//    int getFrequency();
-//    int getPowerLevel();
-//    void setPowerLevel(int);
-    //bool getTherapyStarted();
     void setName(QString);
     void setFrequencyAndPower(int);
     void setMinsAndSecs(int,int);

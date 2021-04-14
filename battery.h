@@ -24,24 +24,31 @@ class Battery: public QProgressBar {
 private:
     int level;
     int drainSpeed;
+    // function to determine how fast the battery will drain.
     void drainingSpeed();
 
 public slots:
+    //slot function that sets the battery level
     void setBatteryLevel(int);
+    //slot function that sets the draining speed of the battery
     void setDrainingSpeed(int);
 
 public:
     Battery(int l,int x, int y,QWidget *parent =nullptr);
     QPalette p;
+    //function executed when the thread starts and is responsible for draining
+    //the battery,when the battery is fully drained this function emits a signal
+    //to power off the device
     void drainBattery();
+    //function responsible for recharging the battery to 100 %
     void rechargeBattery();
     int getBatteryLevel();
     ~Battery();
 
 
 signals:
+    //signal sent from the battery to the display clas to turn off device
     void emitPowerOff();
-    void emitStartDevice();
 };
 
 #endif // BATTERY_H

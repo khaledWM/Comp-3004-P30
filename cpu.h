@@ -36,18 +36,16 @@ class Cpu:public QObject
 public:
     Cpu(QWidget *parent = nullptr);
     ~Cpu();
+    //function responsible for starting the device and connecting all componenets to each
+    //other using the connect signal/slot
     void startDevice();
 
 
-
-signals:
-
-
 private:
+    //mainwindow that contains all the components that interact with the user
     MainWindow m;
+    //thread responsible for running the battery drain and recharge in the background
     Thread thread;
-
-
 };
 
 #endif // CPU_H

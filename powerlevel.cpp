@@ -26,13 +26,9 @@ void PowerLevel::decreasePower()
 {
     if(checkOnPowerTherapyPage==true){
     if(power>minPower){
-
     display(--power);
-
     emit emitPowerLevel(power);
-
     }
-
     }
 }
 

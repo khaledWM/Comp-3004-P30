@@ -24,37 +24,23 @@ class FrequencyTherapyPage : public Page
 public:
     FrequencyTherapyPage(QString = "NULL", int = 60, QWidget *parent = nullptr);
     ~FrequencyTherapyPage();
-
-
     QPushButton* getStartStop();
     QPushButton* getEnd();
     QString getName();
     void setName(QString);
     void setFrequencyAndPower(int);
-    //    int getMins();
-    //    int getSeconds();
-    //    int getFrequency();
-    //    int getPowerLevel();
 
-signals:
-    void emitStopThread();
-    void emitRecording(Recording*);
-    void emitTurnOffStart(int);
-    void emitSensorOffSkin();
-
-public slots:
-     void endTimer();
 
 private:
     QString minString ;
     QString secsString;
     QString name;
-    QLCDNumber *frequenctTherapyTimerDisplay;
     QTimer *timer;
     QLabel *label;
     QLabel *label2;
     QLabel *label3;
     QLabel *setPowerLabel;
+    QLCDNumber *frequenctTherapyTimerDisplay;
     QLayout *layout;
     Recording * r;
 
@@ -68,15 +54,27 @@ private:
     void validateTime(int, int);
     void createRecording(QString ,QString, QTime , int , int , int, int );
 
+signals:
+    //stops the thread that drains the battery, when the stop button and end button
+    //is clicked
+    void emitStopThread();
+    //sends recording to history page
+    void emitRecording(Recording*);
+    void emitTurnOffStart(int);
+    void emitSensorOffSkin();
+
+public slots:
+    //ends the timer
+     void endTimer();
+
 private slots:
-    void showTime();
+    void updateTime();
     void startTimer();
     void stopTimer();
     void increasePowerLevel(int);
     void decreasePowerLevel(int);
     void showFrequencyOnDisplay(int);
     void sensorOnSkin(bool);
-
 };
 
 #endif // FREQUENCYTHERAPYPAGE_H

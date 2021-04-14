@@ -24,11 +24,6 @@ public:
     explicit NoImplementation(QWidget *parent = nullptr);
     ~NoImplementation();
 
-
-signals:
-
-public slots:
-
 private:
     QLabel *label;
 };

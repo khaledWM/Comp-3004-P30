@@ -25,9 +25,6 @@ TherapyPage::TherapyPage(QString name, int freq, QWidget *parent):
 
     therapyTimerDisplay = new QLCDNumber();
     therapyTimerDisplay->setFrameShape(QFrame::NoFrame);
-//    therapyTimerDisplay->setFont(QFont( "Arial", 10, QFont::Bold));
-//    therapyTimerDisplay
-
     label->setText(name);
     label2->setNum(freq);
     label3->setNum(powerLevel);
@@ -45,42 +42,13 @@ TherapyPage::TherapyPage(QString name, int freq, QWidget *parent):
     layout->addWidget(setPowerLabel);
     layout->addWidget(startStop);
     layout->addWidget(end);
-
     label->setAlignment(Qt::AlignCenter);
-//    label2->
     setLayout(layout);
     connect(timer,SIGNAL(timeout()),this,SLOT(showTime()));
 
 }
 
 TherapyPage::~TherapyPage(){}
-
-//int TherapyPage::getMins(){
-//    return timerMins;
-//}
-
-//int TherapyPage::getSeconds(){
-//    return timerSecs;
-//}
-
-//QString TherapyPage::getName()
-//{
-//    return name;
-//}
-
-//int TherapyPage::getFrequency()
-//{
-//    return freq;
-//}
-
-//int TherapyPage::getPowerLevel()
-//{
-//    return powerLevel;
-//}
-
-//bool TherapyPage::getTherapyStarted(){
-//    return therapyStarted;
-//}
 
 void TherapyPage::setName(QString name)
 {

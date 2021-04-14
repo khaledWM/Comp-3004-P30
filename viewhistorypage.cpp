@@ -20,15 +20,15 @@ void ViewHistoryPage::addRecording(Recording* r){
 
     list->addItem(r->getDay());
     if(r->getType()=="Program"){
-        list->addItem("Treatment: "+r->getType()+", " +r->getName());
+        list->addItem("     Treatment: "+r->getType()+", " +r->getName());
     }
     else{
-        list->addItem("Treatment: "+r->getType());
+        list->addItem("     Treatment: "+r->getType());
     }
 
-    list->addItem("Power level: "+ powerLevel);
-    list->addItem("Frequency "+freq);
-    list->addItem("Duration: "+ mins +"m"+secs+"s");
+    list->addItem("     Power level: "+ powerLevel);
+    list->addItem("     Frequency "+freq);
+    list->addItem("     Duration: "+ mins +"m"+secs+"s");
 }
 
 
