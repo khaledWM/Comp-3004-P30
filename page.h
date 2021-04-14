@@ -1,3 +1,14 @@
+/* Page Class
+ *
+ * abstract class that inherits the
+ * QT class QWidget
+ *
+ * sets the geometry for all pages.
+ *
+ * attributes:
+ *  nextID
+ *  id
+*/
 #ifndef PAGE_H
 #define PAGE_H
 

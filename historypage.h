@@ -1,3 +1,12 @@
+/* HistoryPage class
+ *
+ *concrete entity clss the extends
+ *the abstract Page class
+ *
+ *displays to the user a menu that has
+ *a "View" and "Clear" option
+ *
+*/
 #ifndef HISTORYPAGE_H
 #define HISTORYPAGE_H
 

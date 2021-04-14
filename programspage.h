@@ -1,3 +1,11 @@
+/* ProgramPage Class
+ *
+ * concrete entity class the extends
+ * abstract Page class
+ *
+ * displays the programs to the user.
+ *
+ */
 #ifndef PROGRAMSPAGE_H
 #define PROGRAMSPAGE_H
 #include"page.h"

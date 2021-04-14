@@ -1,3 +1,17 @@
+/* FrequencyPage Class
+ *
+ * concrete entity class that extends
+ * the abstract Page class
+ *
+ * attributes:
+ *  startFrequency (QPushButton)
+ *  promptLabel (QLabel)
+ *  frequencyValue (QLabel)
+ *  layout (QLayout)
+ * attributes (inherted from Page):
+ *  nextID
+ *  id
+*/
 #ifndef FREQUENCYPAGE_H
 #define FREQUENCYPAGE_H
 

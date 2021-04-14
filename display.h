@@ -1,6 +1,12 @@
+/* Display Class
+ *
+ * inherits the QT class QStackedWidget
+ *
+ * diplays all of the pages and fuctionalities
+ * of the program.
+*/
 #ifndef DISPLAY_H
 #define DISPLAY_H
-class Cpu;
 
 #include <QStackedWidget>
 #include<QPushButton>

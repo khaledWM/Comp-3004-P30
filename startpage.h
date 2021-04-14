@@ -1,3 +1,12 @@
+/* StartPage Class
+ *
+ * concrete entity class the extends
+ * the abstract Page class
+ *
+ * displays DENAS-PCM6 to the user
+ *
+ * This is the first page the user will see
+ */
 #ifndef STARTPAGE_H
 #define STARTPAGE_H
 

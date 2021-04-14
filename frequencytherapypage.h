@@ -1,3 +1,12 @@
+/* FrequencyTherapyPage Class
+ *
+ * concrete entity class that extends
+ * the abstract Page class
+ *
+ * provides all of the fuctionality of
+ * the frequency page.
+*/
+
 #ifndef FREQUENCYTHERAPYPAGE_H
 #define FREQUENCYTHERAPYPAGE_H
 

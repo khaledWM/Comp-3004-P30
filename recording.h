@@ -1,3 +1,20 @@
+/* Recording Class
+ *
+ * inherits the QT class QObject
+ *
+ * initializes an object that contains all
+ * of the information correspending to a therapy
+ * that has been completed by the user
+ *
+ *attributes:
+ *  name
+ *  type
+ *  date
+ *  powerLevel
+ *  freq
+ *  seconds
+ *  minutes
+ */
 #ifndef RECORDING_H
 #define RECORDING_H
 
