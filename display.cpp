@@ -79,7 +79,7 @@ FrequencyTherapyPage * Display::getFrequencyTherapyPage(){
 void Display:: enableButtons(bool x)
 {
 
-    allowButton(x);
+    emit allowButton(x);
 }
 
 void Display:: setFrequencyOnSlider(int freq){

@@ -47,7 +47,6 @@ void Battery::drainBattery() {
         p.setColor(QPalette::Highlight, Qt::red);
         this->setPalette(p);
         }
-//        sleep(1);
         drainingSpeed();
     }
 

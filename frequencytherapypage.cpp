@@ -11,8 +11,6 @@ FrequencyTherapyPage::FrequencyTherapyPage(QString name, int freq, QWidget *pare
     this->timerSecs = 0;
 
     timer = new QTimer();
-//    qDebug()<<this->freq;
-//    qDebug()<<freq;
 
     startStop->setText("start");
     end->setText("end");
