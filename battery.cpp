@@ -3,7 +3,7 @@
 
 Battery::Battery(int l,int x, int y, QWidget *parent):QProgressBar (parent)
 {
-      level=10;
+      level=l;
       move(x,y);
       setMinimum(0);
       setMaximum(100);
