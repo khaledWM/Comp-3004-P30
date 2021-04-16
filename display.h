@@ -47,14 +47,14 @@ private:
     FrequencyTherapyPage* frequencyTherapyPage;
     PowerDownPage* powerDownPage;
     //power level
-    PowerLevel *pl;
+    //PowerLevel *pl;
     //programs
     Trauma *trauma;
     Allergy *allergy;
     Bloating *bloating;
     Kidney *kidney;
 
-    int current;
+    //int current;
 
 
 public:
@@ -75,7 +75,7 @@ public:
 
 private:
     //function that calls a signal
-    void enableButtons(bool);
+    void  enableButtons(bool);
     //function that calls a signal
     void setFrequencyOnSlider(int);
     //functions that calls a signal

@@ -51,7 +51,7 @@ private:
     QString name;
     QLCDNumber *therapyTimerDisplay;
     QTimer *timer;
-    QLabel *label;
+    QLabel *nameLabel;
     QLabel *label2;
     QLabel *label3;
     QLabel *frequencyLabel;

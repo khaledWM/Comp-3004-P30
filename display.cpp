@@ -104,7 +104,7 @@ void Display::changeToMainPage()
 
 
 void Display:: selectChoice(){
-    if(this->currentIndex()==0){
+    if(this->currentIndex()==startPage->getID()){
         return;
     }
 

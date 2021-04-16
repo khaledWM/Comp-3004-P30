@@ -5,7 +5,7 @@ PowerLevel::PowerLevel( QWidget *parent ): QLCDNumber (parent)
 {
     move(475,150);
     power = 0;
-    checkOnPowerTherapyPage=false;
+    allowPowerLevelChange=false;
     this->maxPower=100;
     this->minPower=0;
 }
@@ -14,7 +14,7 @@ PowerLevel::~PowerLevel(){}
 
 void PowerLevel::increasePower()
 {
-    if(checkOnPowerTherapyPage == true){
+    if(allowPowerLevelChange == true){
     if(power<maxPower){
     display(++power);
     emit emitPowerLevel(power);
@@ -24,7 +24,7 @@ void PowerLevel::increasePower()
 
 void PowerLevel::decreasePower()
 {
-    if(checkOnPowerTherapyPage==true){
+    if(allowPowerLevelChange==true){
     if(power>minPower){
     display(--power);
     emit emitPowerLevel(power);
@@ -39,7 +39,7 @@ int PowerLevel::getPowerLevel()
 
 
 void PowerLevel:: checkallowButtonBool(bool x){
-    checkOnPowerTherapyPage=x;
+    allowPowerLevelChange=x;
 }
 
 void PowerLevel:: adjustPowerLevelDuringTherapy(int powerToBeAdjusted)

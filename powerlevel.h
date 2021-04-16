@@ -9,7 +9,7 @@
  *  power
  *  maxPower
  *  minPower
- *  checkOnPowerTherapyPage
+ *  allowPowerLevelChange
 */
 #ifndef POWERLEVEL_H
 #define POWERLEVEL_H
@@ -39,7 +39,7 @@ private:
     int power;
     int maxPower;
     int minPower;
-    bool checkOnPowerTherapyPage;
+    bool allowPowerLevelChange;
 
 };
 

@@ -122,6 +122,7 @@ void FrequencyTherapyPage::startTimer(){
         if(counter == 1)
         {
             emit emitPowerLevel(powerLevel);
+            counter+=1;
         }
         this->frequencyTherapyStarted= true;
         if(timer->isActive())
@@ -156,13 +157,13 @@ void FrequencyTherapyPage::stopTimer()
             return;
         }
 
-        if(timer->isActive())
-        {
-            timer->stop();
-            startStop->setText("Continue Therapy");
-            emit emitStopThread();
-            return;
-        }
+//        if(timer->isActive())
+//        {
+//            timer->stop();
+//            startStop->setText("Continue Therapy");
+//            emit emitStopThread();
+//            return;
+//        }
     }
 }
 
