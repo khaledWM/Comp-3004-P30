@@ -110,6 +110,10 @@ void FrequencyTherapyPage::sensorOnSkin(bool placed)
     electrodePlaced = placed;
 
 }
+void FrequencyTherapyPage:: setAllowSaveOption(bool save){
+    allowSaveOption=save;
+}
+
 
 void FrequencyTherapyPage::startTimer(){
     if(powerLevel != 0 && electrodePlaced == true)
@@ -174,10 +178,24 @@ validateTime(timerMins,timerSecs);
 void FrequencyTherapyPage::endTimer(){
     if(this->frequencyTherapyStarted==true){
     timer->stop();
+    emit emitTurnOffStart(0);
+    emit emitStopThread();
+    emit emitSensorOffSkin();
+
+
+    if(allowSaveOption==true){
+        int ret = QMessageBox::question(this, tr("Save Treatment"),
+                                       tr("Do you want to save your Treatment?"),
+                                       QMessageBox::Save | QMessageBox::Discard,
+                                       QMessageBox::Save);
+        if(ret ==2048){
+    QTime time = QTime::currentTime();
+    createRecording("Program",this->name,time,this->powerLevel,this->freq,this->timerSecs,this->timerMins);
+        }
+    }
+
     startStop->setText("start");
     frequencyTherapyTimerDisplay->display("00:00");
-    QTime time = QTime::currentTime();
-    createRecording("Frequency",this->name,time,this->powerLevel,this->freq,this->timerSecs,this->timerMins);
     timerMins = 0;
     timerSecs=0;
     this->frequencyTherapyStarted=false;
@@ -186,9 +204,7 @@ void FrequencyTherapyPage::endTimer(){
     label3->setNum(0);
     setPowerLabel->setText("This therapy cannot start without adjusting power level");
     this->frequencyTherapyStarted=false;
-    emit emitTurnOffStart(0);
-    emit emitStopThread();
-    emit emitSensorOffSkin();
+
     }
 }
 

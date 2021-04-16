@@ -9,7 +9,6 @@
 #ifndef THREAD_H
 #define THREAD_H
 #include<QtCore>
-#include<QDebug>
 #include<QString>
 #include<QProgressBar>
 #include<battery.h>

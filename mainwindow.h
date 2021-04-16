@@ -11,7 +11,6 @@
 
 #include <QMainWindow>
 #include <QLabel>
-#include<QDebug>
 #include <QGridLayout>
 #include <QtWidgets>
 #include <QStyle>

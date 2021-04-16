@@ -21,9 +21,13 @@ void Cpu::startDevice(){
     connect(m.up,SIGNAL(clicked()),m.display,SLOT(navigateUpList()));
     connect(m.down,SIGNAL(clicked()),m.display,SLOT(navigateDownList()));
     connect (m.back,SIGNAL(clicked()),m.display,SLOT(backOutOfPage()));
-    connect(m.fs,SIGNAL(valueChanged(int)),m.display->getFrequencyPage(),SLOT(showValueOnDisplay(int)));
     connect(m.right,SIGNAL(clicked()),m.power,SLOT(increasePower()));
     connect(m.left,SIGNAL(clicked()),m.power,SLOT(decreasePower()));
+
+
+
+    connect(m.fs,SIGNAL(valueChanged(int)),m.display->getFrequencyPage(),SLOT(showValueOnDisplay(int)));
+
     connect(m.power,SIGNAL(emitPowerLevel(int)),m.display->getTherapyPage(),SLOT(increasePowerLevel(int)));
     connect(m.power,SIGNAL(emitPowerLevel(int)),m.display->getTherapyPage(),SLOT(decreasePowerLevel(int)));
     connect(m.power,SIGNAL(emitPowerLevel(int)),m.display->getFrequencyTherapyPage(),SLOT(increasePowerLevel(int)));
@@ -32,7 +36,6 @@ void Cpu::startDevice(){
     connect(m.fs,SIGNAL(valueChanged(int)),m.display->getFrequencyTherapyPage(),SLOT(showFrequencyOnDisplay(int)));
     connect(m.display->getTherapyPage()->startStop,SIGNAL(clicked()),&thread,SLOT(start()));
     connect(m.display->getTherapyPage()->startStop,SIGNAL(clicked()),m.display->getTherapyPage(),SLOT(startTimer()));
-//    connect(m.display->getTherapyPage()->startStop,SIGNAL(clicked()),m.display->getTherapyPage(),SLOT(stopTimer()));
     connect(m.display->getTherapyPage()->end,SIGNAL(clicked()),m.display->getTherapyPage(),SLOT(endTimer()));
     connect(m.display->getFrequencyPage()->getStartFrequency(),SIGNAL(clicked()),m.display,SLOT(startFrequency()));
     connect(m.display->getFrequencyTherapyPage()->startStop,SIGNAL(clicked()),&thread,SLOT(start()));

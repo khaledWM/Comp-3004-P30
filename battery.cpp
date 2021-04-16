@@ -16,17 +16,16 @@ Battery::Battery(int l,int x, int y, QWidget *parent):QProgressBar (parent)
 }
 
 
-Battery::~Battery(){
-
-}
-int Battery::getBatteryLevel(){
+Battery::~Battery(){}
+int Battery::getBatteryLevel()
+{
     return level;
 }
 
 void Battery::drainingSpeed()
 {
     if(drainSpeed < 10)
-        sleep(4);
+        sleep(1);
     else if(drainSpeed >= 10 && drainSpeed < 25)
         sleep(3);
     else if(drainSpeed >= 25 && drainSpeed < 50)
@@ -38,7 +37,9 @@ void Battery::drainingSpeed()
 
 }
 
-void Battery::drainBattery() {
+void Battery::drainBattery()
+{
+
     while(this->value() != 0){
         this->setValue(level-1);
         level-=1;
@@ -47,30 +48,30 @@ void Battery::drainBattery() {
         p.setColor(QPalette::Highlight, Qt::red);
         this->setPalette(p);
         }
-//        sleep(1);
         drainingSpeed();
     }
+
 
     emit emitPowerOff();
 }
 
 
-void Battery::rechargeBattery(){
-
-    while(this->value() != 101){
-           this->setValue(level+1);
-           level += 1;
-
-           if(level== 20){
-           p.setColor(QPalette::Highlight, Qt::darkGreen);
-           this->setPalette(p);
-           }
-           usleep(10000);
-       }
-
+void Battery::rechargeBattery()
+{
+    p.setColor(QPalette::Highlight, Qt::darkGreen);
+    this->setPalette(p);
+    this->setValue(25);
+    sleep(1);
+    this->setValue(50);
+    sleep(1);
+    this->setValue(75);
+    sleep(1);
+    this->setValue(100);
+    level=100;
 }
 
-void Battery:: setBatteryLevel(int num){
+void Battery:: setBatteryLevel(int num)
+{
     level= num;
 }
 

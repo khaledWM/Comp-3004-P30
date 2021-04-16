@@ -184,9 +184,11 @@ void Display:: startProgram(int programNumber){
         return;
     }
 
+therapyPage->setAllowSaveOption(true);
 setCurrentIndex(therapyPage->getID());
 }
 void Display:: startFrequency(){
+    frequencyTherapyPage->setAllowSaveOption(true);
     frequencyTherapyPage->setName("Frequency");
     frequencyTherapyPage->setFrequencyAndPower(frequencyPage->getValue().toInt());
     setFrequencyOnSlider(frequencyPage->getValue().toInt());
@@ -262,7 +264,10 @@ void Display:: backOutOfPage(){
 }
 
 void Display::rechargeBattery(){
+
     setCurrentIndex(powerDownPage->getID());
+    this->therapyPage->setAllowSaveOption(false);
+    this->frequencyTherapyPage->setAllowSaveOption(false);
     this->therapyPage->endTimer();
     this->frequencyTherapyPage->endTimer();
     enableButtons(false);
@@ -270,7 +275,7 @@ void Display::rechargeBattery(){
     emit emitSensorOffSkin();
 
     emit emitStartCharge();
-    sleep(5);
+    sleep(7);
     emit emitChangetoStartPage();
 }
 

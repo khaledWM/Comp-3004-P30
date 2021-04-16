@@ -18,13 +18,14 @@
 #include <QTime>
 #include <QLCDNumber>
 #include <QPushButton>
-#include <QDebug>
 #include "page.h"
 #include "frequencypage.h"
 #include "frequency.h"
 #include "recording.h"
 #include <unistd.h>
 #include <cstdlib>
+#include<QMessageBox>
+
 
 class TherapyPage : public Page
 {
@@ -42,6 +43,7 @@ public:
     void setName(QString);
     void setFrequencyAndPower(int);
     void setMinsAndSecs(int,int);
+    void setAllowSaveOption(bool);
 
 private:
     QString minString ;
@@ -56,7 +58,8 @@ private:
     QLabel *powerLabel;
     QLabel *setPowerLabel;
     QLayout *layout;
-
+    QMessageBox msgBox;
+    bool allowSaveOption=true;
     bool therapyStarted=false;
     bool electrodePlaced=false;
     int timerMins;

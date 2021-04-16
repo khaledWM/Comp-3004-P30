@@ -1,7 +1,7 @@
-#include "therapypage.h"
+﻿#include "therapypage.h"
 #include <QFont>
 #include <QPalette>
-
+#include<QDebug>
 TherapyPage::TherapyPage(QString name, int freq, QWidget *parent):
     Page(parent)
 
@@ -88,6 +88,9 @@ void TherapyPage::setMinsAndSecs(int minutes,int seconds){
 
     validateTime(minutes,seconds);
 
+}
+void TherapyPage:: setAllowSaveOption(bool save){
+    allowSaveOption=save;
 }
 
 void TherapyPage::sensorOnSkin(bool placed)
@@ -198,13 +201,27 @@ void TherapyPage::endTimer(){
 
     if(this->therapyStarted==true)
     {
+
         timer->stop();
+        emit emitTurnOffStart(0);
+        emit emitStopThread();
+        emit emitSensorOffSkin();
+
+
+
+        if(allowSaveOption==true){
+            int ret = QMessageBox::question(this, tr("Save Treatment"),
+                                           tr("Do you want to save your Treatment?"),
+                                           QMessageBox::Save | QMessageBox::Discard,
+                                           QMessageBox::Save);
+            if(ret ==2048){
+        QTime time = QTime::currentTime();
+        createRecording("Program",this->name,time,this->powerLevel,this->freq,this->recordingSeconds,this->recordingMinutes);
+            }
+        }
+
         startStop->setText("start");
         therapyTimerDisplay->display("00:00");
-
-        QTime time = QTime::currentTime();
-
-        createRecording("Program",this->name,time,this->powerLevel,this->freq,this->recordingSeconds,this->recordingMinutes);
 
         recordingMinutes=0;
         recordingSeconds=0;
@@ -219,11 +236,6 @@ void TherapyPage::endTimer(){
         label3->setNum(0);
 
         setPowerLabel->setText("Please adjust power level and place electrode on skin.");
-
-        emit emitTurnOffStart(0);
-        emit emitStopThread();
-        emit emitSensorOffSkin();
-
     }
 
 }

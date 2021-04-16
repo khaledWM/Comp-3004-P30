@@ -13,7 +13,6 @@ void Thread::run(){
     if(battery->getBatteryLevel()==0){
         battery->rechargeBattery();
     }else {
-        qDebug()<<battery->getBatteryLevel();
         battery->drainBattery();
 }
 
