@@ -14,7 +14,6 @@
 #define BATTERY_H
 #include<QProgressBar>
 #include <QtWidgets>
-#include<QDebug>
 #include <unistd.h>
 #include <cstdlib>
 #include<QThread>

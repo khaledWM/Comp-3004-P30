@@ -3,7 +3,7 @@
 Electrode::Electrode(QWidget *parent) :
     QCheckBox (parent)
 {
-    move(475,200);
+    move(515,200);
 }
 
 Electrode::~Electrode()

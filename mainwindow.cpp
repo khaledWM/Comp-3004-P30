@@ -20,7 +20,7 @@ MainWindow::MainWindow(QWidget *parent) :
         powerLevelLabel->move(375,150);
 
         electrode = new Electrode(this);
-        QLabel *electrodeLabel = new QLabel("Electrode",this);
+        QLabel *electrodeLabel = new QLabel("Placed On Skin",this);
         electrodeLabel->move(375,200);
 
         QLabel *fslabel = new QLabel(this);

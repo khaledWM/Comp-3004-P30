@@ -11,7 +11,6 @@
 #include <QStackedWidget>
 #include<QPushButton>
 #include <QListWidget>
-#include<QDebug>
 #include"page.h"
 #include "frequencypage.h"
 #include "historypage.h"

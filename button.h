@@ -15,7 +15,7 @@
 #include <QToolButton>
 #include<QPushButton>
 #include <QtWidgets>
-#include<QDebug>
+
 
 
 class Button: public QPushButton{

@@ -15,6 +15,7 @@
 #include<QLCDNumber>
 #include<QTimer>
 #include<QTime>
+#include<QMessageBox>
 #include "page.h"
 #include"recording.h"
 
@@ -29,6 +30,7 @@ public:
     QString getName();
     void setName(QString);
     void setFrequencyAndPower(int);
+    void setAllowSaveOption(bool);
 
 
 private:
@@ -45,7 +47,7 @@ private:
     QLCDNumber *frequencyTherapyTimerDisplay;
     QLayout *layout;
     Recording * r;
-
+    bool allowSaveOption=true;
     bool electrodePlaced=false;
     int timerMins;
     int timerSecs;

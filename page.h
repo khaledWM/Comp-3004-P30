@@ -14,7 +14,6 @@
 
 #include <QWidget>
 #include <QListWidget>
-#include<QDebug>
 #include<QLabel>
 #include <QLayout>
 #include <QPushButton>
