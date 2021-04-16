@@ -25,7 +25,7 @@ int Battery::getBatteryLevel()
 void Battery::drainingSpeed()
 {
     if(drainSpeed < 10)
-        sleep(1);
+        sleep(4);
     else if(drainSpeed >= 10 && drainSpeed < 25)
         sleep(3);
     else if(drainSpeed >= 25 && drainSpeed < 50)
