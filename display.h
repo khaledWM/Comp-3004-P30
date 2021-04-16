@@ -91,7 +91,7 @@ signals:
     //clears the recording history
     void emitClearHistory();
     //Function to turn off the start button of the program
-    void emitTurnOffStart(int);
+    void emitPowerLevel(int);
     //Signal sent to start charging the device
     void emitStartCharge();
     //signal sent to change to the Start page of the program

@@ -81,7 +81,7 @@ private:
 signals:
     void emitStopThread();
     void emitRecording(Recording *);
-    void emitTurnOffStart(int);
+    void emitPowerLevel(int);
     void emitSensorOffSkin();
 
 public slots:

@@ -64,7 +64,7 @@ signals:
     void emitStopThread();
     //sends recording to history page
     void emitRecording(Recording*);
-    void emitTurnOffStart(int);
+    void emitPowerLevel(int);
     void emitSensorOffSkin();
 
 public slots:

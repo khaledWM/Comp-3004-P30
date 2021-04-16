@@ -239,7 +239,7 @@ void Display:: backOutOfPage(){
              enableButtons(false);
              resetFrequencyOnSlider();
              setCurrentIndex(programsPage->getID());
-             emit emitTurnOffStart(0);
+             emit emitPowerLevel(0);
              emit emitSensorOffSkin();
          }
          else if(this->currentIndex() == frequencyTherapyPage->getID()){
@@ -247,7 +247,7 @@ void Display:: backOutOfPage(){
              resetFrequencyOnSlider();
              enableButtons(false);
              setCurrentIndex(mainMenuPage->getID());
-             emit emitTurnOffStart(0);
+             emit emitPowerLevel(0);
              emit emitSensorOffSkin();
          }
          else if (this->currentIndex()==viewHistoryPage->getID()) {

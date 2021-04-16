@@ -124,7 +124,7 @@ void TherapyPage::startTimer(){
 
         if(counter == 1)
         {
-            emit emitTurnOffStart(powerLevel);
+            emit emitPowerLevel(powerLevel);
         }
         this->therapyStarted= true;
 
@@ -203,7 +203,7 @@ void TherapyPage::endTimer(){
     {
 
         timer->stop();
-        emit emitTurnOffStart(0);
+        emit emitPowerLevel(0);
         emit emitStopThread();
         emit emitSensorOffSkin();
 

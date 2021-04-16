@@ -121,7 +121,7 @@ void FrequencyTherapyPage::startTimer(){
         setPowerLabel->setText(nullptr);
         if(counter == 1)
         {
-            emit emitTurnOffStart(powerLevel);
+            emit emitPowerLevel(powerLevel);
         }
         this->frequencyTherapyStarted= true;
         if(timer->isActive())
@@ -178,7 +178,7 @@ validateTime(timerMins,timerSecs);
 void FrequencyTherapyPage::endTimer(){
     if(this->frequencyTherapyStarted==true){
     timer->stop();
-    emit emitTurnOffStart(0);
+    emit emitPowerLevel(0);
     emit emitStopThread();
     emit emitSensorOffSkin();
 
