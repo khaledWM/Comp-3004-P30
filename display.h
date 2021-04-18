@@ -46,9 +46,6 @@ private:
     ViewHistoryPage *viewHistoryPage;
     FrequencyTherapyPage* frequencyTherapyPage;
     PowerDownPage* powerDownPage;
-    //power level
-    //PowerLevel *pl;
-    //programs
     Trauma *trauma;
     Allergy *allergy;
     Bloating *bloating;

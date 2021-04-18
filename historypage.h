@@ -19,6 +19,9 @@ class HistoryPage : public Page
 {
 public:
     HistoryPage(QWidget *parent = nullptr);
+    ~HistoryPage();
+private:
+     QLayout *layout;
 
 };
 

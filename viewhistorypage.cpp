@@ -9,7 +9,10 @@ layout->addWidget(list);
 setLayout(layout);
 }
 
-ViewHistoryPage::~ViewHistoryPage(){};
+ViewHistoryPage::~ViewHistoryPage(){
+    delete layout;
+    list->clear();
+};
 
 void ViewHistoryPage::addRecording(Recording* r){
     QString freq = QString::number(r->getFreq());

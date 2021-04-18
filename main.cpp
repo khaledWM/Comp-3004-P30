@@ -6,10 +6,10 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    Cpu *cpu;
-    cpu = new Cpu();
+    Cpu cpu;
 
-    cpu->startDevice();
+
+    cpu.startDevice();
 
     return a.exec();
 }

@@ -25,9 +25,11 @@ class PowerDownPage: public Page
     Q_OBJECT
 public:
     explicit PowerDownPage(QWidget *parent = nullptr);
+    ~PowerDownPage();
 
 private:
     QLabel *label;
+    QLayout *layout;
 };
 
 #endif // POWERDOWNPAGE_H

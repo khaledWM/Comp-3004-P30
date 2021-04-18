@@ -22,7 +22,7 @@ class StartPage: public Page{
 
 private:
     QLabel *label;
-
+    QLayout *layout;
 
 public:
     StartPage(QWidget *parent =nullptr);

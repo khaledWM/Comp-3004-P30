@@ -13,7 +13,11 @@ Page::Page( QWidget *parent ): QWidget (parent){
     end = new QPushButton();
 }
 
-Page::~Page(){};
+Page::~Page(){
+    delete startStop;
+    delete end;
+    delete list;
+};
 
 int Page::getID(){
     return id;

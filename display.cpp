@@ -33,7 +33,16 @@ Display::Display(QWidget *parent ): QStackedWidget (parent){
 }
 
 Display::~Display(){
-
+    delete startPage;
+    delete mainMenuPage;
+    delete programsPage;
+    delete frequencyPage;
+    delete historyOptionsPage;
+    delete therapyPage;
+    delete viewHistoryPage;
+    delete noImplementationPage;
+    delete frequencyTherapyPage;
+    delete powerDownPage;
 }
 
 

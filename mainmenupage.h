@@ -32,7 +32,8 @@ public:
     ~MainMenuPage();
 
 
-
+private:
+     QLayout *layout;
 
 };
 

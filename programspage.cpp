@@ -10,14 +10,16 @@ ProgramsPage::ProgramsPage(QWidget *parent ): Page (parent){
 
     list->setCurrentRow(0);
 
-    QLayout *layout = new QVBoxLayout();
+    layout = new QVBoxLayout();
 
     layout->addWidget(list);
     setLayout(layout);
 
 }
 
-ProgramsPage::~ProgramsPage(){}
+ProgramsPage::~ProgramsPage(){
+    delete layout;
+}
 
 
 
