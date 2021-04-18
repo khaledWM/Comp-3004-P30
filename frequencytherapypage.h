@@ -38,12 +38,12 @@ private:
     QString secsString;
     QString name;
     QTimer *timer;
-    QLabel *label;
-    QLabel *label2;
-    QLabel *label3;
+    QLabel *nameLabel;
+    QLabel *frequencyNumberLabel;
+    QLabel *powerNumberLabel;
     QLabel *frequencyLabel;
     QLabel *powerLabel;
-    QLabel *setPowerLabel;
+    QLabel *adjustPowerAndElectrodeLabel;
     QLCDNumber *frequencyTherapyTimerDisplay;
     QLayout *layout;
     Recording * r;
