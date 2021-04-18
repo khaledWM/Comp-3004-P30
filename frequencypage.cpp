@@ -4,16 +4,17 @@ FrequencyPage::FrequencyPage(QWidget *parent) :
     Page(parent)
 {
     promptLabel = new QLabel();
-    promptLabel->setText("Move slider on side to set frequency");
-
     frequencyValue = new QLabel();
     startFrequency = new QPushButton;
     startFrequency->setText("start Frequency");
-    layout = new QVBoxLayout();
+    promptLabel->setText("Move slider on side to set frequency");
     frequencyValue->setNum(60);
+
+    layout = new QVBoxLayout();
     layout->addWidget(promptLabel);
     layout->addWidget(frequencyValue);
     layout->addWidget(startFrequency);
+
     promptLabel->setAlignment(Qt::AlignCenter);
     promptLabel->setFont(QFont( "Arial", 12, QFont::Bold));
     frequencyValue->setAlignment(Qt::AlignCenter);

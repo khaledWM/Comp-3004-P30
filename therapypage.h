@@ -52,11 +52,11 @@ private:
     QLCDNumber *therapyTimerDisplay;
     QTimer *timer;
     QLabel *nameLabel;
-    QLabel *label2;
-    QLabel *label3;
+    QLabel *frequencyNumberLabel;
+    QLabel *powerNumberLabel;
     QLabel *frequencyLabel;
     QLabel *powerLabel;
-    QLabel *setPowerLabel;
+    QLabel *adjustPowerAndElectrodeLabel;
     QLayout *layout;
     QMessageBox msgBox;
     bool allowSaveOption=true;

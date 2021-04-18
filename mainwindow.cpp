@@ -23,10 +23,11 @@ MainWindow::MainWindow(QWidget *parent) :
         QLabel *electrodeLabel = new QLabel("Placed On Skin",this);
         electrodeLabel->move(375,200);
 
+        fs = new Frequency(this);
         QLabel *fslabel = new QLabel(this);
         fslabel->setText("Frequency");
         fslabel->move(375,100);
-        fs = new Frequency(this);
+
 
         style = new QCommonStyle();
 

@@ -11,57 +11,57 @@ FrequencyTherapyPage::FrequencyTherapyPage(QString name, int freq, QWidget *pare
     this->timerSecs = 0;
 
     timer = new QTimer();
+    nameLabel = new QLabel();
+    frequencyNumberLabel = new QLabel();
+    powerNumberLabel = new QLabel();
+    frequencyLabel = new QLabel();
+    powerLabel = new QLabel();
+    adjustPowerAndElectrodeLabel= new QLabel();
+    frequencyTherapyTimerDisplay = new QLCDNumber();
 
     startStop->setText("start");
     end->setText("end");
-
-    label = new QLabel();
-    label2 = new QLabel();
-    label3 = new QLabel();
-    frequencyLabel = new QLabel();
-    powerLabel = new QLabel();
-    setPowerLabel= new QLabel();
-    QString qstr = QString::number(timerMins);
-    QString qstr2 = QString::number(timerSecs);
-
-    setPowerLabel->setFont(QFont( "Arial", 8, QFont::Bold));
-
-    frequencyTherapyTimerDisplay = new QLCDNumber();
-    frequencyTherapyTimerDisplay->setFrameShape(QFrame::NoFrame);
-    frequencyTherapyTimerDisplay->display("0" + qstr + ":" + "0" + qstr2);
-
-    label->setText(name);
-    label2->setNum(freq);
-    label3->setNum(0);
+    nameLabel->setText(name);
+    frequencyNumberLabel->setNum(freq);
+    powerNumberLabel->setNum(0);
     frequencyLabel->setText("Frequency:");
     powerLabel->setText("Power Level:");
 
 
-    layout = new QVBoxLayout();
+    QString qstr = QString::number(timerMins);
+    QString qstr2 = QString::number(timerSecs);
 
-    layout->addWidget(label);
+    adjustPowerAndElectrodeLabel->setFont(QFont( "Arial", 8, QFont::Bold));
+    frequencyTherapyTimerDisplay->setFrameShape(QFrame::NoFrame);
+    frequencyTherapyTimerDisplay->display("0" + qstr + ":" + "0" + qstr2);
+
+
+
+
+    layout = new QVBoxLayout();
+    layout->addWidget(nameLabel);
     layout->addWidget(frequencyTherapyTimerDisplay);
 
     QHBoxLayout *labelLayout = new QHBoxLayout();
     labelLayout->addWidget(frequencyLabel);
-    labelLayout->addWidget(label2);
+    labelLayout->addWidget(frequencyNumberLabel);
     labelLayout->addStretch();
     labelLayout->addWidget(powerLabel);
-    labelLayout->addWidget(label3);
+    labelLayout->addWidget(powerNumberLabel);
 
     frequencyLabel->setAlignment(Qt::AlignLeft);
-    label2->setAlignment(Qt::AlignJustify);
+    frequencyNumberLabel->setAlignment(Qt::AlignJustify);
     powerLabel->setAlignment(Qt::AlignRight);
     powerLabel->setIndent(-15);
-    label3->setAlignment(Qt::AlignJustify);
+    powerNumberLabel->setAlignment(Qt::AlignJustify);
     labelLayout->setAlignment(Qt::AlignBottom);
 
     layout->addItem(labelLayout);
-    layout->addWidget(setPowerLabel);
+    layout->addWidget(adjustPowerAndElectrodeLabel);
     layout->addWidget(startStop);
     layout->addWidget(end);
 
-    label->setAlignment(Qt::AlignCenter);
+    nameLabel->setAlignment(Qt::AlignCenter);
 
     setLayout(layout);
 
@@ -76,33 +76,33 @@ FrequencyTherapyPage::~FrequencyTherapyPage(){}
 void FrequencyTherapyPage::setName(QString name)
 {
     this->name = name;
-    label->setText(name);
+    nameLabel->setText(name);
 }
 
 void FrequencyTherapyPage::setFrequencyAndPower(int value)
 {
     freq = value;
-    label2->setNum(freq);
+    frequencyNumberLabel->setNum(freq);
     this->powerLevel=0;
-    this->label3->setNum(0);
+    this->powerNumberLabel->setNum(0);
 }
 
 void FrequencyTherapyPage::increasePowerLevel(int power)
 {
     this->powerLevel=power;
-    label3->setNum(power);
+    powerNumberLabel->setNum(power);
 }
 
 void FrequencyTherapyPage::decreasePowerLevel(int power)
 {
     this->powerLevel=power;
-    label3->setNum(power);
+    powerNumberLabel->setNum(power);
 }
 
 void FrequencyTherapyPage::showFrequencyOnDisplay(int value)
 {
     freq = value;
-    label2->setNum(freq);
+    frequencyNumberLabel->setNum(freq);
 }
 
 void FrequencyTherapyPage::sensorOnSkin(bool placed)
@@ -118,7 +118,7 @@ void FrequencyTherapyPage:: setAllowSaveOption(bool save){
 void FrequencyTherapyPage::startTimer(){
     if(powerLevel != 0 && electrodePlaced == true)
     {
-        setPowerLabel->setText(nullptr);
+        adjustPowerAndElectrodeLabel->setText(nullptr);
         if(counter == 1)
         {
             this->maxPower=powerLevel;
@@ -139,7 +139,7 @@ void FrequencyTherapyPage::startTimer(){
     }
     else
     {
-            setPowerLabel->setText("Please adjust power level and place electrode on skin.");
+            adjustPowerAndElectrodeLabel->setText("Please adjust power level and place electrode on skin.");
             emitStopThread();
             return;
     }
@@ -157,14 +157,6 @@ void FrequencyTherapyPage::stopTimer()
             emit emitStopThread();
             return;
         }
-
-//        if(timer->isActive())
-//        {
-//            timer->stop();
-//            startStop->setText("Continue Therapy");
-//            emit emitStopThread();
-//            return;
-//        }
     }
 }
 
@@ -203,8 +195,8 @@ void FrequencyTherapyPage::endTimer(){
     this->frequencyTherapyStarted=false;
     this->powerLevel=0;
     counter = 1;
-    label3->setNum(0);
-    setPowerLabel->setText("This therapy cannot start without adjusting power level");
+    powerNumberLabel->setNum(0);
+    adjustPowerAndElectrodeLabel->setText("This therapy cannot start without adjusting power level");
     this->frequencyTherapyStarted=false;
 
     }
