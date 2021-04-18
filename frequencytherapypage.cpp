@@ -121,6 +121,7 @@ void FrequencyTherapyPage::startTimer(){
         setPowerLabel->setText(nullptr);
         if(counter == 1)
         {
+            this->maxPower=powerLevel;
             emit emitPowerLevel(powerLevel);
             counter+=1;
         }
@@ -191,7 +192,7 @@ void FrequencyTherapyPage::endTimer(){
                                        QMessageBox::Save);
         if(ret ==2048){
     QTime time = QTime::currentTime();
-    createRecording("Program",this->name,time,this->powerLevel,this->freq,this->timerSecs,this->timerMins);
+    createRecording("Program",this->name,time,this->maxPower,this->freq,this->timerSecs,this->timerMins);
         }
     }
 

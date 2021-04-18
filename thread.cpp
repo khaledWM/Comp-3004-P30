@@ -21,6 +21,5 @@ void Thread::run(){
 void Thread::stopThread(){
     if(this->isRunning()){
     this->terminate();
-
     }
 }

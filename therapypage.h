@@ -68,6 +68,7 @@ private:
     int recordingSeconds;
     int freq;
     int powerLevel;
+    int maxPower;
     int prevMins;
     int prevSeconds;
     int prevFreq;

@@ -29,6 +29,8 @@ void ViewHistoryPage::addRecording(Recording* r){
     list->addItem("     Power level: "+ powerLevel);
     list->addItem("     Frequency "+freq);
     list->addItem("     Duration: "+ mins +"m"+secs+"s");
+
+    delete r;
 }
 
 

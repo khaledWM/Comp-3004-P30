@@ -53,6 +53,7 @@ private:
     int timerSecs;
     int freq;
     int powerLevel;
+    int maxPower;
     int counter = 1;
     bool frequencyTherapyStarted=false;
     void validateTime(int, int);

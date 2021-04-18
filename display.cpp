@@ -156,6 +156,7 @@ void Display:: startProgram(int programNumber){
         therapyPage->setName(allergy->programName);
         therapyPage->setFrequencyAndPower(allergy->frequency);
         setFrequencyOnSlider(allergy->frequency);
+        delete allergy;
 
     }
     else if(programNumber==1){
@@ -164,6 +165,7 @@ void Display:: startProgram(int programNumber){
         therapyPage->setName(bloating->programName);
         therapyPage->setFrequencyAndPower(bloating->frequency);
          setFrequencyOnSlider(bloating->frequency);
+         delete bloating;
     }
     else if (programNumber==2) {
         trauma= new Trauma;
@@ -171,6 +173,7 @@ void Display:: startProgram(int programNumber){
         therapyPage->setName(trauma->programName);
         therapyPage->setFrequencyAndPower(trauma->frequency);
          setFrequencyOnSlider(trauma->frequency);
+         delete trauma;
     }
     else if(programNumber==3){
         kidney =new Kidney;
@@ -178,6 +181,7 @@ void Display:: startProgram(int programNumber){
         therapyPage->setName( kidney->programName);
         therapyPage->setFrequencyAndPower(kidney->frequency);
          setFrequencyOnSlider(kidney->frequency);
+         delete kidney;
     }
     else{
         setCurrentIndex(noImplementationPage->getID());
