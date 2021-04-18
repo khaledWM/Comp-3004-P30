@@ -18,7 +18,6 @@
 #include "button.h"
 #include "battery.h"
 #include "frequency.h"
-#include "frequencylayout.h"
 #include"display.h"
 #include"powerlevel.h"
 #include"ui_mainwindow.h"
@@ -47,6 +46,11 @@ public:
     Frequency *fs;
     Electrode *electrode;
     QCommonStyle *style;
+    QLabel *batteryLabel;
+    QLabel *powerLevelLabel;
+    QLabel *fslabel;
+    QLabel *electrodeLabel;
+
     ~MainWindow();
 
 private:

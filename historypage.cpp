@@ -9,9 +9,14 @@ HistoryPage::HistoryPage(QWidget *parent):
 
     list->setCurrentRow(0);
 
-    QLayout *layout = new QVBoxLayout ();
+    layout = new QVBoxLayout ();
     layout->addWidget(this->list);
     setLayout(layout);
+}
+
+HistoryPage::~HistoryPage(){
+
+    delete layout;
 }
 
 

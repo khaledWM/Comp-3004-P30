@@ -12,7 +12,7 @@ MainMenuPage::MainMenuPage(QWidget *parent ): Page (parent){
     list->setCurrentRow(0);
 
 
-    QLayout *layout = new QVBoxLayout();
+    layout = new QVBoxLayout();
 
     layout->addWidget(list);
     setLayout(layout);
@@ -20,4 +20,6 @@ MainMenuPage::MainMenuPage(QWidget *parent ): Page (parent){
 }
 
 
-MainMenuPage::~MainMenuPage(){}
+MainMenuPage::~MainMenuPage(){
+    delete layout;
+}

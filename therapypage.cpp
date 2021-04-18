@@ -45,7 +45,7 @@ TherapyPage::TherapyPage(QString name, int freq, QWidget *parent):
     layout->addWidget(nameLabel);
     layout->addWidget(therapyTimerDisplay);
 
-    QHBoxLayout *labelLayout = new QHBoxLayout();
+    labelLayout = new QHBoxLayout();
     labelLayout->addWidget(frequencyLabel);
     labelLayout->addWidget(frequencyNumberLabel);
     labelLayout->addStretch();
@@ -69,7 +69,19 @@ TherapyPage::TherapyPage(QString name, int freq, QWidget *parent):
 
 }
 
-TherapyPage::~TherapyPage(){}
+TherapyPage::~TherapyPage(){
+    delete timer;
+    delete nameLabel;
+    delete frequencyNumberLabel;
+    delete powerNumberLabel;
+    delete frequencyLabel;
+    delete powerLabel;
+    delete adjustPowerAndElectrodeLabel;
+    delete therapyTimerDisplay;
+    delete layout;
+    delete labelLayout;
+
+}
 
 void TherapyPage::setName(QString name)
 {

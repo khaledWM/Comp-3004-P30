@@ -42,7 +42,7 @@ FrequencyTherapyPage::FrequencyTherapyPage(QString name, int freq, QWidget *pare
     layout->addWidget(nameLabel);
     layout->addWidget(frequencyTherapyTimerDisplay);
 
-    QHBoxLayout *labelLayout = new QHBoxLayout();
+    labelLayout = new QHBoxLayout();
     labelLayout->addWidget(frequencyLabel);
     labelLayout->addWidget(frequencyNumberLabel);
     labelLayout->addStretch();
@@ -70,7 +70,19 @@ FrequencyTherapyPage::FrequencyTherapyPage(QString name, int freq, QWidget *pare
 
 }
 
-FrequencyTherapyPage::~FrequencyTherapyPage(){}
+FrequencyTherapyPage::~FrequencyTherapyPage(){
+    delete timer;
+    delete nameLabel;
+    delete frequencyNumberLabel;
+    delete powerNumberLabel;
+    delete frequencyLabel;
+    delete powerLabel;
+    delete adjustPowerAndElectrodeLabel;
+    delete frequencyTherapyTimerDisplay;
+    delete layout;
+    delete labelLayout;
+
+}
 
 
 void FrequencyTherapyPage::setName(QString name)

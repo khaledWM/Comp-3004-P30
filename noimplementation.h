@@ -26,6 +26,7 @@ public:
 
 private:
     QLabel *label;
+    QLayout *layout;
 };
 
 #endif // NOIMPLEMENTATION_H

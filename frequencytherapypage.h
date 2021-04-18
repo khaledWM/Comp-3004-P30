@@ -46,6 +46,7 @@ private:
     QLabel *adjustPowerAndElectrodeLabel;
     QLCDNumber *frequencyTherapyTimerDisplay;
     QLayout *layout;
+    QHBoxLayout *labelLayout;
     Recording * r;
     bool allowSaveOption=true;
     bool electrodePlaced=false;

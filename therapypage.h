@@ -58,6 +58,7 @@ private:
     QLabel *powerLabel;
     QLabel *adjustPowerAndElectrodeLabel;
     QLayout *layout;
+    QHBoxLayout *labelLayout;
     QMessageBox msgBox;
     bool allowSaveOption=true;
     bool therapyStarted=false;

@@ -12,11 +12,11 @@ MainWindow::MainWindow(QWidget *parent) :
 
         display = new Display(this);
         battery = new Battery(100,475,50,this);
-        QLabel *batteryLabel = new QLabel("Battery",this);
+        batteryLabel = new QLabel("Battery",this);
         batteryLabel->move(375,50);
 
         power = new PowerLevel(this);
-        QLabel *powerLevelLabel = new QLabel("Power Level", this);
+        powerLevelLabel = new QLabel("Power Level", this);
         powerLevelLabel->move(375,150);
 
         electrode = new Electrode(this);
@@ -52,7 +52,23 @@ MainWindow::~MainWindow()
 {
 
     delete ui;
-
+    delete display;
+    delete battery;
+    delete power;
+    delete electrode;
+    delete fs;
+    delete style;
+    delete up;
+    delete down;
+    delete left;
+    delete right;
+    delete start;
+    delete ok;
+    delete back;
+    delete electrodeLabel;
+    delete powerLevelLabel;
+    delete batteryLabel;
+    delete fslabel;
 }
 
 

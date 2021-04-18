@@ -23,7 +23,8 @@ class ProgramsPage: public Page{
 public:
     ProgramsPage(QWidget *parent =nullptr);
    ~ProgramsPage();
-
+private:
+     QLayout *layout;
 
 
 

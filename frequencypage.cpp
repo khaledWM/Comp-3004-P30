@@ -24,7 +24,12 @@ FrequencyPage::FrequencyPage(QWidget *parent) :
     setLayout(layout);
 }
 
-FrequencyPage::~FrequencyPage(){}
+FrequencyPage::~FrequencyPage(){
+    delete promptLabel;
+    delete frequencyValue;
+    delete startFrequency;
+    delete layout;
+}
 
 void FrequencyPage::showValueOnDisplay(int value)
 {
